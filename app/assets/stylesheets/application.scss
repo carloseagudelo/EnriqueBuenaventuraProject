@@ -1,2 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.container{
+	height: 100%;
+	background-color: rgb(125,126,125); /* Old browsers */
+}
