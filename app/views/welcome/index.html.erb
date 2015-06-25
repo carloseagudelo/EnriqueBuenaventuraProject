@@ -10,26 +10,26 @@
 
 <div>
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-8 container">
 			<div id="mycarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
 				<div class="carousel-inner">
 
 					<div class="item active tam">
-						<%= image_tag "imagen1.jpg", :class => "tam"%>
+						<%= image_tag "imagen1.jpg", class: "tales"%>
 						<div class="carousel-caption">
                   			<h3>Titulo</h3>
                   			<p>Descripción</p>
                 		</div>
 					</div>
 					<div class="item">
-						<%= image_tag "imagen2.jpg", :title => "imagen 2"%>
+						<%= image_tag "imagen2.jpg", class: "tales"%>
 						<div class="carousel-caption">
                   			<h3>Titulo</h3>
                   			<p>Descripción</p>
                 		</div>		
 					</div>
 					<div class="item">
-						<%= image_tag "imagen3.jpg", :title => "imagen "%>
+						<%= image_tag "imagen3.jpg", class: "tales"%>
 						<div class="carousel-caption">
                   			<h3>Titulo</h3>
                   			<p>Descripción</p>
@@ -58,10 +58,10 @@
 	</div>
 </div>
 
-
 <div class="container">
 	<div class="btn-group btn-group-lg">
-		<button type="button" class="btn btn-default">Documentos</button>
+		<%= link_to "Documentos", document_index_path, :class=>"btn btn-default" %>
+		
 		<button type="button" class="btn btn-default">Elementos de analizis</button>
 		<button type="button" class="btn btn-default">Autores citados</button>
 		<button type="button" class="btn btn-default">Bibliografia citada</button>
