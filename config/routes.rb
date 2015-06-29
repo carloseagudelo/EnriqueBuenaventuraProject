@@ -5,10 +5,24 @@ Rails.application.routes.draw do
 
   get 'document/index'
 
-    #root :to => "welcome#index"
   devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+    authenticated do
+      authenticated :user, ->(u) { u.has_role?(:admin) } do
+        root to: "welcome_root#index", as: :manager_root
+      end
+
+      authenticated :user, ->(u) { u.has_role?(:user) } do
+        root to: "welcome#indexUser", as: :user
+      end
+
+      authenticated :user, ->(u) { u.has_role?(:student) } do
+        root to: "welcome#index", as: :employee_root
+      end
+    end
+    unauthenticated do
+      root to: "devise/sessions#new"
+    end
+  end 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,21 @@
+
+<div id="user_nav">  
+  <% if user_signed_in? %>  
+    Signed in as <%= current_user.email %>. Not you?  
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  
+  <% else %>  
+    <%= link_to "Sign up", new_user_registration_path %> or  
+    <%= link_to "Sign in", new_user_session_path %>  
+  <% end %>  
+</div>
+
+<div class="container">
+	<div class="jumbotron">
+		<h1>BIENVENIDOS AL PORTAL ENRIQUE BUEVAVENTURA</h1>
+		<p>Dirigido por Mario Cardona</p>
+	</div>
+
+	<div class="row">
+		<p>En estos momentos el administrador de la pagina no te ha concedido los permisos necesarios para aceder a la pagina, por lo tanto no podras acceder al conetido, espera miestras este te los conceda y podras disfrutar del material.</p>
+	</div>
+</div> 

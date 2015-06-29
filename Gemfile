@@ -25,9 +25,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # gem use for magnament user of platform. Read more http://railsgirlslima.github.io/devise/
 gem 'devise'
-
 # gem for use bootstrap-Saas. Read more: https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '~> 3.3.5'
+#Gem cancancan for roles in app
+gem 'cancancan', '~> 1.10'
+#Gem Rolify for storing the roles
+gem "rolify"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
