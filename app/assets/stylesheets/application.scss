@@ -1,3 +1,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.sign-out{
+	background-color:#EE8484;
+}
+
+.title{
+	text-align: center;
+	font-size: 85px;
+	font-family: 'Kaushan Script', cursive;
+}
+
+.subtitle{
+	text-align: center;
+	font-size: 40px;
+}
+
+.manu{
+	text-align: center;	
+}
+
+.objeto{
+	font-size: 150%;
+	color: black;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+.btn-group a:hover{
+	color: #C5C2C8;
+	text-decoration: none;
+}
+
+.footer{	
+	background-color: #000000;
+	color-font: #FFFFFF;
+}
+
+.footer ul{
+	list-style: none; 
+}

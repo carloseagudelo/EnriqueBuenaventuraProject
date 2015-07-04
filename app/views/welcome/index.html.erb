@@ -1,81 +1,83 @@
-
-<div id="user_nav">  
-  <% if user_signed_in? %>  
-    Signed in as <%= current_user.email %>. Not you?  
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  
-  <% else %>  
-    <%= link_to "Sign up", new_user_registration_path %> or  
-    <%= link_to "Sign in", new_user_session_path %>  
-  <% end %>  
-</div>
-
 <div class="row">
-	<div class="page-header">
-		<h1>Enrique Buenaventura <small>Sobre un hombre de teatro</small></h1> 
-	</div>			
+	<div class="col-md-11 container">
+		<h1 class="title"><strong>Enrique Buenaventura</strong></h1>
+		<h5 class="subtitle">SOBRE UN HOMBRE DE TEATRO</h5> 
+	</div>
+	<div class="col-md-1 container">
+		<div>  
+	  		<% if user_signed_in? %>  
+	    	   	<%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, :type=>"botton", :class=>" sign-out btn btn-default"%> 
+	  		<% end %>  
+		</div>
+	</div>				
 </div>
+
+<hr width="100%">
 
 <div class="container">
-	<div class="btn-group btn-group-lg">
-		<%= link_to "Documentos", document_index_path, :class=>"btn btn-default" %>		
-		<button type="button" class="btn btn-default">Elementos de analizis</button>
-		<button type="button" class="btn btn-default">Autores citados</button>
-		<button type="button" class="btn btn-default">Bibliografia citada</button>
-		<button type="button" class="btn btn-default">Glosario</button>
-		<button type="button" class="btn btn-default">Cronologia</button>
+	<div class="btn-group btn-group-lg menu">
+		<%= link_to "Documentos", document_index_path, :type=>"a", :class=>"objeto"%>
+		<%= link_to "Elementos de analizis", document_index_path, :class=>"objeto"%>
+		<%= link_to "Autores citados", document_index_path, :class=>"objeto"%>
+		<%= link_to "Bibliografia citada", document_index_path, :class=>"objeto"%>
+		<%= link_to "Glosario", document_index_path, :class=>"objeto"%>
+		<%= link_to "Cronologia", document_index_path, :class=>"objeto"%>
 	</div>	
 </div>	
 
+<hr width="0%">
 
-<div>
-	<div class="row">
-		<div class="col-md-8 container">
-			<div id="mycarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-				<div class="carousel-inner">
+<div class="row">
+	<div class="col-md-12 container">
+		<div id="mycarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+			<div class="carousel-inner">
 
-					<div class="item active tam">
-						<%= image_tag "imagen1.jpg", class: "tales"%>
-						<div class="carousel-caption">
-                  			<h3>Titulo</h3>
-                  			<p>Descripción</p>
-                		</div>
-					</div>
-					<div class="item">
-						<%= image_tag "imagen2.jpg", class: "tales"%>
-						<div class="carousel-caption">
-                  			<h3>Titulo</h3>
-                  			<p>Descripción</p>
-                		</div>		
-					</div>
-					<div class="item">
-						<%= image_tag "imagen3.jpg", class: "tales"%>
-						<div class="carousel-caption">
-                  			<h3>Titulo</h3>
-                  			<p>Descripción</p>
-                		</div>		
-					</div>
-
+				<div class="item active tam">
+					<%= image_tag "imagen1.jpg", class: "tales"%>
+					<div class="carousel-caption">
+              			<h3>Titulo</h3>
+              			<p>Descripción</p>
+            		</div>
 				</div>
-				<a class="carousel-control left" href="#mycarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-				<a class="right carousel-control" href="#mycarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+				<div class="item">
+					<%= image_tag "imagen2.jpg", class: "tales"%>
+					<div class="carousel-caption">
+              			<h3>Titulo</h3>
+              			<p>Descripción</p>
+            		</div>		
+				</div>
+				<div class="item">
+					<%= image_tag "imagen3.jpg", class: "tales"%>
+					<div class="carousel-caption">
+              			<h3>Titulo</h3>
+              			<p>Descripción</p>
+            		</div>		
+				</div>
 
 			</div>
-		</div>
-	    <div class="col-md-4">
-	    	<div class="panel panel-default">
-	    		<div class="panel-heading">
-	    			<h2>Mario Cardona</h2>
-	    		</div>
-	    		<div class="panel-body">
-	    			<p>Profesor adjunto a la faculta de artes de la universidad de antioquia</p>
-	    			<br></br>
-	    			<a href="">Hojade vida del profesor Mario Cardona </a>
-	    		</div>
+			<a class="carousel-control left" href="#mycarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			<a class="right carousel-control" href="#mycarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 
-	    	</div>
-	    </div>	
+		</div>
 	</div>
 </div>
+
+<footer class="row">
+	<div class="footer">
+		<h4>Esto es un proyecto de: <a href="">Mario Cardona</a> 
+			Desarrollado por: 
+		</h4>
+		<ul>
+			<li><a href="">Carlos Agudelo</a></li>
+			<li><a href="">Esteban Montoya</a></li>
+		</ul>
+		<h4>
+			<a href="">Sobre el curso</a><br>
+			<a href="">Sobre la plataforma</a><br>
+			<a href="">Condiciones de uso</a>
+		</h4>
+	</div>
+</footer>
 
 
 

@@ -1,21 +1,25 @@
-
-<div id="user_nav">  
-  <% if user_signed_in? %>  
-    Signed in as <%= current_user.email %>. Not you?  
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>  
-  <% else %>  
-    <%= link_to "Sign up", new_user_registration_path %> or  
-    <%= link_to "Sign in", new_user_session_path %>  
-  <% end %>  
+<div class="row">
+	<div class="col-md-11 container">
+		<h1 class="title"><strong>Enrique Buenaventura</strong></h1>
+		<h5 class="subtitle">SOBRE UN HOMBRE DE TEATRO</h5> 
+	</div>
+	<div class="col-md-1 container">
+		<div>  
+	  		<% if user_signed_in? %>  
+	    	   	<%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, :type=>"botton", :class=>" sign-out btn btn-default"%> 
+	  		<% end %>  
+		</div>
+	</div>				
 </div>
 
-<div class="container">
-	<div class="jumbotron">
-		<h1>BIENVENIDOS AL PORTAL ENRIQUE BUEVAVENTURA</h1>
-		<p>Dirigido por Mario Cardona</p>
-	</div>
+<hr width="100%">
 
-	<div class="row">
-		<p>En estos momentos el administrador de la pagina no te ha concedido los permisos necesarios para aceder a la pagina, por lo tanto no podras acceder al conetido, espera miestras este te los conceda y podras disfrutar del material.</p>
-	</div>
-</div> 
+<blockquote>
+  <h1>
+  	Por ahora no tienes acceso al contenido de la plataforma, Debes esperar hasta que el administrador de la pagina te conceda los permisos necesarios para poder acceder al contenido. 
+  </h1><br>
+  <h2>Muchas gracias</h2><br>
+  <h3>Atentamente: Mario Cardona</h3>
+</blockquote>
+
+
