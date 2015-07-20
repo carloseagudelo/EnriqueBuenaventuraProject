@@ -1,0 +1,2 @@
+class AuthorsWorkedController < ApplicationController
+end

@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
+  
   resourcify
+  
   belongs_to :role 
+  has_many :articles
 
   rolify :before_add => :before_add_method
 

@@ -1,0 +1,2 @@
+module AuthorsWorkedHelper
+end

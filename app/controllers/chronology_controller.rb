@@ -1,0 +1,2 @@
+class ChronologyController < ApplicationController
+end

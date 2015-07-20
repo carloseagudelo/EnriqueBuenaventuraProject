@@ -1,0 +1,2 @@
+module GlosaryHelper
+end
