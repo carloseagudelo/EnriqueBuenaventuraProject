@@ -1,3 +1,18 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap
+//= require bootstrap-sprockets
+//= require turbolinks
+//= require_tree
+//= require Chart.js
+//= require bootstrap.min
+//= require common-scripts
+//= require gritter-conf
+//= require jquery-1.8.3.min
+//= require jquery.dcjqaccordion.2.7
+//= require jquery
+//= require jquery.nicescroll
+//= require jquery.scrollTo.min
+//= require jquery.sparkline
+//= require sparkline-chart
+//= require zabuto_calendar.js

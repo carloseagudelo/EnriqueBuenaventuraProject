@@ -1,0 +1,39 @@
+<%= form_for :document, url: document_index_path do |f| %>
+    
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </p>
+    
+    <p>
+        <%= f.label :date %>
+        <%= f.text_field :date %>
+    </p>
+    
+    <p>
+        <%= f.label :autor %>
+        <%= f.text_field :autor%>
+    </p>
+    
+    <p>
+        <%= f.label :attachment %>
+        <%= f.text_field :attachment %>
+    </p>
+    
+    <p>
+        <%= f.label :attachment %>
+        <%= f.file_field :attachment %>
+    </p>
+    
+    <p>
+        <%= f.submit "guardar" %>
+    </p>
+    
+<% end %>
+
+<%= link_to 'Atras', document_index_path %>

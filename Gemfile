@@ -31,6 +31,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'cancancan', '~> 1.10'
 #Gem Rolify for storing the roles
 gem "rolify"
+#gem for chargin files in rails
+gem 'carrierwave', '~> 0.9'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

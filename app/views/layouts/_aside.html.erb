@@ -1,0 +1,103 @@
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">              
+              	  <p class="centered"><a href=""> <%= image_tag "ui-sam.jpg", class: "img-circle", size: "60"%></a></p>
+              	  <h5 class="centered">Mario Cardona</h5>            	  	
+                  
+                  <hr width="70%">
+
+                  <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-home">&nbsp;</span><spam>Inicio</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-file">&nbsp;</span><spam>DOCUMENTOS</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                          <li><%= link_to 'Listar Documentos', document_index_path %></li>                          
+                          <li><%= link_to 'Agregar Documento', new_document_path %></li>                          
+                          <li><a  href="">Categorias</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i></i>
+                          <span class="glyphicon glyphicon-pencil">&nbsp;</span><span>DOCUMENTOS DE ANALISIS</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="blank.html">Elementos Creados</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                    <%= link_to "javascript:;" do%>
+                      <i></i>
+                      <span class="glyphicon glyphicon-user">&nbsp;</span><spam>USUARIOS</spam>
+                    <%end%>
+                      <ul class="sub">
+                          <li><a  href="">Listar Usuarios</a></li>
+                          <li><a  href="">Usuarios Activos</a></li>
+                          <li><a  href="">Usuarios Inactivos</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-th-list">&nbsp;</span> <spam>GLOSARIO</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                          <li><a  href="">Palabras</a></li>
+                      </ul>
+                  </li> 
+
+                  <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-calendar">&nbsp;</span> <spam>CRONOLOGIA</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                          <li><a  href="">Listar Fechas</a></li>
+                       </ul>
+                  </li> 
+
+                  <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-font">&nbsp;</span> <spam>AUTORES CITADOS</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                          <li><a  href="">Autores</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-book">&nbsp;</span> <spam>BIBLIOGRAFIA CITADA</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                          <li><a  href="">Bibliografia</a></li>
+                      </ul>
+                  </li>                                
+                  
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
