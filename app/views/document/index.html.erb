@@ -13,14 +13,20 @@
       <td><%= document.description %></td>
       <td><%= document.date %></td>
       <td><%= document.autor %></td>
-      
+
       <td><%= link_to "Ver Documento", document.attachment_url %></td>
-      <td><%= link_to 'Editar', edit_document_path(document) %></td>
-      <td><%= link_to 'Eliminar', document, method: :delete, 
+
+      <% if current_user.has_role?(:admin) %>  
+          <td><%= link_to 'Editar', edit_document_path(document) %></td>
+          <td><%= link_to 'Eliminar', document, method: :delete, 
                       data: {confirm: 'Esta seguro de eliminar este tag'} %></td>
+      <% end %> 
+      
+      
+      
     </tr>
   <% end %>
 </table>
-<br></br>
+
 
 

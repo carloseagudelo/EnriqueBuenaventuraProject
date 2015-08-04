@@ -1,8 +1,9 @@
 class DocumentController < ApplicationController
+	before_action :set_document, only: [:show, :edit, :update, :destroy]
 
-	layout 'welcome_root'
+	layout :resolve_layout	
 
-	def index
+	def index		
 		@documents = Document.all		
 	end
 
@@ -45,6 +46,16 @@ private
   def document_params
     params.require(:document).permit(:name, :description, :date, :autor, :attachment)
   end
+
+  def resolve_layout
+   	if  current_user.has_role?(:admin)
+      "welcome_root"
+     else 
+      "application"
+    end
+  end
+
+
 end
 
 
