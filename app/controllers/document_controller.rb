@@ -1,7 +1,6 @@
 class DocumentController < ApplicationController
-	
 
-	layout :resolve_layout	
+	layout :resolve_layout
 
 	def index		
 		@documents = Document.all		
@@ -47,13 +46,14 @@ private
     params.require(:document).permit(:name, :description, :date, :autor, :attachment)
   end
 
-  def resolve_layout
-   	if  current_user.has_role?(:admin)
-      "welcome_root"
-     else 
-      "application"
-    end
-  end
+	def resolve_layout
+	   	if  current_user.has_role?(:admin)
+	      "welcome_root"
+	     else 
+	      "application"
+	    end
+	end
+
 
 
 end

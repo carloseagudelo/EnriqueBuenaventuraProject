@@ -1,0 +1,19 @@
+<h1>articulos Usados</h1>
+<br></br>
+<table>
+  <tr>
+    <th>Nombre de los Tags</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.name %></td>
+      <td><%= link_to 'Ver', article(tag) %></td>
+      <td><%= link_to 'Modificar', edit_article_path(tag) %></td>
+      <td><%= link_to 'Eliminar', article_path(tag), method: :delete, 
+      								data: {confirm: 'Esta seguro de eliminar este tag'} %></td>
+    </tr>
+  <% end %>
+</table>
+<br></br>
+<%=link_to 'Crear nuevo Tag', new_article_path %>

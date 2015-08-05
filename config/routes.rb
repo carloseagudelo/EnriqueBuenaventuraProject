@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   get 'welcome/index'
+  get 'welcome_root/index'
 
   resources :document
+  resources :article
 
-  get 'welcome_root/index'
+ 
 
   devise_scope :user do
     authenticated do
