@@ -1,5 +1,5 @@
 class DocumentController < ApplicationController
-	before_action :set_document, only: [:show, :edit, :update, :destroy]
+	
 
 	layout :resolve_layout	
 

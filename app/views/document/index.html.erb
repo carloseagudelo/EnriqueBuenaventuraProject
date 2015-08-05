@@ -1,32 +1,57 @@
-<table>
-  <tr>
-    <th>Nombre del documento</th>
-    <th>Descripcion</th>
-    <th>Fecha de creacion</th>
-    <th>Autor</th>
-    <th>Documento</th>
-  </tr>
- 
-  <% @documents.each do |document| %>
-    <tr>
-      <td><%= document.name %></td>
-      <td><%= document.description %></td>
-      <td><%= document.date %></td>
-      <td><%= document.autor %></td>
+<h3><i class="fa fa-angle-right"></i> Documentos del maestro Enrique Buenaventura</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i> Lista de documentos disponibles</h4>
+        <hr>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Nombre del documento</th>
+            <th>Descripcion</th>
+            <th>Fecha de creacion</th>
+            <th>Autor</th>
+          </tr>
+          </thead>
 
-      <td><%= link_to "Ver Documento", document.attachment_url %></td>
+          <tbody>
 
-      <% if current_user.has_role?(:admin) %>  
-          <td><%= link_to 'Editar', edit_document_path(document) %></td>
-          <td><%= link_to 'Eliminar', document, method: :delete, 
-                      data: {confirm: 'Esta seguro de eliminar este tag'} %></td>
-      <% end %> 
-      
-      
-      
-    </tr>
-  <% end %>
-</table>
+            <% @documents.each do |document| %>
+              <tr>
+                <td><%= document.name %></td>
+                <td><%= document.description %></td>
+                <td><%= document.date %></td>
+                <td><%= document.autor %></td>       
+
+                <td>
+                <%= link_to document.attachment_url do%>
+                  <i class="glyphicon glyphicon-search" ></i>
+                <%end%> 
+                </td>
+
+                <% if current_user.has_role?(:admin) %>  
+                    <td>                      
+                      <%= link_to edit_document_path(document) do%>
+                        <i class="glyphicon glyphicon-wrench" ></i>
+                      <%end%> 
+                    </td>
+                    <td>
+                        <%= link_to document, method: :delete, data: {confirm: 'Esta seguro de eliminar este tag'} do%>
+                          <i class="glyphicon glyphicon-trash" ></i>
+                        <%end%> 
+                    </td>
+                <% end %>      
+              </tr>
+            <% end %>
+
+
+
+
+
+          </tbody>
+      </table>
+    </div><! --/content-panel -->
+</div><!-- /col-md-12 -->
 
 
 
