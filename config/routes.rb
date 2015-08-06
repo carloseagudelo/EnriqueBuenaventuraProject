@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome_root/index'
 
-  resources :document
-  resources :article
+  resources :document do
+    resources :article
+  end
 
  
 

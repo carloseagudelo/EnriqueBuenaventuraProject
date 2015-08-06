@@ -24,8 +24,8 @@
                 <td><%= document.autor %></td>       
 
                 <td>
-                <%= link_to document.attachment_url do%>
-                  <i class="glyphicon glyphicon-search" ></i>
+                <%= link_to document_path(document) do%>
+                  <i class="glyphicon glyphicon-eye-open" ></i>
                 <%end%> 
                 </td>
 
@@ -43,11 +43,6 @@
                 <% end %>      
               </tr>
             <% end %>
-
-
-
-
-
           </tbody>
       </table>
     </div><! --/content-panel -->

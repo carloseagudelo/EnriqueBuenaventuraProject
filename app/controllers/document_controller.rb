@@ -1,6 +1,7 @@
 class DocumentController < ApplicationController
-
 	layout :resolve_layout
+	before_action :authenticate_user!
+	before_action :set_document, only: [:show, :edit, :update, :destroy]	
 
 	def index		
 		@documents = Document.all		
@@ -18,6 +19,10 @@ class DocumentController < ApplicationController
 		else
 			render "new"
 		end
+	end
+
+	def show
+		@document = Document.find(params[:id])
 	end
 
 	def edit
@@ -41,6 +46,7 @@ class DocumentController < ApplicationController
 	  redirect_to document_index_path
 	end
 
+
 private
   def document_params
     params.require(:document).permit(:name, :description, :date, :autor, :attachment)
@@ -53,9 +59,11 @@ private
 	      "application"
 	    end
 	end
-
-
-
+	
+	def set_document
+      @document = Document.find(params[:id])
+    end
+    
 end
 
 

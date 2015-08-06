@@ -6,6 +6,22 @@ class ArticleController < ApplicationController
 		@articles = Article.all
 	end
 
+	def new
+		@document = Document.find(params[:document_id])
+		@article = Article.new
+
+	end
+
+	def create
+		@article = Article.new(article_params)
+
+		if @article.save
+			redirect_to article_index_path, notice: "El articulo #{@article.name} ha sido guardado correctamente."
+		else
+			render "new"
+		end
+	end
+
 
 
 
