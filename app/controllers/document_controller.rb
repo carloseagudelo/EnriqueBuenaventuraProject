@@ -49,7 +49,7 @@ class DocumentController < ApplicationController
 
 private
   def document_params
-    params.require(:document).permit(:name, :description, :date, :autor, :attachment)
+    params.require(:document).permit(:name, :description, :date, :autor, :attachment) 
   end
 
 	def resolve_layout

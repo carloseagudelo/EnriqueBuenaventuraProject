@@ -1,6 +1,30 @@
-<iframe src="<%= @document.attachment_url %>" style="position:absolute;top:0;left:0;width:50%;height:100%;">
+<div> 
+    <h1>Antes de poder ingresar tu articulo necesitamos saber una informacion adicional acerca del articulo que vas a guardar</h1>
+    
+    <%= form_for :article, url: document_article_index_path do |f| %>
+    
+    <p>
+        <%= f.label :nombre_del_articulo %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :Descripción %><br />
+        <%= f.text_area :decription %>                
+    </p>
 
-</iframe>
-<iframe  style="position:absolute;top:0;left:50%;width:50%;height:100%;">
-	
-</iframe>
+    <p>
+        <%= f.label :date %><br />
+        <%= f.date_field :date %>
+    </p>
+             
+    
+    <p>
+        <%= f.submit "guardar" %>
+    </p>
+            
+<% end %>
+
+<%= link_to 'Atras', document_index_path %>    
+</div>
+

@@ -1,0 +1,23 @@
+<iframe src="<%= @document.attachment_url %>" style="position:absolute;top:0;left:0;width:50%;height:100%;">
+</iframe>
+<div style="position:absolute;top:0;left:50%;width:50%;height:100%;">
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	
+    <%= form_for :article, url: document_article_path(:document_id, @article), method: :patch do |f| %>
+
+	    <p>
+	        <%= f.label :articulo %>
+	        <%= f.text_field :attachment %>
+	    </p>
+	    
+	    <p>
+	        <%= f.submit "guardar" %>
+	    </p>
+	    <%end%>
+
+</div>

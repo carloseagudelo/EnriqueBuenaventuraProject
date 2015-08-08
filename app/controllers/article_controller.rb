@@ -8,40 +8,43 @@ class ArticleController < ApplicationController
 
 	def new
 		@document = Document.find(params[:document_id])
-		@article = Article.new
-
+		@article = Article.new		
 	end
 
 	def create
+		@document = Document.find(params[:document_id])		
 		@article = Article.new(article_params)
+		@article.user_id = current_user.id
 
 		if @article.save
-			redirect_to article_index_path, notice: "El articulo #{@article.name} ha sido guardado correctamente."
+			render "edit"
 		else
-			render "new"
+			render "index"
+		end
+	end
+
+	def edit
+		@document = Document.find(params[:document_id])		
+		@article = Article.find(params[:id])
+	end
+
+	def update
+		@article = Article.find(params[:id])
+
+		if @article.update(article_params)
+		 	redirect_to document_index_path
+		else 
+			render "edit"
 		end
 	end
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 private
   def article_params
-    params.require(:article).permit(:name)
+    params.require(:article).permit(:user_id, :name, :date, :decription, :attachment)
   end
 
 	def resolve_layout

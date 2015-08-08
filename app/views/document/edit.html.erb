@@ -4,7 +4,7 @@
     <div class="content-panel">
     <h4><i class="fa fa-angle-right"></i> LIngrese la informacion necesaria con respecto al docuemto a ingresar</h4>
         <hr>    
-        <%= form_for :document, url: document_index_path do |f| %>
+        <%= form_for :document, url: document_path(@document), method: :patch do |f| %>
             
             <p>
                 <%= f.label :nombre_del_documento %><br />

@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     resources :article
   end
 
- 
-
   devise_scope :user do
     authenticated do
       authenticated :user, ->(u) { u.has_role?(:admin) } do
