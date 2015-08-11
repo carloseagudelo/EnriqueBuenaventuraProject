@@ -1,52 +1,36 @@
-<div class="row">
-	<div class="col-md-12 container">
-		<div id="mycarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-			<div class="carousel-inner">
-
-				<div class="item active tam">
-					<%= image_tag "imagen1.jpg", class: "tales"%>
-					<div class="carousel-caption">
-              			<h3>Titulo</h3>
-              			<p>Descripción</p>
-            		</div>
-				</div>
-				<div class="item">
-					<%= image_tag "imagen2.jpg", class: "tales"%>
-					<div class="carousel-caption">
-              			<h3>Titulo</h3>
-              			<p>Descripción</p>
-            		</div>		
-				</div>
-				<div class="item">
-					<%= image_tag "imagen3.jpg", class: "tales"%>
-					<div class="carousel-caption">
-              			<h3>Titulo</h3>
-              			<p>Descripción</p>
-            		</div>		
-				</div>
+<div id="main">	
+	<div class="wrapper">
+		<div id="slider-holder" class="clearfix">
+			
+			<!-- slider -->
+	        <div class="flexslider home-slider">
+			  <ul class="slides">
+			    <li>
+			      <%= image_tag "01.jpg", :alt=>"alt text" %>
+			    </li>
+			    <li>
+			     <%= image_tag "02.jpg", :alt=>"alt text" %>
+			      <p class="flex-caption">Pellentesque habitant morbi  feugiat vitae.</p>
+			    </li>
+			    <li>
+			      <%= image_tag "03.jpg", :alt=>"alt text" %>
+			    </li>
+			  </ul>
 			</div>
-			<a class="carousel-control left" href="#mycarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-			<a class="right carousel-control" href="#mycarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-		</div>
+        	<!-- ENDS slider -->
+        	
+        	<div class="home-slider-clearfix "></div>
+        	
+        	<!-- Headline -->
+        	<div id="headline">
+				<%= image_tag "avatar.jpg", :width=>"100" %>
+        		<h1>Mario Cardona</h1> 
+        		<p>Profesor encargado del los cursos ................ Ademas tiene experiencia en ...........</p>       		
+        		<em id="corner"></em>
+        	</div>
+		</div>      	
 	</div>
 </div>
-
-<footer class="row">
-	<div class="footer">
-		<h4>Esto es un proyecto de: <a href="">Mario Cardona</a> 
-			Desarrollado por: 
-		</h4>
-		<ul>
-			<li><a href="">Carlos Agudelo</a></li>
-			<li><a href="">Esteban Montoya</a></li>
-		</ul>
-		<h4>
-			<a href="">Sobre el curso</a><br>
-			<a href="">Sobre la plataforma</a><br>
-			<a href="">Condiciones de uso</a>
-		</h4>
-	</div>
-</footer>
 
 
 

@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+//= require jquery-1.6.4.min
+//= require css3-mediaqueries
+//= require custom
+//= require tabs
+//= require jquery.tweet
+//= require hoverIntent
+//= require superfish
+//= require supersubs
+//= require jquery.prettyPhoto
+//= require jquery.poshytip.min
+//= require jquery.flexslider-min
+//= require modernizr
