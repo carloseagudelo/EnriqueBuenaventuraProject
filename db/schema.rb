@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717233135) do
+ActiveRecord::Schema.define(version: 20150814223330) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -75,20 +75,33 @@ ActiveRecord::Schema.define(version: 20150717233135) do
   add_index "documentPerArticle", ["document_id"], name: "index_documentPerArticle_on_document_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.string   "name",          limit: 255
+    t.string   "description",   limit: 255
     t.datetime "date"
-    t.string   "autor",       limit: 255
-    t.string   "attachment",  limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "autor",         limit: 255
+    t.string   "attachment",    limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "subtopic_id",   limit: 4
+    t.integer  "prose_id",      limit: 4
+    t.integer  "speciality_id", limit: 4
   end
+
+  add_index "documents", ["prose_id"], name: "index_documents_on_prose_id", using: :btree
+  add_index "documents", ["speciality_id"], name: "index_documents_on_speciality_id", using: :btree
+  add_index "documents", ["subtopic_id"], name: "index_documents_on_subtopic_id", using: :btree
 
   create_table "glosaries", force: :cascade do |t|
     t.string   "word",        limit: 255
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "proses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -101,6 +114,18 @@ ActiveRecord::Schema.define(version: 20150717233135) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "specialities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "subtopics", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "types", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -141,4 +166,7 @@ ActiveRecord::Schema.define(version: 20150717233135) do
 
   add_foreign_key "articles", "users"
   add_foreign_key "cronologies", "types"
+  add_foreign_key "documents", "proses"
+  add_foreign_key "documents", "specialities"
+  add_foreign_key "documents", "subtopics"
 end
