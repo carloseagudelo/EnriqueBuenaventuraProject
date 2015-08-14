@@ -1,16 +1,16 @@
-<div class="row">
-	<div class="col-md-11 container">
-		<h1 class="title"><strong>Enrique Buenaventura</strong></h1>
-		<h5 class="subtitle">SOBRE UN HOMBRE DE TEATRO</h5> 
-	</div>
-	<div class="col-md-1 container">
-		<div>  
-	  		<% if user_signed_in? %>  
-	    	   	<%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, :type=>"botton", :class=>" sign-out btn btn-default"%> 
-	  		<% end %>  
-		</div>
-	</div>				
-</div>
-
-<hr width="100%">
-
+<a href="index.html" id="logo">Aca va el logo</a>
+<% if user_signed_in? %>
+	<nav>
+		<ul id="nav" class="sf-menu">			
+			<li class="current-menu-item"><%= link_to "Inicio", welcome_index_path %></li>
+			<li><%= link_to "Documentos", document_index_path %></li>			
+			<li><%= link_to "Elementos de analizis", document_article_index_path(:document_id) %></li>			
+			<li><%= link_to "Autores citados", document_index_path, :class=>"objeto"%></li>			
+			<li><%= link_to "Bibliografia citada", document_index_path, :class=>"objeto"%></li>			
+			<li><%= link_to "Glosario", document_index_path, :class=>"objeto"%></li>			
+			<li><%= link_to "Cronologia", document_index_path, :class=>"objeto"%></li>			  
+  			<li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li> 
+		</ul>
+		<div id="combo-holder"></div>
+	</nav>
+<% end %>

@@ -6,13 +6,26 @@
 		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
 	
-	<body lang="es">
-		<%= render 'layouts/hd' %>
-		<%= yield %>
-		<%= render 'layouts/ft' %>
+	<body data-no-turbolink="false">
+
+	<header class="clearfix">
+		<div class="wrapper clearfix">
+			<%= render 'layouts/header' %>
+		</div>
+	</header>	
+		<div id="main">	
+			<div class="wrapper">
+				<%= yield %>
+			</div>      	
+		</div>
+		<footer>
+			<div class="wrapper">
+				<%= render 'layouts/footr' %>
+			</div>
+		</footer>
 	</body>
 </html>

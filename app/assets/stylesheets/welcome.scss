@@ -7,10 +7,10 @@
 @import "lessframework";
 @import "skin";
 
-@import url('reset.css');
-@import url('social.css');
-@import url('comments.css');
-@import url('widgets.css');
+@import "reset.css";
+@import "social.css";
+@import "comments.css";
+@import "widgets.css";
 
 
 /* GENERAL ------------------------------------------------------------*/
@@ -121,7 +121,7 @@ aside{
 .page-heading{
 	text-align: left;
 	margin-bottom: 15px;
-	background: url(../img/div-line.png) repeat-x center center;
+	background: url(/assets/div-line.png) repeat-x center center;
 }
 
 .page-heading span{
@@ -346,7 +346,7 @@ nav a{
 .home-block-heading{
 	text-align: center;
 	margin-bottom: 40px;
-	background: url(../img/div-line.png) repeat-x center center;
+	background: url(/assets/div-line.png) repeat-x center center;
 }
 
 .home-block-heading span{
