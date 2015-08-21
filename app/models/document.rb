@@ -1,8 +1,11 @@
 class Document < ActiveRecord::Base
 
-	belongs_to :authors_workeds
-	belongs_to :books_workeds
-	belongs_to :articles
+	has_many  :documentauthors
+	has_many  :authors, :through => :documentauthors
+
+	has_many  :documentbooks
+	has_many  :books, :through => :documentbooks
+	
 
 	belongs_to :prose
 	belongs_to :subtopic

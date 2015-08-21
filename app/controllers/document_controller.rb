@@ -9,10 +9,32 @@ class DocumentController < ApplicationController
 
 	def new
 		@document = Document.new
+		@proses =  Prose.all
+		@types = Speciality.all
+		@subtopics = Subtopic.all
+
+		@all_authors = Author.all
+		@document_author = @document.documentauthors.build
+
+		@all_books = Book.all
+		@document_book = @document.documentbooks.build
 	end
 
 	def create
 		@document = Document.new(document_params)
+
+		params[:authors][:id].each do |author|
+			if !author.empty?
+				@document.documentauthors.build(:author_id => author)
+			end
+		end
+
+		params[:books][:id].each do |book|
+			if !book.empty?
+				@document.documentbooks.build(:book_id => book)
+			end
+		end
+
 
 		if @document.save
 			redirect_to document_index_path, notice: "El docuemto #{@document.name} ha sido guardado correctamente."
@@ -23,6 +45,8 @@ class DocumentController < ApplicationController
 
 	def show
 		@document = Document.find(params[:id])
+		@authors = @document.documentauthors.where(:document_id == @document.id)
+		@books = @document.documentbooks.where(:document_id == @document.id)
 	end
 
 	def edit
@@ -49,7 +73,7 @@ class DocumentController < ApplicationController
 
 private
   def document_params
-    params.require(:document).permit(:name, :description, :date, :autor, :attachment) 
+    params.require(:document).permit(:name, :description, :date, :autor, :attachment, :prose_id, :subtopic_id, :speciality_id) 
   end
 
 	def resolve_layout

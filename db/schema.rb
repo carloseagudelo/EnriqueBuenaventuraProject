@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814223330) do
+ActiveRecord::Schema.define(version: 20150821043342) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -25,30 +25,13 @@ ActiveRecord::Schema.define(version: 20150814223330) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "authors", id: false, force: :cascade do |t|
-    t.integer "document_id",       limit: 4
-    t.integer "authors_worked_id", limit: 4
-  end
-
-  add_index "authors", ["authors_worked_id"], name: "index_authors_on_authors_worked_id", using: :btree
-  add_index "authors", ["document_id"], name: "index_authors_on_document_id", using: :btree
-
-  create_table "authors_workeds", force: :cascade do |t|
+  create_table "authors", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.string   "url",        limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "books", id: false, force: :cascade do |t|
-    t.integer "document_id",     limit: 4
-    t.integer "books_worked_id", limit: 4
-  end
-
-  add_index "books", ["books_worked_id"], name: "index_books_on_books_worked_id", using: :btree
-  add_index "books", ["document_id"], name: "index_books_on_document_id", using: :btree
-
-  create_table "books_workeds", force: :cascade do |t|
+  create_table "books", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -66,13 +49,19 @@ ActiveRecord::Schema.define(version: 20150814223330) do
 
   add_index "cronologies", ["type_id"], name: "index_cronologies_on_type_id", using: :btree
 
-  create_table "documentPerArticle", id: false, force: :cascade do |t|
-    t.integer "document_id", limit: 4
-    t.integer "article_id",  limit: 4
+  create_table "documentauthors", force: :cascade do |t|
+    t.integer  "document_id", limit: 4
+    t.integer  "author_id",   limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  add_index "documentPerArticle", ["article_id"], name: "index_documentPerArticle_on_article_id", using: :btree
-  add_index "documentPerArticle", ["document_id"], name: "index_documentPerArticle_on_document_id", using: :btree
+  create_table "documentbooks", force: :cascade do |t|
+    t.integer  "document_id", limit: 4
+    t.integer  "book_id",     limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string   "name",          limit: 255

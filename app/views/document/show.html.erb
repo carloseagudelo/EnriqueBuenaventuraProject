@@ -24,6 +24,39 @@
 		  <%= @document.autor %>
 		</p>
 
+		<p>
+		  <strong>Prosa:</strong>
+		  <%= @document.prose_id %>
+		</p>
+
+		<p>
+		  <strong>Tipo de documento:</strong>
+		  <%= @document.speciality_id %>
+		</p>
+
+		<p>
+		  <strong>Subtema:</strong>
+		  <%= @document.subtopic_id %>
+		</p>
+
+
+
+
+
+		<p><strong>Autores trabajados</strong></p>
+		<ul>
+		<% @authors.each do |f| %>
+		<li><%= f.author_id %></li>
+		<%end%>
+		</ul>
+
+		<p><strong>libros trabajados</strong></p>
+		<ul>
+		<% @books.each do |f| %>
+		<li><%= f.book_id %></li>
+		<%end%>
+		</ul>
+
 		<%= link_to 'Atras', document_index_path %><br />
 		<%= link_to 'ver el documento', @document.attachment_url, :target => "_blank" %><br />
 		<%= link_to 'Generar un nuevo documento de analizis', new_document_article_path(@document), :controller => "article",  :action => "new", :doc => 

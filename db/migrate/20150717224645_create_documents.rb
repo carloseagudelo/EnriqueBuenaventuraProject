@@ -8,22 +8,6 @@ class CreateDocuments < ActiveRecord::Migration
       t.string :attachment
 
       t.timestamps null: false
-    end
-
-    create_table :authors, id: false do |t|
-      t.belongs_to :document, index: true
-      t.belongs_to :authors_worked, index: true 
-    end
-
-    create_table :books, id: false do |t|
-      t.belongs_to :document, index: true
-      t.belongs_to :books_worked, index: true 
-    end
-
-   create_table :documentPerArticle, id: false do |t|
-      t.belongs_to :document, index: true
-      t.belongs_to :article, index: true 
-    end   
-
+    end 
   end
 end
