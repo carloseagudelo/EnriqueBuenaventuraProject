@@ -3,7 +3,6 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree
 //= require Chart.js
 //= require bootstrap.min
 //= require common-scripts
