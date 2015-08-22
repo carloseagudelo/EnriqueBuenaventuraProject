@@ -26,34 +26,30 @@
 
 		<p>
 		  <strong>Prosa:</strong>
-		  <%= @document.prose_id %>
+		  <%= @prose.find(@document.prose_id).name %>
 		</p>
 
 		<p>
 		  <strong>Tipo de documento:</strong>
-		  <%= @document.speciality_id %>
+		  <%= @speciality.find(@document.speciality_id).name %>
 		</p>
 
 		<p>
 		  <strong>Subtema:</strong>
-		  <%= @document.subtopic_id %>
+		  <%= @subtopic.find(@document.subtopic_id).name %>
 		</p>
-
-
-
-
 
 		<p><strong>Autores trabajados</strong></p>
 		<ul>
 		<% @authors.each do |f| %>
-		<li><%= f.author_id %></li>
+		<li><%= @author.find(f.author_id).name %></li>
 		<%end%>
 		</ul>
 
 		<p><strong>libros trabajados</strong></p>
 		<ul>
 		<% @books.each do |f| %>
-		<li><%= f.book_id %></li>
+		<li><%= @book.find(f.book_id).name %></li>
 		<%end%>
 		</ul>
 

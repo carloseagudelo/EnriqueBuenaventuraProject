@@ -43,7 +43,13 @@ class DocumentController < ApplicationController
 		end
 	end
 
-	def show
+	def show		
+		@subtopic = Subtopic.all
+		@speciality = Speciality.all
+		@prose = Prose.all
+		@author = Author.all
+		@book = Book.all
+
 		@document = Document.find(params[:id])
 		@authors = @document.documentauthors.where(:document_id == @document.id)
 		@books = @document.documentbooks.where(:document_id == @document.id)
