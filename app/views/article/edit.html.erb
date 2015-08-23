@@ -8,16 +8,13 @@
 	<br />
 	<br />
 	
-    <%= form_for :article, url: document_article_path(:document_id, @article), method: :patch do |f| %>
+<%= tinymce_assets %>
 
-	    <p>
-	        <%= f.label :articulo %>
-	        <%= f.text_field :attachment %>
-	    </p>
-	    
-	    <p>
-	        <%= f.submit "guardar" %>
-	    </p>
-	    <%end%>
+<%= form_for :article do |f| %>
+<%= f.text_area :content, :class => "tinymce", :rows => 10, :cols => 30 %>
+  <%= f.submit "Guardar" %>
+<% end %>
+<!--Load the Tiny Editor init-->
+<%= tinymce %>
 
 </div>

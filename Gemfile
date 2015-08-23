@@ -34,6 +34,11 @@ gem "rolify"
 #gem for chargin files in rails
 gem 'carrierwave', '~> 0.9'
 
+  #gem to use TinyMCE editor
+  gem 'tinymce-rails'
+  #Languaages tinyMCE Editor
+  gem 'tinymce-rails-langs'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
