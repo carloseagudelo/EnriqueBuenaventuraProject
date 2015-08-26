@@ -1,14 +1,18 @@
 class ArticleController < ApplicationController
 
 	layout :resolve_layout
+	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc]
 
 	def index
 		@articles = Article.all
+		@users = User.all
+		@have_sidebar = true
 	end
 
 	def new
 		@document = Document.find(params[:document_id])
-		@article = Article.new		
+		@article = Article.new
+		@have_sidebar = true	
 	end
 
 	def create
@@ -23,9 +27,11 @@ class ArticleController < ApplicationController
 		end
 	end
 
-	def edit
-		@document = Document.find(params[:document_id])		
+	def edit		
+		@documents = Document.all			
 		@article = Article.find(params[:id])
+		@have_sidebar = true
+
 	end
 
 	def update
@@ -37,10 +43,6 @@ class ArticleController < ApplicationController
 			render "edit"
 		end
 	end
-
-
-
-
 	
 private
   def article_params

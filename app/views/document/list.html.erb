@@ -1,0 +1,35 @@
+<article>      
+    <h3><i class="fa fa-angle-right"></i> Documentos del maestro Enrique Buenaventura</h3>
+    <br />
+    <div class="col-md-12">
+        <div class="content-panel">
+            <h4><i class="fa fa-angle-right"></i> Lista de documentos disponibles</h4>
+            <hr>
+          <table class="table">
+              <thead>
+              <tr>
+                <th>Fecha de creacion</th>
+                <th>Nombre del documento</th>
+              </tr>
+              </thead>
+
+              <tbody>
+
+                <% @documents.each do |document| %>
+                  <tr>
+                    <td><%= document.date %></td>
+                    <td><%= document.name %></td>
+                    <td>
+
+                    <%= link_to document_document_doc_path(document), :target=>"doc" do%>
+                      <i class="glyphicon glyphicon-eye-open" ></i>
+                    <%end%> 
+                    </td>     
+                  </tr>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+    </div>
+
+</article>

@@ -55,7 +55,6 @@
 
 		<%= link_to 'Atras', document_index_path %><br />
 		<%= link_to 'ver el documento', @document.attachment_url, :target => "_blank" %><br />
-		<%= link_to 'Generar un nuevo documento de analizis', new_document_article_path(@document), :controller => "article",  :action => "new", :doc => 
-		 @document %>
+		<%= link_to 'Generar un nuevo documento de analizis', new_document_article_path(@document), :controller => "article",  :action => "new" %>
 	</div>
 </div>

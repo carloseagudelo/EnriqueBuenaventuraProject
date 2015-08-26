@@ -14,15 +14,12 @@
 
 	<header class="clearfix">
 		<div class="wrapper clearfix">
-			<%= render 'layouts/header' %>
+			<%= render 'layouts/header' if @have_sidebar %>
 		</div>
 	</header>	
 	<div id="main">	
 		<div class="wrapper">
 			<%= yield %>
-			<footer>
-				<%= render 'layouts/footr' %>
-			</footer>
 		</div>      	
 	</div>
 

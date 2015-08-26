@@ -12,7 +12,6 @@
 @import "comments.css";
 @import "widgets.css";
 
-
 /* GENERAL ------------------------------------------------------------*/
 
 article, aside, canvas, figure, figure img, figcaption, hgroup,
@@ -34,7 +33,6 @@ footer, header, nav, section, audio, video {
 
 .wrapper{
 	margin: 0 auto; 
-	position: relative;
 }
 
 body{
@@ -56,8 +54,6 @@ body a{
 	-o-transition: color 0.3s ease;
 	transition: color 0.3s ease;
 }
-
-
 
 #logo{
 	display: inline-block;

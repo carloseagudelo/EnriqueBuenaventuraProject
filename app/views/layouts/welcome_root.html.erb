@@ -11,21 +11,16 @@
 
   <body data-no-turbolink="false">
 
-  <section id="container" >
-        
-      <%= render 'layouts/head' %>
+  <section id="container" >       
+      <%= render 'layouts/head' if @have_sidebar %>
 
-      <%= render 'layouts/aside' %>
-      
-
-      <section id="main-content">
-          <section class="wrapper">
-            <div><%= yield %></div>              
-          </section>
-      </section> 
-
-
-       <%= render 'layouts/footer' %>
+      <%= render 'layouts/aside' if @have_sidebar %>
+    <section id="main-content">
+      <section class="wrapper">
+        <div><%= yield %></div>              
+      </section>
+    </section> 
+           
   </section>
 
     <script type="text/javascript">

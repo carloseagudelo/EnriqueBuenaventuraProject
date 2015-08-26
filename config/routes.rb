@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   get 'welcome_root/index'
+  get 'document/list'
 
   resources :document do
     resources :article
+    get 'document/doc'
   end
 
   devise_scope :user do

@@ -1,10 +1,20 @@
 class DocumentController < ApplicationController
 	layout :resolve_layout
 	before_action :authenticate_user!
-	before_action :set_document, only: [:show, :edit, :update, :destroy]	
+	before_action :set_document, only: [:show, :edit, :update, :destroy]
+	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc]
 
-	def index		
-		@documents = Document.all		
+	def index
+		@documents = Document.all
+		@have_sidebar = true
+	end
+
+	def list		
+		@documents = Document.all
+	end
+
+	def doc
+		@document = Document.find(params[:document_id])
 	end
 
 	def new
@@ -18,6 +28,7 @@ class DocumentController < ApplicationController
 
 		@all_books = Book.all
 		@document_book = @document.documentbooks.build
+		@have_sidebar = true
 	end
 
 	def create
@@ -53,10 +64,12 @@ class DocumentController < ApplicationController
 		@document = Document.find(params[:id])
 		@authors = @document.documentauthors.where(:document_id == @document.id)
 		@books = @document.documentbooks.where(:document_id == @document.id)
+		@have_sidebar = true
 	end
 
 	def edit
 		@document = Document.find(params[:id])
+		@have_sidebar = true
 	end
 
 	def update
