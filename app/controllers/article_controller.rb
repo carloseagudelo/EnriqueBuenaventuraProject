@@ -1,7 +1,7 @@
 class ArticleController < ApplicationController
 
 	layout :resolve_layout
-	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc]
+	before_filter :have_sidebar, except: [:index, :new, :edit, :destroy]
 
 	def index
 		@articles = Article.all
