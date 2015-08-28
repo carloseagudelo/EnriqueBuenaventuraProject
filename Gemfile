@@ -33,11 +33,12 @@ gem 'cancancan', '~> 1.10'
 gem "rolify"
 #gem for chargin files in rails
 gem 'carrierwave', '~> 0.9'
+#gem to use TinyMCE editor
+gem 'tinymce-rails'
+#Languaages tinyMCE Editor
+gem 'tinymce-rails-langs'
 
-  #gem to use TinyMCE editor
-  gem 'tinymce-rails'
-  #Languaages tinyMCE Editor
-  gem 'tinymce-rails-langs'
+gem 'pdfjs_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

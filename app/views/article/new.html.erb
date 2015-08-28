@@ -1,5 +1,5 @@
 <%= tinymce_assets %>
-<iframe src="<%= @document.attachment_url %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
+<iframe src="/pdfjs/web/viewer.html?file=<%= @document.attachment_url %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
 </iframe>
 <div style="position:absolute;top:5s;left:50%;width:50%;height:100%;">
     <%= form_for :article, url: document_article_index_path do |f| %>

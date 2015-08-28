@@ -1,7 +1,7 @@
 class ArticleController < ApplicationController
 
 	layout :resolve_layout
-	before_filter :have_sidebar, except: [:index, :new, :edit, :destroy]
+	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update]
 
 	def index
 		@articles = Article.all
@@ -52,7 +52,7 @@ private
 	def resolve_layout
 	   	if  current_user.has_role?(:admin)
 	      "welcome_root"
-	     else 
+	    else 
 	      "application"
 	    end
 	end

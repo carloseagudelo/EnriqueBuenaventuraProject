@@ -1,10 +1,11 @@
 <%= tinymce_assets %>
 <article>	
-	<iframe name="doc" src="<%= document_list_path %>" style="position:absolute;top:5;left:0;width:50%;height:70%;">
+	<iframe name="doc" src="<%= document_list_path %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
 	</iframe>	
 
 	<div style="position:absolute;top:5;left:50%;width:50%;height:100%;">
-	    <%= form_for :article, url: document_article_index_path do |f| %>
+
+	    <%= form_for :article, url: document_article_path(:document_id, :article), method: :patch  do |f| %>
 	    
 	        <p>
 	            <%= f.label :nombre_del_articulo %><br />
@@ -26,7 +27,6 @@
 	        <%= f.submit "Guardar" %>
 
 	    <% end %>
-	    <!--Load the Tiny Editor init-->
 	    <%= tinymce %>
 
 	</div>

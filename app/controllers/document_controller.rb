@@ -2,7 +2,7 @@ class DocumentController < ApplicationController
 	layout :resolve_layout
 	before_action :authenticate_user!
 	before_action :set_document, only: [:show, :edit, :update, :destroy]
-	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc]
+	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc, :create, :update]
 
 	def index
 		@documents = Document.all
