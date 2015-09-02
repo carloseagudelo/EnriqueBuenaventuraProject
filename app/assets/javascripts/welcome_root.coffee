@@ -1,7 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require bootstrap-sprockets
 //= require turbolinks
 //= require Chart.js
 //= require bootstrap.min
