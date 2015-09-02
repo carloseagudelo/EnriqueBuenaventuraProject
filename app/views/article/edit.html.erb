@@ -1,6 +1,6 @@
 <%= tinymce_assets %>
 <article>	
-	<iframe name="doc" src="<%= document_list_path %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
+	<iframe name="doc" id="iframeList" src="<%= document_list_path %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
 	</iframe>	
 
 	<div style="position:absolute;top:5;left:50%;width:50%;height:100%;">
@@ -24,12 +24,31 @@
 
 	        <%= f.text_area :attachment, :class => "tinymce", :rows => 10, :cols => 30 %>
 	        
-	        <%= f.submit "Guardar" %>
+	        <%= f.submit "Guardar" %><br />
 
 	    <% end %>
 	    <%= tinymce %>
 
-	</div>
+	    <textarea id="myTextarea"></textarea>
+		<button type="button" onclick="myFunction()">Crear Citacion</button>
 
+	</div>
 </article>
+
+
+
+<script>
+function myFunction() {
+    var numPage = document.getElementById('iframeList').contentWindow.document.getElementById('iframe').contentWindow.document.getElementById('pageNumber').value;
+    var nameDoc = document.getElementById('iframeList').contentWindow.document.getElementById('nameDoc').innerHTML;  
+    var contentTextArea = document.getElementById("myTextarea").value;
+    var citacion = '<br />Enrique, Buenaventura, ' +nameDoc+', 1998, Editorial Edalse, 2000, pg. '+numPage;
+    var citacionCompleta = contentTextArea+citacion;
+    var contentTextEditor = tinyMCE.activeEditor.getContent();
+    var contenidoCompletoEditor = contentTextEditor+citacionCompleta;
+    tinyMCE.activeEditor.setContent(contenidoCompletoEditor);
+    
+    document.getElementById("myTextarea").value = '';
+}
+</script>
 
