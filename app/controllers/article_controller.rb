@@ -51,7 +51,7 @@ class ArticleController < ApplicationController
 	 
 	  redirect_to document_article_index_path
 	end
-	
+	#El problema que tengo aca es porlos params
 private
   def article_params
     params.require(:article).permit(:user_id, :name, :date, :decription, :attachment)

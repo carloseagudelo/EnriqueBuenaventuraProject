@@ -49,10 +49,9 @@
                       <i></i>
                       <span class="glyphicon glyphicon-user">&nbsp;</span><spam>USUARIOS</spam>
                     <%end%>
-                      <ul class="sub">
-                          <li><a  href="">Listar Usuarios</a></li>
-                          <li><a  href="">Usuarios Activos</a></li>
-                          <li><a  href="">Usuarios Inactivos</a></li>
+                      <ul class="sub">                          
+                          <li><%= link_to 'Listar Usuarios Activos', students_path %></li>
+                          <li><%= link_to 'Listar Usuarios Inactivos', students_indexN_path %></li>
                       </ul>
                   </li>
 

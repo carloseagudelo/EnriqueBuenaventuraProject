@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821043342) do
+ActiveRecord::Schema.define(version: 20150907055807) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "name",       limit: 255
     t.datetime "date"
     t.string   "decription", limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "attachment", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.text     "attachment", limit: 4294967295
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
@@ -108,6 +108,11 @@ ActiveRecord::Schema.define(version: 20150821043342) do
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subtopics", force: :cascade do |t|

@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome_root/index'
   get 'document/list'
+  get 'students/indexN'
 
   resources :document do
     resources :article
     get 'document/doc'
   end
+
+  resources :students
+
 
   devise_scope :user do
     authenticated do

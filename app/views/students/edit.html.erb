@@ -1,0 +1,23 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.interest %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.credential %>
+</p>
+
+<%= link_to student_path, method: :PATCH, data: {confirm: 'Esta seguro que desea cambiar el rol del usuario'} do%>
+  <i class="glyphicon glyphicon-wrench" ></i>
+<%end%> 

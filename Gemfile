@@ -35,9 +35,9 @@ gem "rolify"
 gem 'carrierwave', '~> 0.9'
 #gem to use TinyMCE editor
 gem 'tinymce-rails'
-#Languaages tinyMCE Editor
+#gem for change Languaages tinyMCE Editor
 gem 'tinymce-rails-langs'
-
+# gem for have own pdf in the app
 gem 'pdfjs_rails'
 
 # Use ActiveModel has_secure_password

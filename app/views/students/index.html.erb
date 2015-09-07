@@ -1,0 +1,38 @@
+<h3><i class="fa fa-angle-right"></i> Documentos del maestro Enrique Buenaventura</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i> Lista de documentos disponibles</h4>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Credencial</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <% if user.has_role?(:student) %>
+                <tr>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.credential %></td>
+                  <td>
+                    <%= link_to edit_student_path(user) do%>
+                      <i class="glyphicon glyphicon-eye-open" ></i>
+                    <%end%> 
+                  </td>
+                  <td>
+                      <%= link_to user, method: :delete, data: {confirm: 'Esta seguro de eliminar este tag'} do%>
+                        <i class="glyphicon glyphicon-trash" ></i>
+                      <%end%> 
+                  </td>
+                </tr>
+              <%end%>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+</div>
