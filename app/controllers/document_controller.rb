@@ -46,7 +46,6 @@ class DocumentController < ApplicationController
 			end
 		end
 
-
 		if @document.save
 			redirect_to document_index_path, notice: "El docuemto #{@document.name} ha sido guardado correctamente."
 		else
@@ -70,10 +69,33 @@ class DocumentController < ApplicationController
 	def edit
 		@document = Document.find(params[:id])
 		@have_sidebar = true
+
+	    @proses =  Prose.all
+	    @types = Speciality.all
+	    @subtopics = Subtopic.all
+
+	    @all_authors = Author.all
+	    @document_author = @document.documentauthors.build
+
+	    @all_books = Book.all
+	    @document_book = @document.documentbooks.build
+	    @have_sidebar = true
 	end
 
 	def update
-	  @document = Document.find(params[:id])
+	  @document = Document.find(params[:id])  
+
+  	  params[:authors][:id].each do |author|
+	  	if !author.empty?
+	  		@document.documentauthors.build(:author_id => author)
+	  	end
+	  end
+
+	  params[:books][:id].each do |book|
+	  	if !book.empty?
+	  		@document.documentbooks.build(:book_id => book)
+	  	end
+	  end
 	 
 	  if @document.update(document_params)
 	    redirect_to document_index_path

@@ -1,7 +1,7 @@
 class ArticleController < ApplicationController
 
 	layout :resolve_layout
-	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update]
+	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update, :destroy]
 
 	def index
 		@articles = Article.all
@@ -21,7 +21,7 @@ class ArticleController < ApplicationController
 		@article.user_id = current_user.id
 
 		if @article.save
-			render "edit"
+			redirect_to edit_document_article_path(@document.id, @article.id)
 		else
 			render "index"
 		end
@@ -42,6 +42,14 @@ class ArticleController < ApplicationController
 		else 
 			render "edit"
 		end
+	end
+
+	def destroy
+	  @have_sidebar = true
+	  @article = Article.find(params[:id])
+	  @article.destroy
+	 
+	  redirect_to document_article_index_path
 	end
 	
 private

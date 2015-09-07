@@ -30,6 +30,41 @@
                 <%= f.label :Documento %>
                 <%= f.file_field :attachment %>
             </p>
+
+
+            <p>
+                <%= f.label :Prosa_base %><br />              
+                <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, 
+                { :class => 'select', :selected => params[:id]},) %>
+            </p> 
+
+            <p>
+                <%= f.label :Tipo_de_documento %><br />              
+                <%= f.collection_select(:speciality_id, @types, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
+                { :class => 'select', :selected => params[:id]}) %>
+            </p> 
+
+            <p>
+                <%= f.label :Subtemas %><br />              
+                <%= f.collection_select(:subtopic_id, @subtopics, :id, :name, {:prompt => 'Seleccione un subtema'}, 
+                { :class => 'select', :selected => params[:id]}) %>
+            </p>
+
+            <%= fields_for(@document_author) do |da| %>
+                <p>
+                    <%= da.label "Autores" %><br />
+                    <%=  collection_select(:authors, :id, @all_authors, :id, :name, {}, {:multiple => true}) %>
+
+                </p>
+            <%  end %>
+
+            <%= fields_for(@document_book) do |da| %>
+                <p>
+                    <%= da.label "Libros" %><br />
+                    <%=  collection_select(:books, :id, @all_books, :id, :name, {}, {:multiple => true}) %>
+
+                </p>
+            <%  end %>
             
             <p>
                 <%= f.submit "guardar" %>
