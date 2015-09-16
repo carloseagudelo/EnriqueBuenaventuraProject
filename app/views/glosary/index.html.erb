@@ -1,0 +1,33 @@
+<h3><i class="fa fa-angle-right"></i> Glosario del maestro Enrique Buenaventura</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i> Lista palabras necesarias</h4>
+        <hr>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Palabra</th>
+            <th>Descripcion</th>         
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @words.each do |word| %>
+            <tr>
+              <td><%= word.word %></td>
+              <td><%= word.description %></td>
+
+              <%if current_user.has_role?(:admin)%>
+                <td><%= link_to 'EDITAR', edit_glosary_path(word) %></td>
+                <td><%= link_to 'ELIMINAR', glosary_path(word), method: :delete, 
+                              data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
+              <%end%>
+
+              <td><%= link_to 'VER', glosary_path(word) %></td>              
+            </tr>
+          <% end %>
+          </tbody>
+      </table>
+    </div>
+</div>

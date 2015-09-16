@@ -1,0 +1,33 @@
+<h3><i class="fa fa-angle-right"></i> Libros trabajados por Enrique Buenaventura </h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i>Libros</h4>
+        <hr>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>         
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= book.name %></td>
+              <td><%= book.description %></td>
+
+              <%if current_user.has_role?(:admin)%>
+                <td><%= link_to 'EDITAR', edit_books_worked_path(book) %></td>
+                <td><%= link_to 'ELIMINAR', books_worked_path(book), method: :delete, 
+                              data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
+              <%end%>
+
+              <td><%= link_to 'VER', books_worked_path(book) %></td>              
+            </tr>
+          <% end %>
+           </tbody>
+      </table>
+    </div>
+</div>

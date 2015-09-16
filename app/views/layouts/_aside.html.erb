@@ -62,7 +62,10 @@
                     <span class="dcjq-icon"></span>
                   <%end%>                  
                       <ul class="sub">
-                          <li><a  href="">Palabras</a></li>
+                          <li><%= link_to 'Listar Palabras', glosary_index_path %></li>
+                      </ul>
+                      <ul class="sub">
+                          <li><%= link_to 'Nueva Palabra', new_glosary_path %></li>
                       </ul>
                   </li> 
 
@@ -73,8 +76,11 @@
                     <span class="dcjq-icon"></span>
                   <%end%>                  
                       <ul class="sub">
-                          <li><a  href="">Listar Fechas</a></li>
+                          <li><%= link_to 'Albun cronologico', chronology_index_path %></li>
                        </ul>
+                       <ul class="sub">
+                          <li><%= link_to 'Agregar nuevo suceso', new_chronology_path %></li>
+                      </ul>
                   </li> 
 
                   <li class="sub-menu">
@@ -83,8 +89,11 @@
                     <span class="glyphicon glyphicon-font">&nbsp;</span> <spam>AUTORES CITADOS</spam>
                     <span class="dcjq-icon"></span>
                   <%end%>                  
-                      <ul class="sub">
-                          <li><a  href="">Autores</a></li>
+                      <ul class="sub">                          
+                          <li><%= link_to 'Lista de autores', authors_worked_index_path %></li>
+                      </ul>
+                      <ul class="sub">                          
+                          <li><%= link_to 'Agregar un nuevo author', new_authors_worked_path %></li>
                       </ul>
                   </li>
 
@@ -95,7 +104,10 @@
                     <span class="dcjq-icon"></span>
                   <%end%>                  
                       <ul class="sub">
-                          <li><a  href="">Bibliografia</a></li>
+                          <li><%= link_to 'Lista de libros', books_worked_index_path %></li>
+                      </ul>
+                      <ul class="sub">                          
+                          <li><%= link_to 'Agregar un nuevo libro', new_books_worked_path %></li>
                       </ul>
                   </li>                                
                   

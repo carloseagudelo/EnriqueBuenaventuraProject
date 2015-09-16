@@ -1,15 +1,47 @@
 <a href="index.html" id="logo">Aca va el logo</a>
 <% if user_signed_in? %>
 	<nav>
-		<ul id="nav" class="sf-menu">			
-			<li class="current-menu-item"><%= link_to "Inicio", welcome_index_path %></li>
-			<li><%= link_to "Documentos", document_index_path %></li>			
-			<li><%= link_to "Elementos de analisis", document_article_index_path(:document_id) %></li>			
-			<li><%= link_to "Autores citados", document_index_path, :class=>"objeto"%></li>			
-			<li><%= link_to "Bibliografia citada", document_index_path, :class=>"objeto"%></li>			
-			<li><%= link_to "Glosario", document_index_path, :class=>"objeto"%></li>			
-			<li><%= link_to "Cronologia", document_index_path, :class=>"objeto"%></li>			  
-  			<li><%= link_to "Cerrar sesion", destroy_user_session_url, method: :delete%></li> 
+		<ul id="nav" class="sf-menu">
+			<%if current_page?(welcome_index_path)%>			
+				<li class="current-menu-item"><%= link_to "Inicio", welcome_index_path %></li>
+			<%else%>
+				<li><%= link_to "Inicio", welcome_index_path %></li>
+			<%end%>
+			<%if current_page?(document_index_path)%>
+				<li class="current-menu-item"><%= link_to "Documentos", document_index_path %></li>
+			<%else%>
+				<li><%= link_to "Documentos", document_index_path %></li>
+			<%end%>
+			<%if current_page?(document_article_index_path(:document_id))%>
+				<li class="current-menu-item"><%= link_to "Elementos de analisis", document_article_index_path(:document_id) %></li>
+			<%else%>
+				<li><%= link_to "Elementos de analisis", document_article_index_path(:document_id) %></li>
+			<%end%>
+			<%if current_page?(authors_worked_index_path)%>
+				<li class="current-menu-item"><%= link_to "Autores citados", authors_worked_index_path, :class=>"objeto"%></li>
+			<%else%>
+				<li><%= link_to "Autores citados", authors_worked_index_path, :class=>"objeto"%></li>
+			<%end%>
+			<%if current_page?(books_worked_index_path)%>
+				<li class="current-menu-item"><%= link_to "Bibliografia citada", books_worked_index_path, :class=>"objeto"%></li>
+			<%else%>
+				<li><%= link_to "Bibliografia citada", books_worked_index_path, :class=>"objeto"%></li>	
+			<%end%>
+			<%if current_page?(glosary_index_path)%>
+				<li class="current-menu-item"><%= link_to "Glosario",  glosary_index_path, :class=>"objeto"%></li>
+			<%else%>
+				<li><%= link_to "Glosario",  glosary_index_path, :class=>"objeto"%></li>
+			<%end%>
+			<%if current_page?(chronology_index_path)%>
+				<li class="current-menu-item"><%= link_to "Cronologia", document_index_path, :class=>"objeto"%></li>
+			<%else%>
+				<li><%= link_to "Cronologia", chronology_index_path, :class=>"objeto"%></li>
+			<%end%>
+			<%if current_page?(destroy_user_session_url)%>
+				<li class="current-menu-item"><%= link_to "Cerrar sesion", destroy_user_session_url, method: :delete%></li>
+			<%else%>
+				<li><%= link_to "Cerrar sesion", destroy_user_session_url, method: :delete%></li> 
+			<%end%>
 		</ul>
 		<div id="combo-holder"></div>
 	</nav>

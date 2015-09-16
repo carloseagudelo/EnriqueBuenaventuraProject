@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :students
-
+  resources :glosary
+  resources :authors_worked
+  resources :books_worked
+  resources :chronology
 
   devise_scope :user do
     authenticated do

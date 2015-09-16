@@ -1,0 +1,17 @@
+<%= form_for :author, url: authors_worked_path(@author), method: :patch do |f| %>
+            
+    <p>
+        <%= f.label :nombre_de_la_palabra %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :Descripción %><br />
+        <%= f.text_area :description %>                
+    </p>
+    
+    <p>
+        <%= f.submit "guardar" %>
+    </p>
+    
+<% end %>

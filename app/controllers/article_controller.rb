@@ -38,23 +38,24 @@ class ArticleController < ApplicationController
 		@article = Article.find(params[:id])
 
 		if @article.update(article_params)
-		 	redirect_to document_index_path
+		 	redirect_to edit_document_article_path(:document_id, @article.id)
 		else 
 			render "edit"
 		end
 	end
 
-	def destroy
-	  @have_sidebar = true
-	  @article = Article.find(params[:id])
-	  @article.destroy
-	 
-	  redirect_to document_article_index_path
-	end
-	#El problema que tengo aca es porlos params
+	def destroy	 
+		@article = Article.find(params[:id])
+		  
+		if @article.destroy	 
+		  	redirect_to document_article_index_path
+		end
+		@have_sidebar = true
+		end
+
 private
   def article_params
-    params.require(:article).permit(:user_id, :name, :date, :decription, :attachment)
+    params.require(:article).permit(:name, :date, :decription, :attachment, :document_id, :user_id)
   end
 
 	def resolve_layout
