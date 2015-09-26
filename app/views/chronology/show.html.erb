@@ -1,0 +1,35 @@
+<h3><i class="fa fa-angle-right"></i></h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i> informacion del evento</h4>
+        <hr>
+
+		<p>
+		  <strong>Palabra:</strong>
+		  <%= @chronology.date %>
+		</p>
+
+		<p>
+		  <strong>Descripcion:</strong>
+		  <%= @chronology.event %>
+		</p>
+
+		<p>
+		  <strong>Descripción:</strong>
+		  <%= @chronology.descripton %>
+		</p>
+
+		<p>
+		  <strong>typo:</strong>
+		  <%= @chronology.type %>
+		</p>
+
+		<p>
+		  <strong>Imagen:</strong>
+		  <%= image_tag @chronology.url_url.to_s %>
+		</p>
+
+
+	</div>
+</div>

@@ -1,18 +1,31 @@
 class ChronologyController < ApplicationController
 
 	layout :resolve_layout
-	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update, :destroy]
+	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :show, :update, :destroy]
 
 	def index
-
+		@chronologies = Cronology.all
+		@have_sidebar = true
 	end
 
 	def new
-	
+		@chronology = Cronology.new
+		@have_sidebar = true
 	end
 
 	def create
+		@chronology = Cronology.new(chronology_params)
 
+		if @chronology.save
+			redirect_to chronology_index_path
+		else
+			new_chronology_path
+		end		
+	end
+
+	def show
+		@chronology = Cronology.find(params[:id])
+		@have_sidebar = true
 	end
 
 	def edit		
@@ -29,7 +42,7 @@ class ChronologyController < ApplicationController
 
 private
   def chronology_params
-    params.require(:article).permit()
+    params.require(:cronology).permit(:event, :date, :descripton, :url, :type_id)
   end
 
 	def resolve_layout
@@ -40,3 +53,4 @@ private
 	    end
 	end
 end
+

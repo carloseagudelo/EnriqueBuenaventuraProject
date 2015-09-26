@@ -1,2 +1,32 @@
-<h1>Aca ira el albun cronologico de la vida del maestro enrique buenaventura</h1>
-<h3>En contruccion</h3>
+<h3><i class="fa fa-angle-right"></i> Glosario del maestro Enrique Buenaventura</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i> Lista palabras necesarias</h4>
+        <hr>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>nombre</th>
+            <th>fecha</th>
+            <th>Descripcion</th>
+            <th>tipo</th>         
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @chronologies.each do |chronology| %>
+            <tr>
+              <td><%= chronology.event %></td>
+              <td><%= chronology.date %></td>
+              <td><%= chronology.descripton %></td>
+              <td><%= chronology.type_id %></td>
+
+              <td><%= link_to 'VER', chronology_path(chronology) %></td> 
+
+            </tr>
+          <% end %>
+          </tbody>
+      </table>
+    </div>
+</div>

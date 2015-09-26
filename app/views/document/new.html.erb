@@ -28,7 +28,7 @@
             <p>
                 <%= f.label :Prosa_base %><br />              
                 <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, 
-                { :class => 'select', :selected => params[:id]},) %>
+                { :class => 'select', :selected => params[:id]}) %>
             </p> 
 
             <p>
