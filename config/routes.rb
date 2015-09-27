@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :authors_worked
   resources :books_worked
   resources :chronology
+  resources :prose
+  resources :subtopic
+  resources :speciality
 
   devise_scope :user do
     authenticated do

@@ -49,7 +49,7 @@ class DocumentController < ApplicationController
 		if @document.save
 			redirect_to document_index_path, notice: "El docuemto #{@document.name} ha sido guardado correctamente."
 		else
-			render "new"
+			render  new_document_path
 		end
 	end
 
@@ -100,7 +100,7 @@ class DocumentController < ApplicationController
 	  if @document.update(document_params)
 	    redirect_to document_index_path
 	  else
-	    render 'edit'
+	    render  edit_document_path(@document)
 	  end
 	end
 

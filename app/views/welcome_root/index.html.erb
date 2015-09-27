@@ -1,1 +1,66 @@
-<h3><i class="fa fa-angle-right"></i> Bienvenido <strong><%=@name%></strong>, desde este dashBoard tendra acceso a la administracion de toda la plataforma</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h1>
+          <i class="fa fa-angle-right">Bienvenido  <strong><%=@name%></strong> al panel administrativo de la</i> 
+          <i class="fa fa-angle-right">plataforma interactiva Enrique Buenaventura</i>                  
+        </h1>
+        <h3>
+          <i class="fa fa-angle-right">Tenemos las siguientes notificaciones</i>
+        </h3>  
+        <section id="container" >
+		    <section id="main-conte  <section id="container"">
+		      <section class="wrapper">      
+		          <!-- page start-->
+		          <div class="tab-pane" id="chartjs">
+		              <div class="row mt">
+		                  <div class="col-lg-6">
+		                      <div class="content-panel">
+								  <h4><i class="fa fa-angle-right"></i><strong>USUARIOS INACTIVOS</strong></h4>
+		                          <div class="panel-body text-center">
+		                              <canvas id="doughnut" height="300" width="400"></canvas>
+		                           </div>
+		                           <h4>Actualmente en la plataforma hay <strong><%=@user%></strong> usuarios registrados sin ser aceptados en la plataforma</h4>
+		                           <%= link_to "Revisar Usuarios inactivos", students_indexN_path, :class=>"btn btn-primary btn-lg btn-block" %>
+		                      </div>
+		                       <br />
+		                  </div>		                 
+		                  <div class="col-lg-6">
+		                      <div class="content-panel">
+								  <h4><i class="fa fa-angle-right"></i><strong>DOCUMENTOS CARGADOS HASTA EL MOMENTO</strong></h4>
+		                          <div class="panel-body text-center">
+		                              <canvas id="line" height="300" width="400"></canvas>
+		                          </div>
+		                          <h4>Actualmente en la plataforma hay <strong><%=@document%></strong> Documentos cargados en la plataforma</h4>
+		                          <%= link_to "Revisar Documentos", document_index_path, :class=>"btn btn-primary btn-lg btn-block" %>
+		                      </div>
+		                      <br />
+		                  </div>
+		                  <div class="col-lg-6">
+		                      <div class="content-panel">
+								  <h4><i class="fa fa-angle-right"></i><strong>ELEMENTOS DE ANALISIS CREADOS</strong></h4>
+		                          <div class="panel-body text-center">
+		                              <canvas id="line" height="300" width="400"></canvas>
+		                          </div>
+		                          <h4>Actualmente en la plataforma hay <strong><%=@article%></strong> elementos de analisis creados por los usuarios en la plataforma</h4>
+		                          <%= link_to "Revisar elementos de analisis", document_article_index_path(:document_id), :class=>"btn btn-primary btn-lg btn-block" %>
+		                      </div>
+		                  </div>
+		                  <div class="col-lg-6">
+		                      <div class="content-panel">
+								  <h4><i class="fa fa-angle-right"></i><strong>ARTICULOS PUBLICADOS</strong></h4>
+		                          <div class="panel-body text-center">
+		                              <canvas id="line" height="300" width="400"></canvas>
+		                          </div>
+		                          <h4>Actualmente en la plataforma hay <strong><%=%></strong> Documentos creados por usuarios publicados en la plataforma</h4>
+		                          <%= link_to "Revisar articulos publicados", students_indexN_path, :class=>"btn btn-primary btn-lg btn-block" %>
+		                      </div>
+		                  </div>
+		              </div>
+		          </div>
+		          <!-- page end-->
+		      </section>          
+		    </section><!-- /MAIN CONTENT -->
+		</section>
+    </div>
+</div>

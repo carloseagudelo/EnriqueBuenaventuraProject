@@ -1,0 +1,17 @@
+<%= form_for :speciality, url: speciality_path(@speciality), method: :patch do |f| %>
+            
+    <p>
+        <%= f.label :Nombre_del_tipo_de_documento %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :Descripcion %><br />
+        <%= f.text_area :description %>                
+    </p>
+    
+    <p>
+        <%= f.submit "guardar" %>
+    </p>
+    
+<% end %>

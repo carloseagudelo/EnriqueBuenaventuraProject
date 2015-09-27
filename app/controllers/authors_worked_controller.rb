@@ -22,9 +22,9 @@ class AuthorsWorkedController < ApplicationController
 		@author = Author.new(author_params)
 
 		if @author.save
-			redirect_to authors_worked_path(@author)
+			redirect_to authors_worked_index_path
 		else 
-			reder "new"
+			redirect_to new_authors_worked_path
 		end
 	end
 
@@ -39,7 +39,7 @@ class AuthorsWorkedController < ApplicationController
 		if @author.update(author_params)
 			redirect_to authors_worked_index_path
 		else
-			redirect_to authors_worked_path(@author)
+			redirect_to edit_authors_worked_path(@author)
 		end
 	end
 

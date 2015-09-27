@@ -6,6 +6,9 @@ class WelcomeRootController < ApplicationController
 
 	def index
 		@name = current_user.name
+		@user =  User.with_role(:admin).count
+		@document = Document.count(:all)
+		@article = Article.count(:all)
 		@have_sidebar = true
 	end
 

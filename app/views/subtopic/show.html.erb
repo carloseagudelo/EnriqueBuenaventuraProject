@@ -1,0 +1,20 @@
+<h3><i class="fa fa-angle-right"></i>Subtema</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i>Informacion del subtipo seleccionada</h4>
+        <hr>
+		<p>
+		  <strong>Palabra:</strong>
+		  <%= @subtopic.name%>
+		</p>
+
+		<p>
+		  <strong>Descripcion:</strong>
+		  <%= @subtopic.description %>
+		</p>
+
+		<%= link_to 'IR A LA LISTA', prose_index_path  %><br />
+
+	</div>
+</div>

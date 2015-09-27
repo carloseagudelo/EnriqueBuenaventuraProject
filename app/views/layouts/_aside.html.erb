@@ -11,7 +11,7 @@
                   <li class="sub-menu">
                   <%= link_to "javascript:;" do%>
                     <i></i>
-                    <span class="glyphicon glyphicon-home">&nbsp;</span><spam>Inicio</spam>
+                    <span class="glyphicon glyphicon-home">&nbsp;</span><spam>INICIO</spam>
                     <span class="dcjq-icon"></span>
                   <%end%>                  
                       <ul class="sub">
@@ -19,7 +19,16 @@
                       </ul>
                   </li>
 
-                  
+                  <li class="sub-menu">
+                    <%= link_to "javascript:;" do%>
+                      <i></i>
+                      <span class="glyphicon glyphicon-user">&nbsp;</span><spam>USUARIOS</spam>
+                    <%end%>
+                      <ul class="sub">                          
+                          <li><%= link_to 'Listar Usuarios Activos', students_path %></li>
+                          <li><%= link_to 'Listar Usuarios Inactivos', students_indexN_path %></li>
+                      </ul>
+                  </li>
 
                   <li class="sub-menu">
                   <%= link_to "javascript:;" do%>
@@ -42,18 +51,46 @@
                       <ul class="sub">
                           <li><%= link_to 'Elementos Creados', document_article_index_path(:document_id) %></li>
                       </ul>
-                  </li>
+                  </li> 
 
                   <li class="sub-menu">
-                    <%= link_to "javascript:;" do%>
-                      <i></i>
-                      <span class="glyphicon glyphicon-user">&nbsp;</span><spam>USUARIOS</spam>
-                    <%end%>
-                      <ul class="sub">                          
-                          <li><%= link_to 'Listar Usuarios Activos', students_path %></li>
-                          <li><%= link_to 'Listar Usuarios Inactivos', students_indexN_path %></li>
+                      <a href="javascript:;" >
+                          <i></i>
+                          <span class="glyphicon glyphicon-italic">&nbsp;</span><span>PROSA BASE</span>
+                      </a>
+                      <ul class="sub">
+                          <li><%= link_to 'Lista de Prosa Base disponible', prose_index_path %></li>
                       </ul>
-                  </li>
+                      <ul class="sub">
+                          <li><%= link_to 'Agregar Prosa Base', new_prose_path %></li>
+                      </ul>
+                  </li>  
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i></i>
+                          <span class="glyphicon glyphicon-tags">&nbsp;</span><span>TIPO DE DOCUMENTO</span>
+                      </a>
+                      <ul class="sub">
+                          <li><%= link_to 'Lista de Tipos de Documentos disponible', speciality_index_path %></li>
+                      </ul>
+                      <ul class="sub">
+                          <li><%= link_to 'Agregar Tipo de Documento', new_speciality_path %></li>
+                      </ul>
+                  </li> 
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i></i>
+                          <span class="glyphicon glyphicon-list-alt">&nbsp;</span><span>SUBTEMA</span>
+                      </a>
+                       <ul class="sub">
+                          <li><%= link_to 'Lista de Subtemas disponible', subtopic_index_path %></li>
+                      </ul>
+                      <ul class="sub">
+                          <li><%= link_to 'Agregar Subtema', new_subtopic_path %></li>
+                      </ul>
+                  </li>                
 
                   <li class="sub-menu">
                   <%= link_to "javascript:;" do%>

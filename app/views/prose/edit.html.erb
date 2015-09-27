@@ -1,0 +1,17 @@
+<%= form_for :prose, url: prose_path(@prose), method: :patch do |f| %>
+            
+    <p>
+        <%= f.label :Nombre_de_la_prosa %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :Descripcion %><br />
+        <%= f.text_area :description %>                
+    </p>
+    
+    <p>
+        <%= f.submit "guardar" %>
+    </p>
+    
+<% end %>

@@ -23,7 +23,7 @@ class ArticleController < ApplicationController
 		if @article.save
 			redirect_to edit_document_article_path(@document.id, @article.id)
 		else
-			render "index"
+			redirect_to new_document_article_path(@document.id, @article.id)
 		end
 	end
 
@@ -40,7 +40,7 @@ class ArticleController < ApplicationController
 		if @article.update(article_params)
 		 	redirect_to edit_document_article_path(:document_id, @article.id)
 		else 
-			render "edit"
+			redirect_to edit_document_article_path(:document.id, @article.id)
 		end
 	end
 

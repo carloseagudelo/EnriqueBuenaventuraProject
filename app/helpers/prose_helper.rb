@@ -1,0 +1,2 @@
+module ProseHelper
+end

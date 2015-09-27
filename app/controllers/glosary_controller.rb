@@ -22,9 +22,9 @@ class GlosaryController < ApplicationController
 		@word = Glosary.new(glosary_params)
 
 		if @word.save
-			redirect_to glosary_path(@word)
+			redirect_to glosary_index_path
 		else 
-			reder "new"
+			redirect_to new_glosary_path
 		end
 	end
 
@@ -39,7 +39,7 @@ class GlosaryController < ApplicationController
 		if @word.update(glosary_params)
 			redirect_to glosary_index_path
 		else
-			redirect_to glosary_path(@word)
+			redirect_to edit_glosary_path(@word)
 		end
 	end
 

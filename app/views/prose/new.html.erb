@@ -1,0 +1,15 @@
+<%= form_for :prose, url: prose_index_path do |f| %>
+
+    <p>
+        <%= f.label :nombre_de_la_prosa %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :Descripción %><br />
+        <%= f.text_area :description %>                
+    </p>
+
+    <%= f.submit "Guardar" %>
+
+<% end %>

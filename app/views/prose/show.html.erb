@@ -1,0 +1,20 @@
+<h3><i class="fa fa-angle-right"></i>Prosa Base</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i>Informacion de la prosa seleccionada</h4>
+        <hr>
+		<p>
+		  <strong>Palabra:</strong>
+		  <%= @prose.name%>
+		</p>
+
+		<p>
+		  <strong>Descripcion:</strong>
+		  <%= @prose.description %>
+		</p>
+
+		<%= link_to 'IR A LA LISTA', prose_index_path  %><br />
+
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<h3><i class="fa fa-angle-right"></i>Prosa Base</h3>
+<br />
+<div class="col-md-12">
+    <div class="content-panel">
+        <h4><i class="fa fa-angle-right"></i>Lista de las prosas bases que se pueden usar</h4>
+        <hr>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>         
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @proses.each do |prose| %>
+            <tr>
+              <td><%= prose.name %></td>
+              <td><%= prose.description %></td>
+
+              <%if current_user.has_role?(:admin)%>
+                <td><%= link_to 'EDITAR', edit_prose_path(prose) %></td>
+                <td><%= link_to 'ELIMINAR', prose_path(prose), method: :delete, 
+                              data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
+                <td><%= link_to 'VER', prose_path(prose) %></td> 
+              <%end%>                           
+            </tr>
+          <% end %>
+          </tbody>
+      </table>
+    </div>
+</div>

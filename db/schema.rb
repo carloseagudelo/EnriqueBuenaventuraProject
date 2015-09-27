@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916005920) do
+ActiveRecord::Schema.define(version: 20150927021645) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -39,6 +39,26 @@ ActiveRecord::Schema.define(version: 20150916005920) do
     t.string   "description", limit: 255
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       limit: 50, null: false
+    t.float    "latitude",   limit: 24, null: false
+    t.float    "longitude",  limit: 24, null: false
+    t.integer  "country_id", limit: 4,  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "cities", ["country_id"], name: "index_cities_on_country_id", using: :btree
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "alpha2",     limit: 2,  null: false
+    t.string   "name",       limit: 50, null: false
+    t.float    "latitude",   limit: 24, null: false
+    t.float    "longitude",  limit: 24, null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "cronologies", force: :cascade do |t|
     t.string   "event",      limit: 255
     t.datetime "date"
@@ -47,9 +67,17 @@ ActiveRecord::Schema.define(version: 20150916005920) do
     t.integer  "type_id",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "photo_id",   limit: 4
   end
 
+  add_index "cronologies", ["photo_id"], name: "index_cronologies_on_photo_id", using: :btree
   add_index "cronologies", ["type_id"], name: "index_cronologies_on_type_id", using: :btree
+
+  create_table "document_types", force: :cascade do |t|
+    t.string   "name",       limit: 30, null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "documentauthors", force: :cascade do |t|
     t.integer  "document_id", limit: 4
@@ -89,10 +117,23 @@ ActiveRecord::Schema.define(version: 20150916005920) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "proses", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  create_table "images", force: :cascade do |t|
+    t.string   "image",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "photo",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "proses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "description", limit: 255
   end
 
   create_table "roles", force: :cascade do |t|
@@ -107,9 +148,10 @@ ActiveRecord::Schema.define(version: 20150916005920) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "specialities", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "description", limit: 255
   end
 
   create_table "students", force: :cascade do |t|
@@ -118,9 +160,10 @@ ActiveRecord::Schema.define(version: 20150916005920) do
   end
 
   create_table "subtopics", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "description", limit: 255
   end
 
   create_table "types", force: :cascade do |t|
@@ -161,6 +204,8 @@ ActiveRecord::Schema.define(version: 20150916005920) do
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   add_foreign_key "articles", "users"
+  add_foreign_key "cities", "countries"
+  add_foreign_key "cronologies", "photos"
   add_foreign_key "cronologies", "types"
   add_foreign_key "documents", "proses"
   add_foreign_key "documents", "specialities"

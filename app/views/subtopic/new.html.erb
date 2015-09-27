@@ -1,0 +1,15 @@
+<%= form_for :subtopic, url: subtopic_index_path do |f| %>
+
+    <p>
+        <%= f.label :nombre_del_subtipo %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+    <p>
+        <%= f.label :Descripción %><br />
+        <%= f.text_area :description %>                
+    </p>
+
+    <%= f.submit "Guardar" %>
+
+<% end %>

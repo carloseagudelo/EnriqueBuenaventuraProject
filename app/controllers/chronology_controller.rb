@@ -19,7 +19,7 @@ class ChronologyController < ApplicationController
 		if @chronology.save
 			redirect_to chronology_index_path
 		else
-			new_chronology_path
+			redirect_to new_chronology_path
 		end		
 	end
 

@@ -22,9 +22,9 @@ class BooksWorkedController < ApplicationController
 		@book = Book.new(book_params)
 
 		if @book.save
-			redirect_to books_worked_path(@book)
+			redirect_to books_worked_index_path
 		else 
-			reder "new"
+			redirect_to new_books_worked_path
 		end
 	end
 
