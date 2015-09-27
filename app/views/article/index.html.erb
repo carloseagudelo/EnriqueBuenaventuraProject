@@ -23,10 +23,12 @@
               <td><%= article.decription %></td>
 
               <%if current_user.has_role?(:admin)%>
-                <td><%= link_to 'Revisar', document_article_path(:document_id, article) %></td>
+                <td><%= link_to 'Revisar', edit_document_article_path(:document_id, article) %></td>
               <%end%>
 
-              <td><%= link_to 'Modificar', edit_document_article_path(:document_id, article) %></td>
+              <%if current_user.has_role?(:student)%>
+                <td><%= link_to 'Modificar', edit_document_article_path(:document_id, article) %></td>
+              <%end%>              
               <td><%= link_to 'Eliminar', document_article_path(:document_id, article), method: :delete, 
                               data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
             </tr>
