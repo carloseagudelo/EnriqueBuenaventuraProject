@@ -13,3 +13,28 @@
     <%= f.submit "Guardar" %>
 
 <% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 style="text-align: center"><i class="glyphicon glyphicon-italic"> Nuevo Libro trabajado</i>
+  	</div>
+		<div class="panel-body">
+			<<%= form_for :author, url: authors_worked_index_path do |f| %>
+
+			  <div class="form-group col-xs-9">
+			    <%= f.label :nombre_del_libro %><br 
+			    <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del tipo de documento',:class=>"form-control" %>
+			  </div>
+
+			  <div class="form-group col-xs-9">
+			    <%= f.label :Descripción %><br />
+			    <%= f.text_area :description, placeholder: 'Digita  la descripcion del tipo de documento',:class=>"form-control" %>
+			  </div>
+				
+			   <div class="form-group col-xs-9">
+    				<%= f.submit "Guardar",:class=>"btn btn-primay" %>
+				</div>
+			<% end %>
+		</div>
+ 	 </div>
+</div>

@@ -1,17 +1,25 @@
-<%= form_for :word, url: glosary_path(@word), method: :patch do |f| %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-th-list"></i> Modificar la palabara <strong><%=@word.word%></h3>
+    </div>
+    <div class="panel-body">   
+        <%= form_for :word, url: glosary_path(@word), method: :patch do |f| %>
             
-    <p>
-        <%= f.label :nombre_de_la_palabra %><br />
-        <%= f.text_field :word %>
-    </p>
-    
-    <p>
-        <%= f.label :Descripción %><br />
-        <%= f.text_area :description %>                
-    </p>
-    
-    <p>
-        <%= f.submit "guardar" %>
-    </p>
-    
-<% end %>
+            <div class="form-group col-xs-9">
+                <%= f.label :nombre_de_la_palabra %><br />
+                <%= f.text_field :word, autofocus: true, placeholder: 'Digita nombre del nuevo documento',:class=>"form-control" %>
+            </div>
+            
+            <div class="form-group col-xs-9">
+                <%= f.label :Descripcion %><br />
+                <%=f.text_area :description, autofocus: true, placeholder: 'Digita una breve descripción del tipo de documento ',:class=>"form-control"%>
+            </div>  
+
+            <div class="form-group col-xs-12">
+                <%= f.submit "guardar", :class=>"btn btn-primary"%>
+                 <%= link_to 'Atras', glosary_index_path, :class=>"btn btn-primary" %>
+            </div>
+            
+        <% end %>                        
+    </div>
+</div> 

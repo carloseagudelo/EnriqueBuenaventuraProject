@@ -1,20 +1,22 @@
-<h3><i class="fa fa-angle-right"></i></h3>
-<br />
-<div class="col-md-12">
-    <div class="content-panel">
-        <h4><i class="fa fa-angle-right"></i> informacion del documento</h4>
-        <hr>
-		<p>
-		  <strong>Palabra:</strong>
-		  <%= @word.word %>
-		</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-th-list"></i> Detalle de la palabara <strong><%=@word.word%></h3>
+    </div>
+    <div class="panel-body"> 
 
-		<p>
-		  <strong>Descripcion:</strong>
-		  <%= @word.description %>
-		</p>
+        <div class="form-group col-xs-9">
+            <strong>Nombre de la palabra</srong><br />
+            <%= @word.word%>
+        </div>
+        
+        <div class="form-group col-xs-9">
+            <strong>Descripcion:</strong><br />
+            <%= @word.description %>
+        </div>  
 
-		<%= link_to 'IR A LA LISTA', glosary_index_path  %><br />
-
-	</div>
-</div>
+        <div class="form-group col-xs-12">
+            <%= link_to 'Atras', glosary_index_path, :class=>"btn btn-primary" %>
+        </div>
+                        
+    </div>
+</div> 
