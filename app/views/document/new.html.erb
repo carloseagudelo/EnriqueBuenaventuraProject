@@ -1,77 +1,78 @@
-<h3><i class="fa fa-angle-right"></i> Ingresar un nuevo documento del maestro Enrique Buenaventura</h3>
-<br />
-<div class="col-md-12">
-    <div class="content-panel">
-    <h4><i class="fa fa-angle-right"></i> LIngrese la informacion necesaria con respecto al docuemto a ingresar</h4>
-        <hr>    
-        <%= form_for :document, url: document_index_path do |f| %>            
-            <p>
-                <%= f.label :nombre_del_documento %><br />
-                <%= f.text_field :name %>
-            </p>
-            
-            <p>
-                <%= f.label :Descripción %><br />
-                <%= f.text_area :description %>                
-            </p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <h3 style="text-align: center"><i class="glyphicon glyphicon-file"></i> Nuevo documento del maestro Enrique Buenaventura</h3>
+  </div>
+  <div class="panel-body">
+            <%= form_for :document, url: document_index_path do |f| %> 
 
-            <p>
-                <%= f.label :date %><br />
-                <%= f.date_field :date %>
-            </p>
-            
-            <p>
-                <%= f.label :Autor %><br />
-                <%= f.text_field :autor%>
-            </p> 
 
-            <p>
-                <%= f.label :Prosa_base %><br />              
-                <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, 
-                { :class => 'select', :selected => params[:id]}) %>
-            </p> 
 
-            <p>
-                <%= f.label :Tipo_de_documento %><br />              
-                <%= f.collection_select(:speciality_id, @types, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
-                { :class => 'select', :selected => params[:id]}) %>
-            </p> 
+          <div class="form-group col-xs-9">
+            <%= f.label :nombre_del_documento %><br />
+            <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del nuevo documento',:class=>"form-control" %>
+          </div>
 
-            <p>
-                <%= f.label :Subtemas %><br />              
-                <%= f.collection_select(:subtopic_id, @subtopics, :id, :name, {:prompt => 'Seleccione un subtema'}, 
-                { :class => 'select', :selected => params[:id]}) %>
-            </p>
 
-            <%= fields_for(@document_author) do |da| %>
-                <p>
-                    <%= da.label "Autores" %><br />
-                    <%=  collection_select(:authors, :id, @all_authors, :id, :name, {}, {:multiple => true}) %>
 
-                </p>
-            <%  end %>
+          <div class="form-group col-xs-9">
+            <%= f.label :Descripción %><br />
+            <%= f.text_area :description, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control"%>
+          </div>      
+          <div class="form-group col-xs-9">
+            <%= f.label :Fecha_Del_Documento %><br />
+            <%= f.date_field :date, :class=>"form-control" %>
+          </div>
+          <div class="form-group col-xs-9">
+            <%= f.label :Autor %><br />
+            <%= f.text_field :autor, :value => 'Enrique Buenaventura', autofocus: true, :class=>"form-control"%>
+          </div>   
+          <!--
+            <div class="form-group col-xs-9">
+            <%= f.label :Prosa_base %><br />  
+            <%= f.select(:prose_id, options_for_select([['opcion1', 1], ['opcion2', 2]]), {}, {class: "form-control"}) %>
+            </div>-->
+                <div class="form-group col-xs-9">
+                    <%= f.label :Prosa_base %><br />              
+                    <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, { :class => 'select', :selected => params[:id]}) %>
+                </div> 
 
-            <%= fields_for(@document_book) do |da| %>
-                <p>
-                    <%= da.label "Libros" %><br />
-                    <%=  collection_select(:books, :id, @all_books, :id, :name, {}, {:multiple => true}) %>
+                <div class="form-group col-xs-9">
+                    <%= f.label :Tipo_de_documento %><br />              
+                    <%= f.collection_select(:speciality_id, @types, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
+                    { :class => 'select', :selected => params[:id]}) %>
+                </div> 
 
-                </p>
-            <%  end %>
-            
-            <p>
-                <%= f.label :Documento %>
-                <%= f.file_field :attachment %>
-            </p>
-            
-            <p>
-                <%= f.submit "guardar" %>
-            </p> 
-        <% end %>
-
-        <%= link_to 'Atras', document_index_path %>                 
-    </div>
+                <div class="form-group col-xs-9">
+                    <%= f.label :Subtemas %><br />              
+                    <%= f.collection_select(:subtopic_id, @subtopics, :id, :name, {:prompt => 'Seleccione un subtema'}, 
+                    { :class => 'select', :selected => params[:id]}) %>
+                </div>
+                <div class="form-group col-xs-9">
+                <%= fields_for(@document_author) do |da| %>
+                        <%= da.label "Autores" %><br />
+                        <%=  collection_select(:authors, :id, @all_authors, :id, :name, {}, {:multiple => true}) %>
+                <%  end %>
+                </div>
+                <div class="form-group col-xs-9">
+                <%= fields_for(@document_book) do |da| %>
+                        <%= da.label "Libros" %><br />
+                        <%=  collection_select(:books, :id, @all_books, :id, :name, {}, {:multiple => true}) %>
+                <%  end %>
+                </div>
+                
+                <div class="form-group col-xs-9">
+                    <%= f.label :Cargar_documento %>
+                    <%= f.file_field :attachment %>
+                    <p class="help-block">Solo se permiten documentos en formato .pdf</p>
+                </div>
+                
+                <div class="form-group col-xs-9">
+                    <%= f.submit "guardar", :class=>"btn btn-primary" %>
+                </div> 
+            <% end %>
+            <div class="form-group col-xs-9">
+                <%= link_to 'Lista de documentos', document_index_path %>  
+            </div> 
+  </div>
 </div>
-
-
 
