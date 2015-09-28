@@ -21,10 +21,10 @@
               <td><%= prose.description %></td>
 
               <%if current_user.has_role?(:admin)%>
+                <td><%= link_to 'VER', prose_path(prose) %></td> 
                 <td><%= link_to 'EDITAR', edit_prose_path(prose) %></td>
                 <td><%= link_to 'ELIMINAR', prose_path(prose), method: :delete, 
-                              data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
-                <td><%= link_to 'VER', prose_path(prose) %></td> 
+                              data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>                
               <%end%>                           
             </tr>
           <% end %>
