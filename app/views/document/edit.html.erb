@@ -1,77 +1,76 @@
-<h3><i class="fa fa-angle-right"></i> Modificar la informacion del documento docuemtno con nombre: <strong><%=@document.name%></strong></h3>
-<br />
-<div class="col-md-12">
-    <div class="content-panel">
-    <h4><i class="fa fa-angle-right"></i> LIngrese la informacion necesaria con respecto al docuemto a ingresar</h4>
-        <hr>    
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-file"></i> Modificar el documento <strong><%=@document.name%></h3>
+    </div>
+    <div class="panel-body">   
         <%= form_for :document, url: document_path(@document), method: :patch do |f| %>
             
-            <p>
+            <div class="form-group col-xs-9">
                 <%= f.label :nombre_del_documento %><br />
-                <%= f.text_field :name %>
-            </p>
+                <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del nuevo documento',:class=>"form-control" %>
+            </div>
             
-            <p>
+            <div class="form-group col-xs-9">
                 <%= f.label :Descripción %><br />
-                <%= f.text_area :description %>                
-            </p>
+                <%= f.text_area :description, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control"%>
+            </div>  
 
-            <p>
-                <%= f.label :date %><br />
-                <%= f.date_field :date %>
-            </p>
+            <div class="form-group col-xs-9">
+                <%= f.label :Fecha_Del_Documento %><br />
+                <%= f.date_field :date, :class=>"form-control" %>
+            </div>
             
-            <p>
+            <div class="form-group col-xs-9">
                 <%= f.label :Autor %><br />
-                <%= f.text_field :autor%>
-            </p>            
+                <%= f.text_field :autor, :value => 'Enrique Buenaventura', autofocus: true, :class=>"form-control"%>
+            </div>             
 
-            <p>
-                <%= f.label :Documento %>
-                <%= f.file_field :attachment %>
-            </p>
-
-
-            <p>
+            
+            <div class="form-group col-xs-9">
                 <%= f.label :Prosa_base %><br />              
-                <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, 
-                { :class => 'select', :selected => params[:id]},) %>
-            </p> 
+                <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, { :class =>"form-control", :selected => params[:id]}) %>
+            </div> 
+ 
 
-            <p>
+           <div class="form-group col-xs-9">
                 <%= f.label :Tipo_de_documento %><br />              
                 <%= f.collection_select(:speciality_id, @types, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
-                { :class => 'select', :selected => params[:id]}) %>
-            </p> 
+                { :class =>"form-control", :selected => params[:id]}) %>
+            </div> 
 
-            <p>
+            <div class="form-group col-xs-9">
                 <%= f.label :Subtemas %><br />              
                 <%= f.collection_select(:subtopic_id, @subtopics, :id, :name, {:prompt => 'Seleccione un subtema'}, 
-                { :class => 'select', :selected => params[:id]}) %>
-            </p>
+                { :class =>"form-control", :selected => params[:id]}) %>
+            </div>
 
-            <%= fields_for(@document_author) do |da| %>
-                <p>
-                    <%= da.label "Autores" %><br />
-                    <%=  collection_select(:authors, :id, @all_authors, :id, :name, {}, {:multiple => true}) %>
+            <div class="form-group col-xs-9">
+                <%= fields_for(@document_author) do |da| %>
+                <%= da.label "Autores trabajados" %><br />
+                <%=  collection_select(:authors, :id, @all_authors, :id, :name, {}, {:multiple => true, :class=>"form-control"}) %>
+                <%  end %>
+            </div>
 
-                </p>
-            <%  end %>
+            <div class="form-group col-xs-9">
+                <%= fields_for(@document_book) do |da| %>
+                <%= da.label "Libros trabajados" %><br />
+                <%=  collection_select(:books, :id, @all_books, :id, :name, {}, {:multiple => true, :class=>"form-control"}) %>
+                <%  end %>
+            </div>
 
-            <%= fields_for(@document_book) do |da| %>
-                <p>
-                    <%= da.label "Libros" %><br />
-                    <%=  collection_select(:books, :id, @all_books, :id, :name, {}, {:multiple => true}) %>
+            <div class="form-group col-xs-9">
+                <%= f.label :Cargar_documento %>
+                <%= f.file_field :attachment,:class=>"form-control" %>
+                <p class="help-block">Solo se permiten documentos en formato PDF</p>
+            </div>
 
-                </p>
-            <%  end %>
-            
-            <p>
-                <%= f.submit "guardar" %>
-            </p>
+            <div class="form-group col-xs-12">
+                <%= f.submit "guardar", :class=>"btn btn-primary"%>
+                 <%= link_to 'Atras', document_index_path, :class=>"btn btn-primary" %>
+            </div>
             
         <% end %>
 
-        <%= link_to 'Atras', document_index_path %>                 
+                        
     </div>
 </div>

@@ -1,23 +1,56 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 style="text-align: center"><i class="glyphicon glyphicon-user"></i> Detalle del usuario <strong><%=@user.name%></h3>
+  	</div>
+    <div class="panel-body">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.interest %>
-</p>
+    	<div class="form-group col-xs-9">
+           <strong>Documento de indentidad:</strong><br />
+		 	 <%= @user.credential %>
+     	</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.id %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.credential %>
-</p>
 
-<%= link_to student_path, method: :PATCH, data: {confirm: 'Esta seguro que desea cambiar el rol del usuario'} do%>
-  <i class="glyphicon glyphicon-wrench" ></i>
-<%end%> 
+     	<div class="form-group col-xs-9">
+           <strong>Correo Electronico:</strong><br />
+		 	 <%= @user.email %>
+     	</div>
+
+     	<div class="form-group col-xs-9">
+           <strong>Intereses:</strong><br />
+		 	 <%= @user.interest %>
+     	</div>
+
+     	<div class="form-group col-xs-9">
+           <strong>Nivel Academico:</strong><br />
+		 	 <%= @user.level %>
+     	</div>
+
+     	<div class="form-group col-xs-9">
+           <strong>Materia matriculada:</strong><br />
+		 	 <%= @user.subject %>
+
+     	</div>
+
+     	<div class="form-group col-xs-9">
+           <strong>Semestre cursante:</strong><br />
+		 	 <%= @user.semester %>
+     	</div>		
+
+     	<%if @user.has_role?(:user)%>
+     		<div class="form-group col-xs-9">
+				<%= link_to student_path, method: :PATCH, data: {confirm: 'Esta seguro que desea cambiar el rol del usuario'} do%>
+	  				<i>Habilitar</i>
+				<%end%> 
+			</div>
+     	<%elsif @user.has_role?(:student)%>
+     		<div class="form-group col-xs-9">
+				<%= link_to student_path, method: :PATCH, data: {confirm: 'Esta seguro que desea cambiar el rol del usuario'} do%>
+	  				<i>Bloquear</i>
+				<%end%> 
+			</div>
+     	<%end%>
+
+		
+	</div>
+</div>

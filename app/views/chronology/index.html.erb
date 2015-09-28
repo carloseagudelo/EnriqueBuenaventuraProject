@@ -1,92 +1,102 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <h3>Vida de Enrique</h3>
-      <div class="caption">
-        <br />
-          <h4><i class="fa fa-angle-right"></i>Listado de Sucesos</h4>
-          <hr>
-          <table class="table">
-              <thead>
-              <tr>
-                <th>fecha</th>
-                <th>nombre</th>                     
-              </tr>
-              </thead>
-
-              <tbody>
-              <% @chronologies.each do |chronology| %>
-                <% if chronology.type_id == 1 %>
-                  <tr>                  
-                    <td><%= chronology.date %></td>
-                    <td><%= chronology.event %></td>
-                    <td><%= link_to 'VER', chronology_path(chronology) %></td>
-                  </tr>
-                <%end%>
-              <% end %>
-              </tbody>
-          </table>
-      </div>
+<br />
+<div class="panel panel-default">
+    <div class="col-md-12">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-calendar"></i> Cronologia</h3>
+        <hr>
     </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <h3>Teatro del Valle</h3>
-      <div class="caption">
-        <br />
-          <h4><i class="fa fa-angle-right"></i>Listado de Sucesos</h4>
-          <hr>
-          <table class="table">
-              <thead>
-              <tr>
-                <th>fecha</th>
-                <th>nombre</th>                     
-              </tr>
-              </thead>
+    <div class="content-panel">
+     <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <h3>Vida de Enrique</h3>
+            <div class="caption">
+              <br />
+                <h4><i class="fa fa-angle-right"></i>Listado de Sucesos</h4>
+                <hr>
+                <table class="table">
+                    <thead>
+                    <tr>
+                      <th>fecha</th>
+                      <th>nombre</th>                     
+                    </tr>
+                    </thead>
 
-              <tbody>
-              <% @chronologies.each do |chronology| %>
-               <% if chronology.type_id == 2 %>
-                  <tr>                  
-                    <td><%= chronology.date %></td>
-                    <td><%= chronology.event %></td>
-                    <td><%= link_to 'VER', chronology_path(chronology) %></td>
-                  </tr>
-                <%end%>
-              <% end %>
-              </tbody>
-          </table>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <h3>Contexto Mundial</h3>
-      <div class="caption">
-        <br />
-          <h4><i class="fa fa-angle-right"></i>Listado de Sucesos</h4>
-          <hr>
-          <table class="table">
-              <thead>
-              <tr>
-                <th>fecha</th>
-                <th>nombre</th>                     
-              </tr>
-              </thead>
+                    <tbody>
+                    <% @chronologies.each do |chronology| %>
+                      <% if chronology.type_id == 1 %>
+                        <tr>                  
+                          <td><%= chronology.date.year %></td>
+                          <td><%= chronology.event %></td>
+                          <td><%= link_to 'VER', chronology_path(chronology) %></td>
+                        </tr>
+                      <%end%>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <h3>Teatro del Valle</h3>
+            <div class="caption">
+              <br />
+                <h4><i class="fa fa-angle-right"></i>Listado de Sucesos</h4>
+                <hr>
+                <table class="table">
+                    <thead>
+                    <tr>
+                      <th>fecha</th>
+                      <th>nombre</th>                     
+                    </tr>
+                    </thead>
 
-              <tbody>
-              <% @chronologies.each do |chronology| %>
-                <% if chronology.type_id == 3 %>
-                  <tr>                  
-                    <td><%= chronology.date %></td>
-                    <td><%= chronology.event %></td>
-                    <td><%= link_to 'VER', chronology_path(chronology) %></td>
-                  </tr>
-                <%end%>
-              <% end %>
-              </tbody>
-          </table>
+                    <tbody>
+                    <% @chronologies.each do |chronology| %>
+                     <% if chronology.type_id == 2 %>
+                        <tr>                  
+                          <td><%= chronology.date.year %></td>
+                          <td><%= chronology.event %></td>
+                          <td><%= link_to 'VER', chronology_path(chronology) %></td>
+                        </tr>
+                      <%end%>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <h3>Contexto Mundial</h3>
+            <div class="caption">
+              <br />
+                <h4><i class="fa fa-angle-right"></i>Listado de Sucesos</h4>
+                <hr>
+                <table class="table">
+                    <thead>
+                    <tr>
+                      <th>fecha</th>
+                      <th>nombre</th>                     
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <% @chronologies.each do |chronology| %>
+                      <% if chronology.type_id == 3 %>
+                        <tr>                  
+                          <td><%= chronology.date.year %></td>
+                          <td><%= chronology.event %></td>
+                          <td><%= link_to 'VER', chronology_path(chronology) %></td>
+                        </tr>
+                      <%end%>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
-  </div>
 </div>
