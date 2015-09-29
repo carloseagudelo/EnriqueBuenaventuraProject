@@ -20,13 +20,12 @@
               <td><%= author.name %></td>
               <td><%= author.description %></td>
 
+              <td><%= link_to 'VER', authors_worked_path(author) %></td>  
               <%if current_user.has_role?(:admin)%>
                 <td><%= link_to 'EDITAR', edit_authors_worked_path(author) %></td>
                 <td><%= link_to 'ELIMINAR', authors_worked_path(author), method: :delete, 
                               data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
-              <%end%>
-
-              <td><%= link_to 'VER', authors_worked_path(author) %></td>              
+              <%end%>                          
             </tr>
           <% end %>
            </tbody>

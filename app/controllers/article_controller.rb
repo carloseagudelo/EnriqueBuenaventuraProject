@@ -19,6 +19,7 @@ class ArticleController < ApplicationController
 		@document = Document.find(params[:document_id])		
 		@article = Article.new(article_params)
 		@article.user_id = current_user.id
+		@article.date = Time.now
 
 		if @article.save
 			redirect_to edit_document_article_path(@document.id, @article.id)

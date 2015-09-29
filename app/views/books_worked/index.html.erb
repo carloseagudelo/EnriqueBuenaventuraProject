@@ -20,13 +20,12 @@
               <td><%= book.name %></td>
               <td><%= book.description %></td>
 
+              <td><%= link_to 'VER', books_worked_path(book) %></td> 
               <%if current_user.has_role?(:admin)%>
                 <td><%= link_to 'EDITAR', edit_books_worked_path(book) %></td>
                 <td><%= link_to 'ELIMINAR', books_worked_path(book), method: :delete, 
                               data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
-              <%end%>
-
-              <td><%= link_to 'VER', books_worked_path(book) %></td>              
+              <%end%>                           
             </tr>
           <% end %>
            </tbody>

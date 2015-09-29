@@ -18,7 +18,7 @@
 
             <% @documents.each do |document| %>
               <tr>
-                <td><%= document.date %></td>
+                <td><% t=  document.date %> <%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></td>
                 <td><%= document.name %></td>
                 <td><%= document.description %></td>
                 <td>

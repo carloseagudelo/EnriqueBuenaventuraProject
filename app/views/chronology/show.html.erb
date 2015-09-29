@@ -1,28 +1,33 @@
-<h3><i class="fa fa-angle-right"></i></h3>
-<br />
-<div class="col-md-12">
-    <div class="content-panel">
-        <h4><i class="fa fa-angle-right"></i> informacion del evento</h4>
-        <hr>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-th-list"></i> Detalle de la palabara <strong><%=@chronology.event%></h3>
+    </div>
+    <div class="panel-body"> 
 
-		<p>
-		  <strong>Palabra:</strong>
-		  <%= @chronology.date %>
-		</p>
+        <div class="form-group col-xs-9">
+            <strong>FEcha del evento</srong><br />
+            <%t = @chronology.date%> <%= t.day.to_s + " " + t.strftime("%b") %>
+			<%= t.strftime("%Y") %>
+        </div>
+        
+        <div class="form-group col-xs-9">
+            <strong>Nombre:</strong><br />
+             <%=@chronology.event %>
+        </div>  
 
-		<p>
-		  <strong>Descripcion:</strong>
-		  <%= @chronology.event %>
-		</p>
+         <div class="form-group col-xs-9">
+            <strong>Descripcion:</strong><br />
+             <%= @chronology.descripton %>
+        </div> 
 
-		<p>
-		  <strong>Descripción:</strong>
-		  <%= @chronology.descripton %>
-		</p>
+         <div class="form-group col-xs-9">
+            <strong>Imagen:</strong><br />
+             <%= image_tag @chronology.url_url.to_s %>
+        </div> 
 
-		<p>
-		  <strong>Imagen:</strong>
-		  <%= image_tag @chronology.url_url.to_s %>
-		</p>
-	</div>
+        <div class="form-group col-xs-12">
+            <%= link_to 'Atras', chronology_index_path, :class=>"btn btn-primary" %>
+        </div>
+                        
+    </div>
 </div>

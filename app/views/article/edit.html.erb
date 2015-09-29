@@ -4,53 +4,89 @@
 	</iframe>	
 
 	<div style="position:absolute;top:5;left:50%;width:50%;height:100%;">
+		<div class="panel panel-default">
+	    	<div class="panel-heading">
+	        	<h3 style="text-align: center"><i class="glyphicon glyphicon-pencil"></i> Editor</h3>
+	    	</div>
+	    	<div class="panel-body"> 
 
-	    <%= form_for :article, url: document_article_path(:document_id, @article.id), method: :patch  do |f| %>
-	    
-	        <p>
-	            <%= f.label :nombre_del_articulo %><br />
-	            <%= f.text_field :name %>
-	        </p>
-	        
-	        <p>
-	            <%= f.label :Descripción %><br />
-	            <%= f.text_area :decription %>                
-	        </p>
+			    <%= form_for :article, url: document_article_path(:document_id, @article.id), method: :patch  do |f| %>	        
 
-	        <p>
-	            <%= f.label :date %><br />
-	            <%= f.date_field :date %>
-	        </p>
+			        <%= f.text_area :attachment, :class => "tinymce", :rows =>"33%", :cols => 30 %><br />
+			        <%= tinymce %>
 
-	        <%= f.text_area :attachment, :class => "tinymce", :rows => 10, :cols => 30 %>
-	        
-	        <%= f.submit "Guardar" %><br /><br />
+			        <div class="form-group col-xs-12">
+				        <%= f.submit "guardar", :class=>"btn btn-primary"%>
+				        <%= link_to "Crear Citacion", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
+						<%= link_to "informacion Elemento", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal2"} %>
+						<%= link_to "Referencias", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal3"} %>
+				    </div>	    
+				
+					
 
-	    <% end %>
-	    <%= tinymce %>
+					<div class="modal fade" id="modal1" role="dialog">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">Deposite el pedazo de texto que desea citar, y asegurese de que este correcto antes de hacer clip en el boton 'Crear Citacion'</h4>
+					      </div>
+					      <div  class="modal-body">
+					        <textarea id="myTextarea" rows="15" cols="90"></textarea>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <button type="button" onclick="myFunction()" class="btn btn-default" data-dismiss="modal">Crear Citacion</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 
-	    
-		
-		<%= link_to "Crear Citacion", "#", :class=>"btn btn-default", data: {toggle: "modal", target: "#modal"} %>
+					<div class="modal fade" id="modal2" role="dialog">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">Informacion extra del elemento de analisis</h4>
+					      </div>
+					      <div  class="modal-body">
+					        <div class="form-group col-xs-9">
+				                <%= f.label :nombre_del_elemento_de_analisis %><br />
+				                <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del elemento de analisis',:class=>"form-control" %>
+				            </div>
 
-		<div class="modal fade" role="dialog">
-		  <div id="modal1" class="modal-dialog">
+				             <div class="form-group col-xs-9">
+				                <%= f.label :Descripción %><br />
+				                <%= f.text_area :decription, placeholder: 'Digita la descripcion elemento de analisis',:class=>"form-control" %>
+				            </div>
+					      </div>
+					      <div class="modal-footer">			       
+				            <div class="form-group col-xs-12">
+				                <%= f.submit "guardar", :class=>"btn btn-primary"%>
+				            </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 
-		    <!-- Modal content-->
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 class="modal-title">Deposite el pedazo de texto que desea citar, y asegurese de que este correcto antes de hacer clip en el boton 'Crear Citacion'</h4>
-			      </div>
-			      <div  class="modal-body">
-			        <textarea id="myTextarea" rows="15" cols="90"></textarea>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" onclick="myFunction()" class="btn btn-default" data-dismiss="modal">Crear Citacion</button>
-			      </div>
-			    </div>
-		  </div>
+					<div class="modal fade" id="modal3" role="dialog">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title">En las siguientes direcciones tambien encontrara informacion detalla para una mejor redaccion del dcumento de analisis</h4>
+					      </div>
+					      <div  class="modal-body">
+					        <%= link_to "Direccion 1", "#", :class=>"btn btn-primary"%>
+					        <%= link_to "Direccion 2", "#", :class=>"btn btn-primary"%>
+					        <%= link_to "Direccion 3", "#", :class=>"btn btn-primary"%>
+					        <%= link_to "Direccion 4", "#", :class=>"btn btn-primary"%>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </article>
