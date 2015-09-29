@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927021645) do
+ActiveRecord::Schema.define(version: 20150929055335) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -104,6 +104,9 @@ ActiveRecord::Schema.define(version: 20150927021645) do
     t.integer  "subtopic_id",   limit: 4
     t.integer  "prose_id",      limit: 4
     t.integer  "speciality_id", limit: 4
+    t.string   "place",         limit: 255
+    t.string   "status",        limit: 255
+    t.integer  "number",        limit: 4
   end
 
   add_index "documents", ["prose_id"], name: "index_documents_on_prose_id", using: :btree

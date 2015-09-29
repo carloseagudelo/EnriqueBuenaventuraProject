@@ -6,6 +6,11 @@
     <%= form_for :document, url: document_index_path do |f| %> 
 
       <div class="form-group col-xs-9">
+        <%= f.label :Numero_del_documento %><br />
+        <%= f.text_field :number, autofocus: true, placeholder: 'Digita nombre del nuevo documento',:class=>"form-control" %>
+      </div>
+
+      <div class="form-group col-xs-9">
         <%= f.label :nombre_del_documento %><br />
         <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del nuevo documento',:class=>"form-control" %>
       </div>
@@ -13,12 +18,24 @@
       <div class="form-group col-xs-9">
         <%= f.label :Descripción %><br />
         <%= f.text_area :description, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control"%>
-      </div>  
+      </div> 
 
       <div class="form-group col-xs-9">
-        <%= f.label :Fecha_Del_Documento %><br />
+        <%= f.label :Estado %><br />
+        <%= f.text_area :status, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control"%>
+      </div> 
+
+      <div class="form-group col-xs-9">
+        <%= f.label :Fecha_De_publicacion_Documento %><br />
         <%= f.date_field :date, :class=>"form-control" %>
+        <p class="help-block">Solo se permiten la fecha en caso de que este fuese publicado</p>
       </div>
+
+      <div class="form-group col-xs-9">
+        <%= f.label :Lugar_de_publicacion %><br />
+        <%= f.text_area :place, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control"%>
+        <p class="help-block">Solo se permiten el lugar en caso de que este fuese publicado</p>
+      </div> 
 
       <div class="form-group col-xs-9">
         <%= f.label :Autor %><br />
