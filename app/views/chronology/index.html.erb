@@ -2,6 +2,9 @@
 <div class="panel panel-default">
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-calendar"></i> Cronologia</h3>
+        <%if current_user.has_role?(:student)%>
+            <br />
+        <%end%>
         <hr>
     </div>
     <div class="content-panel">
@@ -27,7 +30,11 @@
                         <tr>                  
                           <td><%= chronology.date.year %></td>
                           <td><%= chronology.event %></td>
-                          <td><%= link_to 'VER', chronology_path(chronology) %></td>
+                          <td>
+                            <%= link_to chronology_path(chronology) do%>
+                              <i class="glyphicon glyphicon-eye-open" ></i>
+                            <%end%>
+                          </td>
                         </tr>
                       <%end%>
                     <% end %>
@@ -57,7 +64,11 @@
                         <tr>                  
                           <td><%= chronology.date.year %></td>
                           <td><%= chronology.event %></td>
-                          <td><%= link_to 'VER', chronology_path(chronology) %></td>
+                          <td>
+                            <%= link_to chronology_path(chronology) do%>
+                              <i class="glyphicon glyphicon-eye-open" ></i>
+                            <%end%>
+                          </td>
                         </tr>
                       <%end%>
                     <% end %>
@@ -87,7 +98,11 @@
                         <tr>                  
                           <td><%= chronology.date.year %></td>
                           <td><%= chronology.event %></td>
-                          <td><%= link_to 'VER', chronology_path(chronology) %></td>
+                          <td>
+                            <%= link_to chronology_path(chronology) do%>
+                              <i class="glyphicon glyphicon-eye-open" ></i>
+                            <%end%>
+                          </td>
                         </tr>
                       <%end%>
                     <% end %>

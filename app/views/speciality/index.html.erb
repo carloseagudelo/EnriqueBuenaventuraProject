@@ -18,7 +18,7 @@
           <% @specialities.each do |speciality| %>
             <tr>
               <td><%= speciality.name %></td>
-              <td><%= speciality.description %></td>
+              <td><%= truncate(speciality.description, :length => 100) %></td>
 
               <%if current_user.has_role?(:admin)%>
                 <td><%= link_to 'VER', speciality_path(speciality) %></td> 

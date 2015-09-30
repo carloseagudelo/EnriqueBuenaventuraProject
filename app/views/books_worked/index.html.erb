@@ -2,6 +2,9 @@
 <div class="panel panel-default">
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-book"></i> Bibliografia citada</h3> 
+        <%if current_user.has_role?(:student)%>
+            <br />
+        <%end%>
         <hr>
     </div>
     <div class="content-panel">
@@ -18,7 +21,7 @@
           <% @books.each do |book| %>
             <tr>
               <td><%= book.name %></td>
-              <td><%= book.description %></td>
+              <td><%= truncate(book.description, :length => 100) %></td>
 
               <td><%= link_to 'VER', books_worked_path(book) %></td> 
               <%if current_user.has_role?(:admin)%>

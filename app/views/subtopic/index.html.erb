@@ -18,7 +18,7 @@
           <% @subtopics.each do |subtopic| %>
             <tr>
               <td><%= subtopic.name %></td>
-              <td><%= subtopic.description %></td>
+              <td><%= truncate(subtopic.description, :length => 100) %></td>
 
               <%if current_user.has_role?(:admin)%>
                 <td><%= link_to 'VER', subtopic_path(subtopic) %></td> 

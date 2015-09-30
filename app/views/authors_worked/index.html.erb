@@ -2,6 +2,9 @@
 <div class="panel panel-default">
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-font"></i> Autores citados</h3>
+        <%if current_user.has_role?(:student)%>
+            <br />
+        <%end%>
         <hr>
     </div>
     <div class="content-panel">
@@ -18,7 +21,7 @@
           <% @authors.each do |author| %>
             <tr>
               <td><%= author.name %></td>
-              <td><%= author.description %></td>
+              <td><%= truncate(author.description, :length => 100) %></td>
 
               <td><%= link_to 'VER', authors_worked_path(author) %></td>  
               <%if current_user.has_role?(:admin)%>

@@ -18,7 +18,7 @@
           <% @proses.each do |prose| %>
             <tr>
               <td><%= prose.name %></td>
-              <td><%= prose.description %></td>
+              <td><%= truncate(prose.description, :length => 100) %></td>
 
               <%if current_user.has_role?(:admin)%>
                 <td><%= link_to 'VER', prose_path(prose) %></td> 

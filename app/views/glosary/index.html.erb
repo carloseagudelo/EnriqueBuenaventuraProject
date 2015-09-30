@@ -2,6 +2,9 @@
 <div class="panel panel-default">
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-th-list"></i> Glosario</h3>
+        <%if current_user.has_role?(:student)%>
+            <br />
+        <%end%>
         <hr>
     </div>
     <div class="content-panel">
@@ -18,7 +21,7 @@
           <% @words.each do |word| %>
             <tr>
               <td><%= word.word %></td>
-              <td><%= word.description %></td>
+              <td><%= truncate(word.description, :length => 100) %></td>
 
               <td><%= link_to 'VER', glosary_path(word) %></td>  
 
