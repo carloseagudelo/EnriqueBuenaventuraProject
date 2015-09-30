@@ -1,10 +1,15 @@
 class ArticleController < ApplicationController
 
-	layout :resolve_layout
+	
 	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update, :destroy]
 
 	def index
-		@articles = Article.all
+		
+		if params[:searchA]
+			@articles = Article.search(params[:searchA])
+		else
+			@articles = Article.all
+		end
 		@users = User.all
 		@have_sidebar = true
 	end

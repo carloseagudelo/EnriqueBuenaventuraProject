@@ -1,33 +1,28 @@
-<article>      
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 style="text-align: center"><i class="glyphicon glyphicon-file"></i>Lista de documentos</h3>
-        </div>
-        <div class="content-panel">
-          <table class="table">
-              <thead>
-              <tr>
-                <th>Fecha de creacion</th>
-                <th>Nombre del documento</th>
-              </tr>
-              </thead>
-
-              <tbody>
-
-                <% @documents.each do |document| %>
-                  <tr>
-                    <td><%= document.date %></td>
-                    <td><%= document.name %></td>
-                    <td>
-
-                    <%= link_to document_document_doc_path(document), :target=>"doc" do%>
-                      <i class="glyphicon glyphicon-eye-open" ></i>
-                    <%end%> 
-                    </td>     
-                  </tr>
-                <% end %>
-              </tbody>
-          </table>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-file"></i>Lista de documentos</h3>
     </div>
-</article>
+    <div class="content-panel">
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Fecha de creacion</th>
+              <th>Nombre del documento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @documents.each do |document| %>
+              <tr>
+                <td><% t = document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></td>
+                <td><%= document.name %></td>
+                <td>
+                <%= link_to document_document_doc_path(document), :target=>"doc" do%>
+                  <i class="glyphicon glyphicon-eye-open" ></i>
+                <%end%> 
+                </td>     
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+</div>

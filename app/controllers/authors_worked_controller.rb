@@ -4,7 +4,12 @@ class AuthorsWorkedController < ApplicationController
 	before_action :have_sidebar, except: [:index, :new, :show, :create, :edit, :update, :destroy]
 
 	def index
-		@authors = Author.all
+
+		if params[:search]
+			@authors = Author.search(params[:search])
+		else
+			@authors = Author.all
+		end
 		@have_sidebar = true
 	end
 

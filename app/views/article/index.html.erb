@@ -7,6 +7,20 @@
         <%end%>
         <hr>
     </div>
+    <div class="col-md-12">      
+      <div class="row">
+        <div class="col-lg-6">          
+          <%= form_tag(document_article_index_path(:document_id), :method => "get", class: "input-group", id: "search-form") do %>
+            <%= text_field_tag :searchA, params[:searchA], :class=>"form-control", placeholder: "Buscar elemento de analisis por nombre"%>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Buscar</i></button>
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <br />
+    </div>
     <div class="content-panel">
         <hr>
       <table class="table">

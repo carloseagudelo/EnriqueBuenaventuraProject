@@ -6,26 +6,18 @@
             <br />
         <%end%>
     </div>
-    <div class="col-md-12">
-       <div class="row">
-          <div class="col-lg-6">
-            <div class="input-group">
-              <input type="text" name="nameDoc" class="form-control" placeholder="Buscar por nombre de documento">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Buscar</button>
-              </span>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="input-group">
-              <input type="text" name="yearDoc" class="form-control" placeholder="Buscar por año de puclicacion" >
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Buscar</button>
-              </span>
-            </div>
-          </div>
+    <div class="col-md-12">      
+      <div class="row">
+        <div class="col-lg-6">          
+          <%= form_tag(document_index_path, :method => "get", class: "input-group", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], :class=>"form-control", placeholder: "Buscar documento por nombre"%>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Buscar</i></button>
+            </span>
+          <% end %>
         </div>
-        <hr>
+      </div>
+      <hr>
     </div>
     <div class="content-panel">
       <table class="table">

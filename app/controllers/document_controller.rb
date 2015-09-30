@@ -5,10 +5,12 @@ class DocumentController < ApplicationController
 	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc, :create, :update]
 
 	def index
-
-		@documents = Document.search(params[:search])
+		if params[:search]
+			@documents = Document.search(params[:search])
+		else 
+			@documents = Document.all
+		end
 		@have_sidebar = true			
-		
 	end
 
 	def list		
@@ -116,7 +118,7 @@ class DocumentController < ApplicationController
 
 private
   def document_params
-    params.require(:document).permit(:name, :description, :date, :autor, :attachment, :prose_id, :subtopic_id, :speciality_id) 
+    params.require(:document).permit(:number, :name, :description, :date, :autor, :status, :place, :attachment, :prose_id, :subtopic_id, :speciality_id) 
   end
 
 	def resolve_layout

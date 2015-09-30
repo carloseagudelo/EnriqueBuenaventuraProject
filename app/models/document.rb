@@ -14,12 +14,9 @@ class Document < ActiveRecord::Base
 	mount_uploader :attachment, AttachmentUploader 
 
 
-	def self.search(search)
-	  if search
-	    self.where(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-	  else
-	    self.all
-	  end
-	end
+	def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    	where("name like ?", "%#{query}%") 
+  	end
 
 end
