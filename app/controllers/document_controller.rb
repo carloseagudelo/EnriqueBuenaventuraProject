@@ -5,8 +5,21 @@ class DocumentController < ApplicationController
 	before_filter :have_sidebar, except: [:index, :new, :show, :edit, :destroy, :list, :doc, :create, :update]
 
 	def index
-		@documents = Document.all
+		
 		@have_sidebar = true
+		@name = params[:nameDoc]
+		@year = params[:yearDoc]
+
+		if @name && @year
+			@documents = Document.where(":name =? AND :date =?" , [@name, @year])
+		elsif @name
+			@documents = Document.where(:name => @name)
+		elsif @year
+			@documents = Document.where(:date => @year)
+		else
+			@documents = Document.all
+		end
+			
 	end
 
 	def list		
