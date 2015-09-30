@@ -1,11 +1,27 @@
 <br />
 <div class="panel panel-default">
+  <%if current_user.has_role?(:student)%>
+      <br />
+  <%end%>
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-th-list"></i> Glosario</h3>
-        <%if current_user.has_role?(:student)%>
+        <br />
+    </div>
+    <div class="col-md-12">      
+      <div class="row">
+        <div class="col-lg-6">          
+          <%= form_tag(glosary_index_path, :method => "get", class: "input-group", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], :class=>"form-control", placeholder: "Buscar elemento de analisis por nombre"%>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Buscar</i></button>
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <%if current_user.has_role?(:student)%>
             <br />
-        <%end%>
-        <hr>
+      <%end%>
+      <hr>
     </div>
     <div class="content-panel">
         <hr>

@@ -4,7 +4,12 @@ class BooksWorkedController < ApplicationController
 	before_action :have_sidebar, except: [:index, :new, :show, :create, :edit, :update, :destroy]
 
 	def index
-		@books = Book.all
+
+		if params[:search]
+			@books = Book.search(params[:search])
+		else
+			@books = Book.all
+		end
 		@have_sidebar = true
 	end
 

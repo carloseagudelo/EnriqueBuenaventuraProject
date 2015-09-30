@@ -1,20 +1,27 @@
 <br />
 <div class="panel panel-default">
+  <%if current_user.has_role?(:student)%>
+    <br />
+  <%end%>
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-font"></i> Autores citados</h3>
-        <%if current_user.has_role?(:student)%>
-            <br />
-        <%end%>
-        <hr>
+        <br />      
     </div>
-    <div class="col-lg-6">          
-        <%= form_tag(authors_worked_index_path, :method => "get", class: "input-group", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], :class=>"form-control", placeholder: "Buscar autor por nombre"%>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Buscar</i></button>
-          </span>
-        <% end %>
+    <div class="col-md-12">      
+      <div class="row">
+        <div class="col-lg-6">          
+          <%= form_tag(authors_worked_index_path, :method => "get", class: "input-group", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], :class=>"form-control", placeholder: "Buscar autor por nombre"%>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Buscar</i></button>
+            </span>
+          <% end %>
+        </div>
       </div>
+      <hr>
+      <%if current_user.has_role?(:student)%>
+        <br />
+      <%end%>
     </div>
     <div class="content-panel">
         <hr>

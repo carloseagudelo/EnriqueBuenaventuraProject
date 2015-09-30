@@ -4,7 +4,12 @@ class GlosaryController < ApplicationController
 	before_action :have_sidebar, except: [:index, :new, :show, :create, :edit, :update, :destroy]
 
 	def index
-		@words = Glosary.all
+
+		if params[:search]
+			@words = Glosary.search(params[:search])
+		else
+			@words = Glosary.all
+		end
 		@have_sidebar = true
 	end
 

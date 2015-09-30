@@ -1,11 +1,11 @@
 <br />
 <div class="panel panel-default">
+  <%if current_user.has_role?(:student)%>
+    <br />
+  <%end%>
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-pencil"></i> Lista de elementos de analisis</h3>
-        <%if current_user.has_role?(:student)%>
-            <br />
-        <%end%>
-        <hr>
+        <br />
     </div>
     <div class="col-md-12">      
       <div class="row">
@@ -19,7 +19,9 @@
         </div>
       </div>
       <hr>
-      <br />
+      <%if current_user.has_role?(:student)%>
+        <br />
+      <%end%>
     </div>
     <div class="content-panel">
         <hr>
