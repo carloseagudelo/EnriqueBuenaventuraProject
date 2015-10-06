@@ -16,9 +16,9 @@
 			        <%= tinymce %>
 
 			        <div class="form-group col-xs-12">
-				        <%= f.submit "guardar", :class=>"btn btn-primary"%>
-				        <%= link_to "Crear Citacion", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
-						<%= link_to "informacion Elemento", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal2"} %>
+				        <%= f.submit "Guardar", :class=>"btn btn-primary"%>
+				        <%= link_to "Crear Citación", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
+						<%= link_to "Información Elemento", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal2"} %>
 						<%= link_to "Referencias", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal3"} %>
 				    </div>	    
 				
@@ -29,14 +29,14 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal">&times;</button>
-					        <h4 class="modal-title">Deposite el pedazo de texto que desea citar, y asegurese de que este correcto antes de hacer clip en el boton 'Crear Citacion'</h4>
+					        <h4 class="modal-title">Ingrese el texto que desea citar:</h4>
 					      </div>
 					      <div  class="modal-body">
-					        <textarea id="myTextarea" rows="15" cols="90"></textarea>
+					        <textarea id="myTextarea" rows="20" cols="90"></textarea>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					        <button type="button" onclick="myFunction()" class="btn btn-default" data-dismiss="modal">Crear Citacion</button>
+					        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+					        <button type="button" onclick="myFunction()" class="btn btn-primary" data-dismiss="modal">Crear Citación</button>
 					      </div>
 					    </div>
 					  </div>
@@ -47,22 +47,22 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal">&times;</button>
-					        <h4 class="modal-title">Informacion extra del elemento de analisis</h4>
+					        <h4 class="modal-title">Información del elemento de análisis</h4>
 					      </div>
 					      <div  class="modal-body">
 					        <div class="form-group col-xs-9">
-				                <%= f.label :nombre_del_elemento_de_analisis %><br />
-				                <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del elemento de analisis',:class=>"form-control" %>
+				                <%= f.label :nombre_del_elemento_de_análisis %><br />
+				                <%= f.text_field :name, autofocus: true, placeholder: 'Digita una descripción`para el elemento de análisis...',:class=>"form-control" %>
 				            </div>
 
 				             <div class="form-group col-xs-9">
 				                <%= f.label :Descripción %><br />
-				                <%= f.text_area :decription, placeholder: 'Digita la descripcion elemento de analisis',:class=>"form-control" %>
+				                <%= f.text_area :decription, placeholder: 'Digita la descripción del elemento de análisis...',:class=>"form-control",:rows =>15 %>
 				            </div>
 					      </div>
 					      <div class="modal-footer">			       
 				            <div class="form-group col-xs-12">
-				                <%= f.submit "guardar", :class=>"btn btn-primary"%>
+				                <%= f.submit "Guardar", :class=>"btn btn-primary"%>
 				            </div>
 					      </div>
 					    </div>
@@ -95,6 +95,10 @@
 
 <script>
 function getContent(){
+	if(document.getElementById("myTextarea").value == ''){
+    	alert("Debe de ingresar el texto a citar!!");
+    return;
+  }
 	var y = $("#myTextarea").val();
 	return (y);
 }
@@ -102,7 +106,7 @@ function getContent(){
 function myFunction() {
 	var contentTextArea = getContent();
     var numPage = document.getElementById('iframeList').contentWindow.document.getElementById('iframe').contentWindow.document.getElementById('pageNumber').value;
-    var nameDoc = document.getElementById('iframeList').contentWindow.document.getElementById('nameDoc').innerHTML;     
+    var nameDoc = document.getElementById('iframeList').contentWindow.document.getElementById('nameDoc').innerHTML;
     var citacion = '<br />Buenaventura, Enrique, ' +nameDoc+', 1998, Editorial Edalse, 2000, pg. '+numPage;
     var citacionCompleta = contentTextArea+citacion;
     var contentTextEditor = tinyMCE.activeEditor.getContent();
