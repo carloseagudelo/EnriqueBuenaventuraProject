@@ -46,5 +46,22 @@
 			</ul>
 			<div id="combo-holder"></div>
 		</nav>
+	<%else%>
+		<nav>
+			<ul id="nav" class="sf-menu">
+				<%if current_page?(welcome_index_path)%>			
+					<li class="current-menu-item"><%= link_to "Inicio", welcome_index_path %></li>
+				<%else%>
+					<li><%= link_to "Inicio", welcome_index_path %></li>
+				<%end%>
+				<%if current_page?(destroy_user_session_url)%>
+					<li class="current-menu-item"><%= link_to "Cerrar sesion", destroy_user_session_url, method: :delete%></li>
+				<%else%>
+					<li><%= link_to "Cerrar sesion", destroy_user_session_url, method: :delete%></li> 
+				<%end%>
+			</ul>
+			<div id="combo-holder"></div>
+		</nav>
+
 	<%end%>
 <% end %>
