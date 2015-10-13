@@ -3,6 +3,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require jquery-1.6.4.min
+//= require jquery.backstretch.min
 //= require css3-mediaqueries
 //= require custom
 //= require tabs
