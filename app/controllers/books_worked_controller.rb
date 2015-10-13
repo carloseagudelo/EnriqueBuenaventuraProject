@@ -41,10 +41,10 @@ class BooksWorkedController < ApplicationController
 	def update
 		@book = Book.find(params[:id])
 		
-		if @author.update(author_params)
+		if @book.update(book_params)
 			redirect_to  books_worked_index_path
 		else
-			redirect_to books_worked_path(@author)
+			redirect_to books_worked_path(@book)
 		end
 	end
 
