@@ -8,17 +8,17 @@
             
             <div class="form-group col-xs-9">
                 <%= f.label :nombre_del_libro %><br />
-                <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del nuevo documento',:class=>"form-control" %>
+                <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del libro',:class=>"form-control" %>
             </div>
             
             <div class="form-group col-xs-9">
                 <%= f.label :Descripcion %><br />
-                <%=f.text_area :description, placeholder: 'Digita una breve descripción del tipo de documento ',:class=>"form-control"%>
+                <%=f.text_area :description, placeholder: 'Digita  la descripcion del libro',:class=>"form-control",:rows =>10,:style=>"resize:vertical"%>
             </div>  
 
             <div class="form-group col-xs-12">
                 <%= f.submit "guardar", :class=>"btn btn-primary"%>
-                 <%= link_to 'Atras', authors_worked_index_path, :class=>"btn btn-primary" %>
+                 <%= link_to 'Atras', books_worked_index_path, :class=>"btn btn-primary" %>
             </div>
             
         <% end %>                        
