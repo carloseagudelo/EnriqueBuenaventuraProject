@@ -52,7 +52,7 @@ class BooksWorkedController < ApplicationController
 
 		@book = Book.find(params[:id])
 	  	
-	  	if @author.destroy
+	  	if @book.destroy
 	  		redirect_to books_worked_index_path
 	  	end
 	end
