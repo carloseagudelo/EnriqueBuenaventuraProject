@@ -1,8 +1,27 @@
 <br />
 <div class="panel panel-default">
+  <%if current_user.has_role?(:student)%>
+    <br />
+  <%end%>
     <div class="col-md-12">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-user"></i> Lista de usuarios activos</h3>
-            <hr>
+        <br />
+    </div>
+    <div class="col-md-12">      
+      <div class="row">
+        <div class="col-lg-6">          
+          <%= form_tag(students_path, :method => "get", class: "input-group", id: "search-form") do %>
+            <%= text_field_tag :searchS, params[:searchS], :class=>"form-control", placeholder: "Buscar usuario por documento"%>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Buscar</i></button>
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <%if current_user.has_role?(:student)%>
+        <br />
+      <%end%>
     </div>
     <div class="content-panel">
       <table class="table">
@@ -27,7 +46,7 @@
                     <%end%> 
                   </td>
                   <td>
-                      <%= link_to user, method: :delete, data: {confirm: 'Esta seguro de eliminar este tag'} do%>
+                      <%= link_to students_path, method: :delete, data: {confirm: 'Esta seguro de eliminar este usuario'} do%>
                         <i class="glyphicon glyphicon-trash" ></i>
                       <%end%> 
                   </td>

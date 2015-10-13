@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
     # do something before it gets added
   end
 
+  def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+      where("credential like ?", "%#{query}%") 
+    end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

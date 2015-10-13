@@ -9,14 +9,10 @@
                   <hr width="70%">
 
                   <li class="sub-menu">
-                  <%= link_to "javascript:;" do%>
-                    <i></i>
-                    <span class="glyphicon glyphicon-home">&nbsp;</span><spam>INICIO</spam>
-                    <span class="dcjq-icon"></span>
-                  <%end%>                  
-                      <ul class="sub">
-                      <li><%= link_to 'DashBoard',  manager_root_path %></li>
-                      </ul>
+                    <i></i>                 
+                    <%= link_to manager_root_path do%>
+                      <span class="glyphicon glyphicon-home">&nbsp;</span><spam>INICIO</spam>                        
+                    <%end%>                                    
                   </li>
 
                   <li class="sub-menu">

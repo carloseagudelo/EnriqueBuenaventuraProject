@@ -4,7 +4,7 @@ class ArticleController < ApplicationController
 	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update, :destroy]
 
 	def index		
-		if params[:searchA]
+		if params[:searchA] 
 			@articles = Article.search(params[:searchA])
 		else
 			@articles = Article.all
@@ -56,7 +56,7 @@ class ArticleController < ApplicationController
 		  	redirect_to document_article_index_path
 		end
 		@have_sidebar = true
-		end
+	end
 
 private
   def article_params
