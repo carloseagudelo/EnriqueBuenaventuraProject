@@ -41,19 +41,19 @@
                 <td><%= document.name %></td>
                 <td><%= truncate(document.description, :length => 100) %></td>
                 <td>
-                <%= link_to document_path(document) do%>
+                <%= link_to document_path(document), :title=>"Ver" do%>
                   <i class="glyphicon glyphicon-eye-open" ></i>
                 <%end%> 
                 </td>
 
                 <% if current_user.has_role?(:admin) %>  
                     <td>                      
-                      <%= link_to edit_document_path(document) do%>
+                      <%= link_to edit_document_path(document),:title=>"Editar" do%>
                         <i class="glyphicon glyphicon-wrench" ></i>
                       <%end%> 
                     </td>
                     <td>
-                        <%= link_to document, method: :delete, data: {confirm: 'Esta seguro de eliminar este tag'} do%>
+                        <%= link_to document, method: :delete, data: {confirm: '¿Está seguro de eliminar este documento?'}, :title=>"Eliminar" do%>
                           <i class="glyphicon glyphicon-trash" ></i>
                         <%end%> 
                     </td>
