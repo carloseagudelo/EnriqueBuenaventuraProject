@@ -9,8 +9,6 @@
 		 	 <%= @user.credential %>
      	</div>
 
-
-
      	<div class="form-group col-xs-9">
            <strong>Correo Electronico:</strong><br />
 		 	 <%= @user.email %>
@@ -35,7 +33,17 @@
      	<div class="form-group col-xs-9">
            <strong>Semestre cursante:</strong><br />
 		 	 <%= @user.semester %>
-     	</div>		
+     	</div>
+
+      <div class="form-group col-xs-9">
+           <strong>Fecha de registro en plataforma:</strong><br />
+       <% t= @user.created_at%><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
+      </div>	
+
+      <div class="form-group col-xs-9">
+          <strong>Ultima conección:</strong><br />
+          <% t = @user.last_sign_in_at %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
+      </div>
 
      	<%if @user.has_role?(:user)%>
      		<div class="form-group col-xs-9">

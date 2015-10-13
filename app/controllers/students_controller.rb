@@ -1,10 +1,14 @@
 class StudentsController < ApplicationController
 	layout :resolve_layout
 	before_action :authenticate_user!
-	before_filter :have_sidebar, except: [:index, :indexN, :show, :edit, :update]
+	before_filter :have_sidebar, except: [:index, :indexN, :show, :edit, :update, :destroy]
 
-	def index		
-		@users = User.all
+	def index
+		if params[:searchS]	
+			@users = User.search(params[:searchS])
+		else
+			@users = User.all
+		end
 		@have_sidebar = true
 	end
 
@@ -34,6 +38,15 @@ class StudentsController < ApplicationController
 			@user.add_role(:student)
 			redirect_to students_indexN_path
 		end
+	end
+
+	def destroy
+		@user = User.find(params[:id])
+
+		if @user.destroy
+			students_path
+		end
+		@have_sidebar = true
 	end
 
 private
