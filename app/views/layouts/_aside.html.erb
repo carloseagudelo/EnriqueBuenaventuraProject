@@ -1,5 +1,5 @@
       <aside>
-          <div id="sidebar"  class="nav-collapse ">
+          <div id="sidebar"  class="nav-collapse" style="overflow: scroll;">
 
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">              
@@ -9,14 +9,10 @@
                   <hr width="70%">
 
                   <li class="sub-menu">
-                  <%= link_to "javascript:;" do%>
-                    <i></i>
-                    <span class="glyphicon glyphicon-home">&nbsp;</span><spam>INICIO</spam>
-                    <span class="dcjq-icon"></span>
-                  <%end%>                  
-                      <ul class="sub">
-                      <li><%= link_to 'DashBoard',  manager_root_path %></li>
-                      </ul>
+                    <i></i>                 
+                    <%= link_to manager_root_path do%>
+                      <span class="glyphicon glyphicon-home">&nbsp;</span><spam>INICIO</spam>                        
+                    <%end%>                                    
                   </li>
 
                   <li class="sub-menu">
@@ -45,7 +41,7 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i></i>
-                          <span class="glyphicon glyphicon-pencil">&nbsp;</span><span>ELEMENTOS DE ANALISIS</span>
+                          <span class="glyphicon glyphicon-pencil">&nbsp;</span><span>ELEMENTOS DE ANÁLISIS</span>
                       </a>
                       <ul class="sub">
                           <li><%= link_to 'Elementos Creados', document_article_index_path(:document_id) %></li>
@@ -58,7 +54,7 @@
                           <span class="glyphicon glyphicon-italic">&nbsp;</span><span>PROSA BASE</span>
                       </a>
                       <ul class="sub">
-                          <li><%= link_to 'Lista de Prosa Base disponible', prose_index_path %></li>
+                          <li><%= link_to 'Listar Prosas Base', prose_index_path %></li>
                       </ul>
                       <ul class="sub">
                           <li><%= link_to 'Agregar Prosa Base', new_prose_path %></li>
@@ -71,7 +67,7 @@
                           <span class="glyphicon glyphicon-tags">&nbsp;</span><span>TIPO DE DOCUMENTO</span>
                       </a>
                       <ul class="sub">
-                          <li><%= link_to 'Lista de Tipos de Documentos disponible', speciality_index_path %></li>
+                          <li><%= link_to 'Listar Tipos de Documentos', speciality_index_path %></li>
                       </ul>
                       <ul class="sub">
                           <li><%= link_to 'Agregar Tipo de Documento', new_speciality_path %></li>
@@ -84,7 +80,7 @@
                           <span class="glyphicon glyphicon-list-alt">&nbsp;</span><span>SUBTEMA</span>
                       </a>
                        <ul class="sub">
-                          <li><%= link_to 'Lista de Subtemas disponible', subtopic_index_path %></li>
+                          <li><%= link_to 'Listar Subtemas', subtopic_index_path %></li>
                       </ul>
                       <ul class="sub">
                           <li><%= link_to 'Agregar Subtema', new_subtopic_path %></li>
@@ -101,23 +97,9 @@
                           <li><%= link_to 'Listar Palabras', glosary_index_path %></li>
                       </ul>
                       <ul class="sub">
-                          <li><%= link_to 'Nueva Palabra', new_glosary_path %></li>
+                          <li><%= link_to 'Agregar Palabra', new_glosary_path %></li>
                       </ul>
-                  </li> 
-
-                  <li class="sub-menu">
-                  <%= link_to "javascript:;" do%>
-                    <i></i>
-                    <span class="glyphicon glyphicon-calendar">&nbsp;</span> <spam>CRONOLOGIA</spam>
-                    <span class="dcjq-icon"></span>
-                  <%end%>                  
-                      <ul class="sub">
-                          <li><%= link_to 'Albun cronologico', chronology_index_path %></li>
-                       </ul>
-                       <ul class="sub">
-                          <li><%= link_to 'Agregar nuevo suceso', new_chronology_path %></li>
-                      </ul>
-                  </li> 
+                  </li>  
 
                   <li class="sub-menu">
                   <%= link_to "javascript:;" do%>
@@ -126,26 +108,40 @@
                     <span class="dcjq-icon"></span>
                   <%end%>                  
                       <ul class="sub">                          
-                          <li><%= link_to 'Lista de autores', authors_worked_index_path %></li>
+                          <li><%= link_to 'Listar Autores', authors_worked_index_path %></li>
                       </ul>
                       <ul class="sub">                          
-                          <li><%= link_to 'Agregar un nuevo author', new_authors_worked_path %></li>
+                          <li><%= link_to 'Agregar Autor', new_authors_worked_path %></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
                   <%= link_to "javascript:;" do%>
                     <i></i>
-                    <span class="glyphicon glyphicon-book">&nbsp;</span> <spam>BIBLIOGRAFIA CITADA</spam>
+                    <span class="glyphicon glyphicon-book">&nbsp;</span> <spam>BIBLIOGRAFÍA CITADA</spam>
                     <span class="dcjq-icon"></span>
                   <%end%>                  
                       <ul class="sub">
-                          <li><%= link_to 'Lista de libros', books_worked_index_path %></li>
+                          <li><%= link_to 'Listar Libros', books_worked_index_path %></li>
                       </ul>
                       <ul class="sub">                          
-                          <li><%= link_to 'Agregar un nuevo libro', new_books_worked_path %></li>
+                          <li><%= link_to 'Agregar Libro', new_books_worked_path %></li>
                       </ul>
-                  </li>                                
+                  </li> 
+
+                                                                   <li class="sub-menu">
+                  <%= link_to "javascript:;" do%>
+                    <i></i>
+                    <span class="glyphicon glyphicon-calendar">&nbsp;</span> <spam>CRONOLOGÍA</spam>
+                    <span class="dcjq-icon"></span>
+                  <%end%>                  
+                      <ul class="sub">
+                          <li><%= link_to 'Album Cronológico', chronology_index_path %></li>
+                       </ul>
+                       <ul class="sub">
+                          <li><%= link_to 'Agregar Suceso', new_chronology_path %></li>
+                      </ul>
+                  </li>
                   
               </ul>
               <!-- sidebar menu end-->
