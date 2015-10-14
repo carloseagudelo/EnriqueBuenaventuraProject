@@ -19,10 +19,17 @@
             <tr>
               <td><%= speciality.name %></td>
               <td><%= truncate(speciality.description, :length => 100) %></td>
-
               <%if current_user.has_role?(:admin)%>
-                <td><%= link_to 'VER', speciality_path(speciality) %></td> 
-                <td><%= link_to 'EDITAR', edit_speciality_path(speciality) %></td>                
+              <td>
+                <%= link_to speciality_path(speciality), :title=>"Ver" do%>
+                  <i class="glyphicon glyphicon-eye-open" ></i>
+                <%end%>
+              </td>
+              <td>
+                <%= link_to edit_speciality_path(speciality), :title=>"Editar" do%>
+                  <i class="glyphicon glyphicon-wrench" ></i>
+                <%end%>
+              </td>              
               <%end%>                           
             </tr>
           <% end %>
