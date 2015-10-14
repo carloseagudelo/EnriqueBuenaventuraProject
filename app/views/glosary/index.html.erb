@@ -39,12 +39,26 @@
               <td><%= word.word %></td>
               <td><%= truncate(word.description, :length => 100) %></td>
 
-              <td><%= link_to 'VER', glosary_path(word) %></td>  
+
+              <td>
+                <%= link_to glosary_path(word), :title=>"Ver" do%>
+                  <i class="glyphicon glyphicon-eye-open" ></i>
+                <%end%>
+              </td>
 
               <%if current_user.has_role?(:admin)%>
-                <td><%= link_to 'EDITAR', edit_glosary_path(word) %></td>
-                <td><%= link_to 'ELIMINAR', glosary_path(word), method: :delete, 
-                              data: {confirm: 'Esta seguro de eliminar este articulo'} %></td>
+
+
+              <td>
+                <%= link_to edit_glosary_path(word), :title=>"Editar" do%>
+                  <i class="glyphicon glyphicon-wrench" ></i>
+                <%end%>
+              </td>
+                <td><%= link_to glosary_path(word), method: :delete, :title=>"Eliminar", 
+                              data: {confirm: '¿Esta seguro de eliminar esta palabra?'} do%>
+                <i class="glyphicon glyphicon-trash" ></i>
+                <%end%>              
+                </td>
               <%end%>     
                                    
             </tr>

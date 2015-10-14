@@ -49,11 +49,6 @@
                   <i class="glyphicon glyphicon-wrench" ></i>
                 <%end%>
               </td>
-                <td><%= link_to books_worked_path(book), method: :delete, :title=>"Eliminar", 
-                              data: {confirm: '¿Esta seguro de eliminar este libro?'} do%>
-                <i class="glyphicon glyphicon-trash" ></i>
-                <%end%>              
-                </td>
               <%end%>                           
             </tr>
           <% end %>
