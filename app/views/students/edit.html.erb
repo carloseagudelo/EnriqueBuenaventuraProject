@@ -41,22 +41,28 @@
       </div>	
 
       <div class="form-group col-xs-9">
-          <strong>Ultima conección:</strong><br />
+          <strong>Ultima conexión:</strong><br />
           <% t = @user.last_sign_in_at %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
       </div>
 
      	<%if @user.has_role?(:user)%>
      		<div class="form-group col-xs-9">
-				<%= link_to student_path, method: :PATCH, data: {confirm: 'Esta seguro que desea cambiar el rol del usuario'} do%>
-	  				<i>Habilitar</i>
+				<%= link_to student_path, method: :PATCH,:class=>"btn btn-primary", data: {confirm: '¿Esta seguro que desea habilitar este usuario?'} do%>
+	  				<i>Habilitar Usuario</i>
 				<%end%> 
 			</div>
+        <div class="form-group col-xs-12">
+            <%= link_to 'Atras', student_path, :class=>"btn btn-primary" %>
+        </div>        
      	<%elsif @user.has_role?(:student)%>
      		<div class="form-group col-xs-9">
-				<%= link_to student_path, method: :PATCH, data: {confirm: 'Esta seguro que desea cambiar el rol del usuario'} do%>
-	  				<i>Bloquear</i>
+				<%= link_to student_path, method: :PATCH,:class=>"btn btn-primary", data: {confirm: '¿Esta seguro que desea deshabilitar este usuario?'} do%>
+	  				<i>Deshabilitar Usuario</i>
 				<%end%> 
 			</div>
+        <div class="form-group col-xs-12">
+            <%= link_to 'Atras', students_path, :class=>"btn btn-primary" %>
+        </div>      
      	<%end%>
 
 		
