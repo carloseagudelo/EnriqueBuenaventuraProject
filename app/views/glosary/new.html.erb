@@ -7,16 +7,16 @@
 
 			  <div class="form-group col-xs-9">
 			    <%= f.label :nombre_de_la_palabra  %><br />
-			    <%= f.text_field :word, autofocus: true, placeholder: 'Digita nombre del tipo de documento',:class=>"form-control" %>
+			    <%= f.text_field :word, autofocus: true, placeholder: 'Digita la nueva palabra',:class=>"form-control" %>
 			  </div>
 
 			  <div class="form-group col-xs-9">
 			    <%= f.label :Descripción %><br />
-			    <%= f.text_area :description, placeholder: 'Digita  la descripcion del tipo de documento',:class=>"form-control" %>
+			    <%= f.text_area :description, placeholder: 'Digita  la definición...',:class=>"form-control",:rows =>10,:style=>"resize:vertical" %>
 			  </div>
 				
 			   <div class="form-group col-xs-9">
-    				<%= f.submit "Guardar",:class=>"btn btn-primay" %>
+    				<%= f.submit "Guardar",:class=>"btn btn-primary" %>
 				</div>
 			<% end %>
 		</div>
