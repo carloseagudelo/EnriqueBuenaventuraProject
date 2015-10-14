@@ -21,8 +21,16 @@
               <td><%= truncate(prose.description, :length => 100) %></td>
 
               <%if current_user.has_role?(:admin)%>
-                <td><%= link_to 'VER', prose_path(prose) %></td> 
-                <td><%= link_to 'EDITAR', edit_prose_path(prose) %></td>                
+              <td>
+                <%= link_to prose_path(prose), :title=>"Ver" do%>
+                  <i class="glyphicon glyphicon-eye-open" ></i>
+                <%end%>
+              </td>              
+              <td>
+                <%= link_to edit_prose_path(prose), :title=>"Editar" do%>
+                  <i class="glyphicon glyphicon-wrench" ></i>
+                <%end%>
+              </td>
               <%end%>                           
             </tr>
           <% end %>
