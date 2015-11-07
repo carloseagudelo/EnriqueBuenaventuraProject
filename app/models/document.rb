@@ -5,7 +5,6 @@ class Document < ActiveRecord::Base
 
 	has_many  :documentbooks
 	has_many  :books, :through => :documentbooks
-	
 
 	belongs_to :prose
 	belongs_to :subtopic
