@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
 
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
-      where("credential like ?", "%#{query}%") 
-    end
+    where("credential like ?", "%#{query}%") 
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

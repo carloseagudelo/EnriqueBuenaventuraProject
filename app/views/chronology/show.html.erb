@@ -20,11 +20,17 @@
              <%= @chronology.descripton %>
         </div> 
 
+        <%if @chronology.url? %>
+            <strong>video:</strong><br />
+            <%= video_tag @chronology.url, :size => "320x240", :controls => true %>
+        <%end%>
+
          <div class="form-group col-xs-9">
             <strong>Imagen:</strong><br />
-             <%= image_tag @chronology.url_url.to_s %>
+            <% @chronology.photos.each do |photo| %>
+                <%= image_tag photo.image.url(:thumb) %>
+            <%end%>
         </div> 
-
         <div class="form-group col-xs-12">
             <%= link_to 'Atras', chronology_index_path, :class=>"btn btn-primary" %>
         </div>

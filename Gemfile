@@ -32,6 +32,7 @@ gem 'cancancan', '~> 1.10'
 #Gem Rolify for storing the roles
 gem "rolify"
 #gem for chargin files in rails
+gem 'rmagick', '~>2.15.4'
 gem 'carrierwave', '~> 0.9'
 #gem to use TinyMCE editor
 gem 'tinymce-rails'

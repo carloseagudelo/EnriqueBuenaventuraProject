@@ -4,9 +4,11 @@ class WelcomeController < ApplicationController
 
 	def index
 		@have_sidebar = true
+		@articles = Article.all
 	end
 
 	def indexUser
 		@have_sidebar = true
+		@articles = Article.all
 	end
 end

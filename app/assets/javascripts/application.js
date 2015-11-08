@@ -3,3 +3,4 @@
 //= require turbolinks
 //= require_tree
 //= require tinymce-jquery
+

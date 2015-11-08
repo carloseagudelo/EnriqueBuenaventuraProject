@@ -42,6 +42,20 @@
 <div class="home-block" >
 	<h2 class="home-block-heading"><span>Articulos</span></h2>
 	<div class="one-third-thumbs clearfix" >
+		<% @articles.each do |article|%>
+			<%if article.stata == true%>
+				<figure>
+					<figcaption>
+						<strong><%= article.name %></strong>
+						<span><% article.description %></span>
+						<em><% t=  document.date %> <%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></em>
+						<a href="single.html" class="opener"></a>
+					</figcaption>
+				</figure>
+			<%end%>
+		<%end%>
+
+
 		<figure>
 			<figcaption>
 				<strong>Articulo 1</strong>

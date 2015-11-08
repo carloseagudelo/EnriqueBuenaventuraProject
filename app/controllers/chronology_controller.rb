@@ -14,13 +14,23 @@ class ChronologyController < ApplicationController
 	end
 
 	def create
+
 		@chronology = Cronology.new(chronology_params)
+		
 
 		if @chronology.save
-			redirect_to chronology_index_path
-		else
-			redirect_to new_chronology_path
-		end		
+	      # to handle multiple images upload on create
+	      if params[:images]
+	        params[:images].each { |image|
+	          @chronology.photos.create(image: image)
+	        }
+	      end
+	      flash[:notice] = "Your album has been created."
+	      redirect_to chronology_index_path
+	    else 
+	      flash[:alert] = "Something went wrong."
+	      render :new
+	    end	
 	end
 
 	def show

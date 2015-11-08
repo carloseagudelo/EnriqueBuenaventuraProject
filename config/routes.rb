@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :prose
   resources :subtopic
   resources :speciality
+  resources :photos
 
   devise_scope :user do
     authenticated do
