@@ -3,4 +3,5 @@
 //= require turbolinks
 //= require_tree
 //= require tinymce-jquery
+//= jquery.backstretch.min
 

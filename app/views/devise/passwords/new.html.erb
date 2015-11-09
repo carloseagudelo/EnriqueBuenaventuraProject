@@ -1,31 +1,19 @@
-<div class="page-header">
-  <h1 style="text-align: center">Maestro Enrique Buenaventura</h1>
+<div id="login-page">  
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form-register"}) do |f| %>
+    <%= devise_error_messages! %>
+    <h2 class="form-login-heading">Recuperar contraseña</h2>
+    <div class="login-wrap">
+      <%= f.email_field :email, autofocus: true, placeholder: 'Correo electronico',:class=>"form-control" %><br />
+      <%= f.submit "Enviar Instrucciones", :class=>"btn btn-theme btn-block" %><br />
+      <%= link_to "Iniciar Sesion", new_session_path(resource_name) %> &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+      <%= link_to "Registrarse", new_registration_path(resource_name) %>
+    </div>
+
+  <% end %>
+
 </div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 style="text-align: center">Recordar contraseña</h3>
-  </div>
-  <div class="panel-body">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<script>
+  $.backstretch(["<%= asset_path 'fondoresgistro.jpg' %>"], {speed: 3000});
+</script>
 
-
-   
-
-
-
-  <div class="form-group col-xs-9">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, placeholder: 'Digita tu correo electronico',:class=>"form-control" %>
-  </div>
-
-  <div class="form-group col-xs-9">
-    <%= f.submit "Recuperar contraseña", :class=>"btn btn-primary" %>
-  </div>
-<% end %>
-<div class="form-group col-xs-9">
-<%= render "devise/shared/links" %>
-</div>
-  </div>
-</div>

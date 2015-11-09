@@ -1,40 +1,25 @@
+<div id="login-page">    
+  <%= form_for(resource, as: resource_name,  url: session_path(resource_name), html: { class: "form-login" }) do |f| %>
+  <%= devise_error_messages! %>
+    <h2 class="form-login-heading">Inciar Sesión</h2>
+    <div class="login-wrap">
 
-<div class="page-header">
-  <h1 style="text-align: center">Maestro Enrique Buenaventura</h1>
-</div>
-<hr>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h2 style="text-align: center">Iniciar sesión</h2>
-  </div>
-  <div class="panel-body">
-  <div class="container">
+      <%= f.email_field :email, autofocus: true, placeholder: 'Correo electronico',:class=>"form-control"%><br />
+      <%= f.password_field :password, autocomplete: "off", placeholder: 'Contraseña' ,:class=>"form-control" %>
+      <label class="checkbox">
+        <span class="pull-right">
+          <%= link_to "¿No recuerdas tu contraseña?", new_password_path(resource_name) %>
+        </span>
+      </label>
+      <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button><br/>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group col-xs-9">
-    <label for="exampleInputEmail1">Usuario</label>
-    <%= f.email_field :email, autofocus: true, placeholder: 'Digita tu email',:class=>"form-control"%>
-  </div>
-  <div class="form-group col-xs-9">
-    <label for="exampleInputPassword1">Contraseña</label>
-    <%= f.password_field :password, autocomplete: "off", placeholder: 'Digita tu Contraseña' ,:class=>"form-control" %>
-  </div>
+      <div class="registration">
+        No tienes una cuenta activa<br/>
+        <%= link_to "Crea una cuenta", new_registration_path(resource_name) %>
+      </div>
 
-<div class="form-group col-xs-9">
-  <% if devise_mapping.rememberable? -%>
-      <%= f.check_box :remember_me %>
-      <%= f.label :recordarme %>
-  <% end -%>
-</div>
-
-<div class="form-group col-xs-9">
-    <%= f.submit "Iniciar sesion", :class=>"btn btn-primary" %>
-</div>
-<% end %>
-<div class="form-group col-xs-9">
-<%= render "devise/shared/links" %>
-</div>
-</div>
-
-  </div>
-</div>
+  <% end %>
+</div>             
+<script>
+  $.backstretch(["<%= asset_path '01.jpg' %>", "<%= asset_path '02.jpg' %>", "<%= asset_path '03.jpg' %>", "<%= asset_path '04.jpg' %>"], {speed: 3000, fade: 750});
+</script>
