@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get 'students/indexN'
 
   resources :document do
+    get '/article/:id/editstate', to: 'article#editstate', :as => 'editstate_document_article'
+    patch '/article/:id', to: 'article#updatestate', :as => 'updatestate_document_article'
+    get 'article/indexDeleted'
     resources :article
-    get 'document/doc'
+      get 'document/doc'
   end
 
   resources :students

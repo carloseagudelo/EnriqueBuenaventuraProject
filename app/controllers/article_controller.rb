@@ -1,7 +1,7 @@
 class ArticleController < ApplicationController
 
 	layout :resolve_layout
-	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :update, :destroy]
+	before_filter :have_sidebar, except: [:index, :new, :create, :edit, :show, :update, :destroy, :updatestate, :editstate, :indexDeleted]
 
 	def index		
 		if params[:searchA] 
@@ -12,6 +12,18 @@ class ArticleController < ApplicationController
 		@users = User.all
 		@have_sidebar = true
 	end
+
+	def indexDeleted		
+		if params[:searchA] 
+			@articles = Article.search(params[:searchA])
+		else
+			@articles = Article.all
+		end
+		@users = User.all
+		@have_sidebar = true
+	end
+
+
 
 	def new
 		@document = Document.find(params[:document_id])
@@ -51,16 +63,41 @@ class ArticleController < ApplicationController
 
 	def destroy	 
 		@article = Article.find(params[:id])
-		  
-		if @article.destroy	 
+
+		if @article.destroy
 		  	redirect_to document_article_index_path
 		end
 		@have_sidebar = true
 	end
 
+	def editstate
+		@documents = Document.all			
+		@article = Article.find(params[:id])
+		@have_sidebar = true
+	end
+
+	def updatestate
+		@article = Article.find(params[:id])
+		if @article.stata == true
+			@article.stata = false
+		else
+			@article.stata = true
+		end
+		
+
+		if @article.update(article_params)
+		 	redirect_to document_article_index_path
+		else 
+			redirect_to document_article_index_path
+		end
+		@have_sidebar = true
+	end
+
+
+
 private
   def article_params
-    params.require(:article).permit(:name, :date, :decription, :attachment, :document_id, :user_id)
+    params.require(:article).permit(:name, :date, :decription, :attachment, :document_id, :user_id, :stata)
   end
 
 	def resolve_layout

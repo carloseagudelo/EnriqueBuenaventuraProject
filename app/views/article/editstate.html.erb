@@ -1,0 +1,25 @@
+<%= tinymce_assets %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+    	<h3 style="text-align: center"><i class="glyphicon glyphicon-pencil"></i> Editor</h3>
+	</div>
+	<div class="panel-body"> 
+
+	    <%= form_for :article, url: document_updatestate_document_article_path(:document_id, @article.id), method: :patch  do |f| %>        
+
+	        <%= f.text_area :attachment, :class => "tinymce", :rows =>18, :cols => 30 %><br />
+	        <%= tinymce %>
+
+	        <div class="form-group col-xs-12">
+	        	<%if @article.stata == true %>
+		        	<%= f.submit "Eliminar elemento de analisis", :class=>"btn btn-primary"%>
+		        <%elsif%>
+		        	<%= f.submit "Recuperar elemento de analisis", :class=>"btn btn-primary"%>
+		        <%end%>
+		    </div>	    
+		<% end %>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,110 @@
+<br />
+<div class="panel panel-default">
+  <%if current_user.has_role?(:student)%>
+    <br />
+  <%end%>
+    <div class="col-md-12">
+        <h3 style="text-align: center"><i class="glyphicon glyphicon-pencil"></i> Lista de elementos de analisis</h3>
+        <br />
+    </div>
+    <div class="col-md-12">      
+      <div class="row">
+        <div class="col-lg-6">          
+          <%= form_tag(document_article_index_path(:document_id), :method => "get", class: "input-group", id: "search-form") do %>
+            <%= text_field_tag :searchA, params[:searchA], :class=>"form-control", placeholder: "Buscar elemento de analisis por nombre"%>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">Buscar</i></button>
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <%if current_user.has_role?(:student)%>
+        <br />
+      <%end%>
+    </div>
+    <div class="content-panel">
+        <hr>
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Nombre del articulo</th>
+            <th>Usuario</th>
+            <th>Date</th>
+            <th>Descripcion</th>          
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @articles.each do |article| %>
+            <% if article.stata == false %>
+              <% if current_user.has_role?(:admin) %>
+                <tr>
+                  <td><%= article.name %></td>
+                  <td><%= @users.find(article.user_id).name %></td>
+                  <td><% t = article.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></td>
+                  <td><%= truncate(article.decription, :length => 100) %></td>
+
+                  <%if current_user.has_role?(:admin)%>
+                    <td>
+                      <%= link_to edit_document_article_path(:document_id, article), :title=>"Revisar" do%>
+                        <i class="glyphicon glyphicon-wrench" ></i>
+                      <%end%> 
+                    </td>
+                  <%end%>                 
+                
+
+                  <%if current_user.has_role?(:student)%>
+                    <td>
+                      <%= link_to  edit_document_article_path(:document_id, article), :tittle=>"Modificar" do %>
+                        <i class="glyphicon glyphicon-wrench" ></i>
+                      <%end%>
+                    </td>
+                  <%end%> 
+
+                  <td>
+                    <%= link_to document_editstate_document_article_path(:document_id, article), :tittle=>"Eliminar" do %>
+                      <i class="glyphicon glyphicon-trash" ></i>
+                    <%end%>
+                  </td>
+                </tr>
+
+                <%elsif current_user.has_role?(:student)%>
+                  <%if article.user_id == current_user.id%>
+                      <tr>
+                        <td><%= article.name %></td>
+                        <td><%= @users.find(article.user_id).name %></td>
+                        <td><% t = article.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></td>
+                        <td><%= truncate(article.decription, :length => 100) %></td>
+
+                        <%if current_user.has_role?(:admin)%>
+                          <td>
+                            <%= link_to edit_document_article_path(:document_id, article), :tittle=>"Revisar" do %>
+                              <i class="glyphicon glyphicon-wrench" ></i>
+                            <%end%>
+                          </td>
+                        <%end%>
+
+                        <%if current_user.has_role?(:student)%>
+                          <td>
+                            <%= link_to  edit_document_article_path(:document_id, article), :tittle=>"Modificar" do %>
+                              <i class="glyphicon glyphicon-wrench" ></i>
+                            <%end%>
+                          </td>
+                        <%end%> 
+
+                        <td>
+                          <%= link_to  document_editstate_document_article_path(:document_id, article), :tittle=>"Eliminar" do%>
+                            <i class="glyphicon glyphicon-trash" ></i>
+                          <%end%>
+
+                        </td>
+                      </tr>
+                  <%end%>
+              <%end%>
+            <%end%>
+          <% end %>
+          </tbody>
+      </table>
+    </div>
+</div>
