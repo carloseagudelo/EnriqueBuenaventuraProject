@@ -21,7 +21,7 @@
 
 		<div class="form-group col-xs-9">
 		  <strong>Fecha de publicado:</strong><br />
-		  <%= @document.date %>
+		  <% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
 		</div>
 
 		<div class="form-group col-xs-9">
