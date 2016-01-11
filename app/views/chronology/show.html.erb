@@ -1,39 +1,43 @@
 <div class="panel panel-default">
+
     <div class="panel-heading">
         <h3 style="text-align: center"><i class="glyphicon glyphicon-th-list"></i> Detalle de la palabara <strong><%=@chronology.event%></h3>
     </div>
     <div class="panel-body"> 
 
-        <div class="form-group col-xs-9">
-            <strong>FEcha del evento</srong><br />
-            <%t = @chronology.date%> <%= t.day.to_s + " " + t.strftime("%b") %>
-			<%= t.strftime("%Y") %>
-        </div>
-        
-        <div class="form-group col-xs-9">
-            <strong>Nombre:</strong><br />
-             <%=@chronology.event %>
-        </div>  
 
-         <div class="form-group col-xs-9">
-            <strong>Descripcion:</strong><br />
-             <%= @chronology.descripton %>
-        </div> 
+        <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+            <div class="col-xs-6 col-md-3"><strong>Fecha del evento:</strong></div>
+            <div class="col-xs-6 col-md-3"><%t = @chronology.date%> <%= t.day.to_s + " " + t.strftime("%b") %><%= t.strftime("%Y") %></div>
+            <div class="col-xs-6 col-md-3"><strong>Descripcion:</strong></div>
+            <div class="col-xs-6 col-md-3"><%= @chronology.descripton %></div>
+        </div>
 
         <%if @chronology.url? %>
-            <strong>video:</strong><br />
-            <%= video_tag @chronology.url, :size => "320x240", :controls => true %>
-        <%end%>
-
-         <div class="form-group col-xs-9">
-            <strong>Imagen:</strong><br />
-            <% @chronology.photos.each do |photo| %>
-                <%= image_tag photo.image.url(:thumb) %>
-            <%end%>
-        </div> 
-        <div class="form-group col-xs-12">
-            <%= link_to 'Atras', chronology_index_path, :class=>"btn btn-primary" %>
+            <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >                
+                <div class="col-xs-6 col-md-12 centered"><strong>Video</strong></div>
+                <div class="col-xs-6 col-md-12 centered" >                
+                    <object width="420" height="345"
+                        data="https://youtube.com/embed/<%= @chronology.url %>">
+                    </object>         
+                </div>
+            </div>
+        <%end%>       
+              
+        <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;">
+            <div class="col-xs-6 col-md-12 centered"><strong>Imagen(es):</strong></div> 
+            <% @chronology.photos.each do |photo| %>       
+                <div class="col-sm-6 col-md-3">
+                    <%= image_tag photo.image.url(:thumb).to_s %>
+                    <%=link_to "Ver imagen", photo.image.url %>
+                </div>
+            <%end%> 
         </div>
-                        
+            
+        <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;">
+            <div class="col-xs-6 col-md-12 centered">
+                <%= link_to 'Atras', chronology_index_path, :class=>"btn btn-primary" %>
+            </div> 
+        </div>                        
     </div>
 </div>

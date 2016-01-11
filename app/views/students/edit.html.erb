@@ -4,67 +4,56 @@
   	</div>
     <div class="panel-body">
 
-    	<div class="form-group col-xs-9">
-           <strong>Documento de indentidad:</strong><br />
-		 	 <%= @user.credential %>
-     	</div>
-
-     	<div class="form-group col-xs-9">
-           <strong>Correo Electronico:</strong><br />
-		 	 <%= @user.email %>
-     	</div>
-
-     	<div class="form-group col-xs-9">
-           <strong>Intereses:</strong><br />
-		 	 <%= @user.interest %>
-     	</div>
-
-     	<div class="form-group col-xs-9">
-           <strong>Nivel Academico:</strong><br />
-		 	 <%= @user.level %>
-     	</div>
-
-     	<div class="form-group col-xs-9">
-           <strong>Materia matriculada:</strong><br />
-		 	 <%= @user.subject %>
-
-     	</div>
-
-     	<div class="form-group col-xs-9">
-           <strong>Semestre cursante:</strong><br />
-		 	 <%= @user.semester %>
-     	</div>
-
-      <div class="form-group col-xs-9">
-           <strong>Fecha de registro en plataforma:</strong><br />
-       <% t= @user.created_at%><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
-      </div>	
-
-      <div class="form-group col-xs-9">
-          <strong>Ultima conexión:</strong><br />
-          <% t = @user.last_sign_in_at %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
+      <!--Primera Fila --> 
+      <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+        <div class="col-xs-6 col-md-3"><strong>Documento de indentidad:</strong></div>
+        <div class="col-xs-6 col-md-3"><%= @user.credential %></div>
+        <div class="col-xs-6 col-md-3">Correo Electronico:</div>
+        <div class="col-xs-6 col-md-3"><%= @user.email %></div>
       </div>
 
-     	<%if @user.has_role?(:user)%>
-     		<div class="form-group col-xs-9">
-				<%= link_to student_path, method: :PATCH,:class=>"btn btn-primary", data: {confirm: '¿Esta seguro que desea habilitar este usuario?'} do%>
-	  				<i>Habilitar Usuario</i>
-				<%end%> 
-			</div>
-        <div class="form-group col-xs-12">
-            <%= link_to 'Atras', student_path, :class=>"btn btn-primary" %>
-        </div>        
-     	<%elsif @user.has_role?(:student)%>
-     		<div class="form-group col-xs-9">
-				<%= link_to student_path, method: :PATCH,:class=>"btn btn-primary", data: {confirm: '¿Esta seguro que desea deshabilitar este usuario?'} do%>
-	  				<i>Deshabilitar Usuario</i>
-				<%end%> 
-			</div>
-        <div class="form-group col-xs-12">
-            <%= link_to 'Atras', students_path, :class=>"btn btn-primary" %>
-        </div>      
-     	<%end%>
+      <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;">
+        <div class="col-xs-6 col-md-3"><strong>Intereses:</strong></div>
+        <div class="col-xs-6 col-md-3"><%= @user.interest %></div>
+        <div class="col-xs-6 col-md-3"><strong>Nivel Academico:</strong></div>
+        <div class="col-xs-6 col-md-3"><%= @user.level %></div>
+      </div>
 
-		
+      <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;">
+        <div class="col-xs-6 col-md-3"><strong>Materia matriculada:</strong></div>
+        <div class="col-xs-6 col-md-3"><%= @user.subject %></div>
+        <div class="col-xs-6 col-md-3"><strong>Semestre cursante:</strong></div>
+        <div class="col-xs-6 col-md-3"><%= @user.semester %></div>
+      </div>
+
+      <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;">
+        <div class="col-xs-6 col-md-3"><strong>Fecha de registro en plataforma:</strong></div>
+        <div class="col-xs-6 col-md-3"><% t= @user.created_at%><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+        <div class="col-xs-6 col-md-3"><strong>Ultima conexión:</strong></div>
+        <div class="col-xs-6 col-md-3"><% t = @user.last_sign_in_at %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+      </div>      
+
+      <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;">
+       	<%if @user.has_role?(:user)%>
+       		<div class="col-xs-6 col-md-6 centered">
+    				<%= link_to student_path, method: :PATCH,:class=>"btn btn-primary", data: {confirm: '¿Esta seguro que desea habilitar este usuario?'} do%>
+    	  				<i>Habilitar Usuario</i>
+    				<%end%> 
+  			  </div>
+          <div class="col-xs-6 col-md-6 centered">
+              <%= link_to 'Atras', student_path, :class=>"btn btn-primary" %>
+          </div>        
+       	<%elsif @user.has_role?(:student)%>
+       		<div class="col-xs-6 col-md-6 centered">
+  				  <%= link_to student_path, method: :PATCH,:class=>"btn btn-primary", data: {confirm: '¿Esta seguro que desea deshabilitar este usuario?'} do%>
+  	  			  <i>Deshabilitar Usuario</i>
+  				  <%end%> 
+  			  </div>
+          <div class="col-xs-6 col-md-6 centered">
+            <%= link_to 'Atras', students_path, :class=>"btn btn-primary" %>
+          </div>      
+       	<%end%>
+      </div>	
+
 	</div>
 </div>

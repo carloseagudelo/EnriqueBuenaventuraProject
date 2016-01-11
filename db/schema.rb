@@ -14,14 +14,15 @@
 ActiveRecord::Schema.define(version: 20151108083205) do
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "name",       limit: 255
+    t.integer  "user_id",     limit: 4
+    t.string   "name",        limit: 255
     t.datetime "date"
-    t.string   "decription", limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "attachment", limit: 255
-    t.boolean  "stata",      limit: 1,   default: false
+    t.string   "decription",  limit: 255
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "attachment",  limit: 255
+    t.boolean  "stata",       limit: 1,   default: false
+    t.boolean  "statepublic", limit: 1,   default: false
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree

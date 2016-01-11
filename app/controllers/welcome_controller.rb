@@ -5,6 +5,8 @@ class WelcomeController < ApplicationController
 	def index
 		@have_sidebar = true
 		@articles = Article.all
+		@document = Document.find(1)
+		@users = User.all
 	end
 
 	def indexUser

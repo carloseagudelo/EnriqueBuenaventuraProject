@@ -39,9 +39,18 @@
               <td><%= author.name %></td>
               <td><%= truncate(author.description, :length => 100) %></td>
 
-              <td><%= link_to 'VER', authors_worked_path(author) %></td>  
+              <td>
+                <%= link_to authors_worked_path(author), :title=>"Ver" do%>
+                  <i class="glyphicon glyphicon-eye-open" ></i>
+                <%end%>
+              </td> 
+
               <%if current_user.has_role?(:admin)%>
-                <td><%= link_to 'EDITAR', edit_authors_worked_path(author) %></td>
+                <td>
+                  <%= link_to edit_authors_worked_path(author) do%>
+                  <i class="glyphicon glyphicon-wrench" ></i>
+                  <%end%>
+                </td>
               <%end%>                          
             </tr>
           <% end %>

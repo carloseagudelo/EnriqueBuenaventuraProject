@@ -51,22 +51,30 @@
                         <i class="glyphicon glyphicon-wrench" ></i>
                       <%end%> 
                     </td>
-                  <%end%>                 
-                
+                  <%end%>    
 
                   <%if current_user.has_role?(:student)%>
                     <td>
-                      <%= link_to  edit_document_article_path(:document_id, article), :tittle=>"Modificar" do %>
+                      <%= link_to  edit_document_article_path(:document_id, article), :title=>"Modificar" do %>
                         <i class="glyphicon glyphicon-wrench" ></i>
                       <%end%>
                     </td>
-                  <%end%> 
+                  <%end%>
 
                   <td>
-                    <%= link_to document_editstate_document_article_path(:document_id, article), :tittle=>"Eliminar" do %>
+                    <%= link_to document_editstate_document_article_path(:document_id, article), :title=>"Eliminar" do %>
                       <i class="glyphicon glyphicon-trash" ></i>
                     <%end%>
                   </td>
+
+                  <%if current_user.has_role?(:admin)%>
+                    <td>
+                      <%= link_to document_editpublic_document_article_path(:document_id, article), :title=>"Publicar" do%>
+                        <i class="glyphicon glyphicon-ok" ></i>
+                      <%end%> 
+                    </td>
+                  <%end%>   
+
                 </tr>
 
                 <%elsif current_user.has_role?(:student)%>
@@ -79,7 +87,7 @@
 
                         <%if current_user.has_role?(:admin)%>
                           <td>
-                            <%= link_to edit_document_article_path(:document_id, article), :tittle=>"Revisar" do %>
+                            <%= link_to edit_document_article_path(:document_id, article), :title=>"Revisar" do %>
                               <i class="glyphicon glyphicon-wrench" ></i>
                             <%end%>
                           </td>
@@ -87,18 +95,18 @@
 
                         <%if current_user.has_role?(:student)%>
                           <td>
-                            <%= link_to  edit_document_article_path(:document_id, article), :tittle=>"Modificar" do %>
+                            <%= link_to  edit_document_article_path(:document_id, article), :title=>"Modificar" do %>
                               <i class="glyphicon glyphicon-wrench" ></i>
                             <%end%>
                           </td>
                         <%end%> 
 
                         <td>
-                          <%= link_to  document_editstate_document_article_path(:document_id, article), :tittle=>"Eliminar" do%>
+                          <%= link_to  document_editstate_document_article_path(:document_id, article), :title=>"Eliminar" do%>
                             <i class="glyphicon glyphicon-trash" ></i>
                           <%end%>
-
                         </td>
+
                       </tr>
                   <%end%>
               <%end%>

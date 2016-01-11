@@ -4,74 +4,68 @@
   	</div>
     <div class="panel-body">
 
-    	<div class="form-group col-xs-9">
-        	<strong>Numero del documento:</strong><br />
-		  	<%= @document.number %>	
-     	</div>
+    	<div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3"><strong>Numero del documento:</strong></div>
+	        <div class="col-xs-6 col-md-3"><%= @document.number %></div>
+	        <div class="col-xs-6 col-md-3">Descripcion:</div>
+	        <div class="col-xs-6 col-md-3"><%= @document.description %></div>
+	    </div>
 
-    	<div class="form-group col-xs-9">
-        	<strong>Descripcion:</strong><br />
-		  	<%= @document.description %>	
-     	</div>
+	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3"><strong>Estado:</strong></div>
+	        <div class="col-xs-6 col-md-3"><%= @document.status %></div>
+	        <div class="col-xs-6 col-md-3">Fecha de publicado:</div>
+	        <div class="col-xs-6 col-md-3"><% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+	    </div>
 
-     	<div class="form-group col-xs-9">
-        	<strong>Estado:</strong><br />
-		  	<%= @document.status %>	
-     	</div>
+	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3"><strong>Lugar de publicacion:</strong></div>
+	        <div class="col-xs-6 col-md-3"><%= @document.place %></div>
+	        <div class="col-xs-6 col-md-3">Fecha de publicado:</div>
+	        <div class="col-xs-6 col-md-3"><% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+	    </div>
 
-		<div class="form-group col-xs-9">
-		  <strong>Fecha de publicado:</strong><br />
-		  <% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %>
-		</div>
+	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3"><strong>Autor(es):</strong></div>
+	        <div class="col-xs-6 col-md-3"><%= @document.autor %></div>
+	        <div class="col-xs-6 col-md-3">Prosa:</div>
+	        <div class="col-xs-6 col-md-3"><%= @prose.find(@document.prose_id).name %></div>
+	    </div>
 
-		<div class="form-group col-xs-9">
-        	<strong>Lugar de publicacion:</strong><br />
-		  	<%= @document.place %>	
-     	</div>
+	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3"><strong>Tipo de documento:</strong></div>
+	        <div class="col-xs-6 col-md-3"><%= @speciality.find(@document.speciality_id).name %></div>
+	        <div class="col-xs-6 col-md-3">Subtema:</div>
+	        <div class="col-xs-6 col-md-3"><%= @subtopic.find(@document.subtopic_id).name %></div>
+	    </div>
 
-		<div class="form-group col-xs-9">
-		  <strong>Autor(es):</strong><br />
-		  <%= @document.autor %>
-		</div>
-
-		<div class="form-group col-xs-9">
-		  <strong>Prosa:</strong><br />
-		  <%= @prose.find(@document.prose_id).name %>
-		</div>
-
-		<div class="form-group col-xs-9">
-		  <strong>Tipo de documento:</strong><br />
-		  <%= @speciality.find(@document.speciality_id).name %>
-		</div>
-
-		<div class="form-group col-xs-9">
-		  <strong>Subtema:</strong><br />
-		  <%= @subtopic.find(@document.subtopic_id).name %>
-		</div>
-
-		<div class="form-group col-xs-9">
-			<strong>Autores trabajados</strong><br />
-			<ul>
+	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3"><strong>Autores trabajados:</strong></div>
+	        <div class="col-xs-6 col-md-3">
 				<% @authors.each do |f| %>
-				<li><%= @author.find(f.author_id).name %></li>
+					<%= @author.find(f.author_id).name %><br />
 				<%end%>
-			</ul>
-		</div>
-
-		<div class="form-group col-xs-9">
-			<strong>libros trabajados</strong><br />
-			<ul>			
+			</div>
+	        <div class="col-xs-6 col-md-3">Libros trabajados:</div>
+	        <div class="col-xs-6 col-md-3">			
 				<% @books.each do |f| %>
-				<li><%= @book.find(f.book_id).name %></li>
+					<%= @book.find(f.book_id).name %><br />
 				<%end%>	
-			</ul>		
-		</div>
+	        </div>
+	    </div>
 
-		<div class="form-group col-xs-9">
-			<%= link_to 'Atras', document_index_path ,:class=>"btn btn-primary" %>
-			<%= link_to 'ver el documento', @document.attachment_url, :target => "_blank", :class=>"btn btn-primary" %>
-			<%= link_to 'Generar un nuevo documento de analizis', new_document_article_path(@document), :controller => "article",  :action => "new" ,
-			:class=>"btn btn-primary" %>
-		</div>
+	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
+	        <div class="col-xs-6 col-md-3 centered">
+	        	<%= link_to 'Atras', document_index_path ,:class=>"btn btn-primary" %>
+	        </div>
+	        <div class="col-xs-6 col-md-3 centered">
+	        	<%= link_to 'Ver el documento', @document.attachment_url, :target => "_blank", :class=>"btn btn-primary" %>
+	        </div>
+	        <div class="col-xs-6 col-md-3 centered">
+	        	<%= link_to 'Generar un nuevo documento de analisis', new_document_article_path(@document), :controller => "article",  :action => "new" ,
+				:class=>"btn btn-primary" %>
+	        </div>
+	    </div>
+
 	</div>
 </div>

@@ -42,6 +42,8 @@ gem 'tinymce-rails-langs'
 gem 'pdfjs_rails'
 # gem for images in the app
 gem 'mini_magick', '3.8.0'
+#gem for generate PDF
+gem 'prawn'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

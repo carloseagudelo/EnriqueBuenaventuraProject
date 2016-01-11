@@ -43,15 +43,18 @@
 	<h2 class="home-block-heading"><span>Articulos</span></h2>
 	<div class="one-third-thumbs clearfix" >
 		<% @articles.each do |article|%>
-			<%if article.stata == true%>
+			<%if article.statepublic == true%>
 				<figure>
 					<figcaption>
 						<strong><%= article.name %></strong>
-						<span><%= article.decription %></span>
+						<span><% u= @users.find(article.user_id)%><%= u.name %></span>
 						<em><% t=  article.date %> <%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></em>
+						<span><%= article.decription %></span>	
 						<a href="single.html" class="opener"></a>
 					</figcaption>
-					<a href="single.html"  class="thumb"><%= image_tag "featured-1.jpg", :alt=>"Alt text"%></a>
+					<%= link_to document_article_path(@document, article, format: "pdf"), :class=>"thumb" do%>
+						<%= image_tag "featured-1.jpg", :alt=>"Alt text"%>
+					<%end%>
 				</figure>
 			<%end%>
 		<%end%>
