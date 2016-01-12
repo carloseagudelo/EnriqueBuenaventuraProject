@@ -1,92 +1,92 @@
 <%= tinymce_assets %>
 	
-	<iframe name="doc" id="iframeList" src="<%= document_list_path %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
-	</iframe>	
+<iframe name="doc" id="iframeList" src="<%= document_list_path %>" style="position:absolute;top:5;left:0;width:50%;height:100%;">
+</iframe>	
 
-	<div style="position:absolute;top:5;left:50%;width:50%;height:100%;">
-		<div class="panel panel-default">
-	    	<div class="panel-heading">
-	        	<h3 style="text-align: center"><i class="glyphicon glyphicon-pencil"></i> Editor</h3>
-	    	</div>
-	    	<div class="panel-body"> 
+<div style="position:absolute;top:5;left:50%;width:50%;height:100%;">
+	<div class="panel panel-default">
+    	<div class="panel-heading">
+        	<h3 style="text-align: center"><i class="glyphicon glyphicon-pencil"></i> Editor</h3>
+    	</div>
+    	<div class="panel-body"> 
 
-			    <%= form_for :article, url: document_article_path(:document_id, @article.id), method: :patch  do |f| %>	        
+		    <%= form_for :article, url: document_article_path(:document_id, @article.id), method: :patch  do |f| %>	        
 
-			        <%= f.text_area :attachment, :class => "tinymce", :rows =>18, :cols => 30 %><br />
-			        <%= tinymce %>
+		        <%= f.text_area :attachment, :class => "tinymce", :rows =>18, :cols => 30 %><br />
+		        <%= tinymce %>
 
-			        <div class="form-group col-xs-12">
-				        <%= f.submit "Guardar", :class=>"btn btn-primary"%>
-				        <%= link_to "Crear Citación", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
-						<%= link_to "Información Elemento", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal2"} %>
-						<%= link_to "Referencias", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal3"} %>
+		        <div class="form-group col-xs-12">
+			        <%= f.submit "Guardar", :class=>"btn btn-primary"%>
+			        <%= link_to "Crear Citación", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
+					<%= link_to "Información Elemento", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal2"} %>
+					<%= link_to "Referencias", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal3"} %>
+			    </div>
+			    	   
+				<div class="modal fade" id="modal1" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Ingrese el texto que desea citar:</h4>
+				      </div>
+				      <div  class="modal-body">
+				        <textarea id="myTextarea" rows="20" cols="90"></textarea>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				        <button type="button" onclick="myFunction()" class="btn btn-primary" data-dismiss="modal">Crear Citación</button>
+				      </div>
 				    </div>
-				    	   
-					<div class="modal fade" id="modal1" role="dialog">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal">&times;</button>
-					        <h4 class="modal-title">Ingrese el texto que desea citar:</h4>
-					      </div>
-					      <div  class="modal-body">
-					        <textarea id="myTextarea" rows="20" cols="90"></textarea>
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-					        <button type="button" onclick="myFunction()" class="btn btn-primary" data-dismiss="modal">Crear Citación</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>
+				  </div>
+				</div>
 
-					<div class="modal fade" id="modal2" role="dialog">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal">&times;</button>
-					        <h4 class="modal-title">Información del elemento de análisis</h4>
-					      </div>
-					      <div  class="modal-body">
-					        <div class="form-group col-xs-9">
-				                <%= f.label :nombre_del_elemento_de_análisis %><br />
-				                <%= f.text_field :name, autofocus: true, placeholder: 'Digita una descripción`para el elemento de análisis...',:class=>"form-control" %>
-				            </div>
+				<div class="modal fade" id="modal2" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Información del elemento de análisis</h4>
+				      </div>
+				      <div  class="modal-body">
+				        <div class="form-group col-xs-9">
+			                <%= f.label :nombre_del_elemento_de_análisis %><br />
+			                <%= f.text_field :name, autofocus: true, placeholder: 'Digita una descripción`para el elemento de análisis...',:class=>"form-control" %>
+			            </div>
 
-				             <div class="form-group col-xs-9">
-				                <%= f.label :Descripción %><br />
-				                <%= f.text_area :decription, placeholder: 'Digita la descripción del elemento de análisis...',:class=>"form-control",:rows =>15 %>
-				            </div>
-					      </div>
-					      <div class="modal-footer">			       
-				            <div class="form-group col-xs-12">
-				                <%= f.submit "Guardar", :class=>"btn btn-primary"%>
-				            </div>
-					      </div>
-					    </div>
-					  </div>
-					</div>
+			             <div class="form-group col-xs-9">
+			                <%= f.label :Descripción %><br />
+			                <%= f.text_area :decription, placeholder: 'Digita la descripción del elemento de análisis...',:class=>"form-control",:rows =>15 %>
+			            </div>
+				      </div>
+				      <div class="modal-footer">			       
+			            <div class="form-group col-xs-12">
+			                <%= f.submit "Guardar", :class=>"btn btn-primary"%>
+			            </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 
-					<div class="modal fade" id="modal3" role="dialog">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal">&times;</button>
-					        <h4 class="modal-title">En las siguientes direcciones tambien encontrara informacion detalla para una mejor redaccion del dcumento de analisis</h4>
-					      </div>
-					      <div  class="modal-body">
-					        <%= link_to "Direccion 1", "#", :class=>"btn btn-primary"%>
-					        <%= link_to "Direccion 2", "#", :class=>"btn btn-primary"%>
-					        <%= link_to "Direccion 3", "#", :class=>"btn btn-primary"%>
-					        <%= link_to "Direccion 4", "#", :class=>"btn btn-primary"%>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-				<% end %>
-			</div>
+				<div class="modal fade" id="modal3" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">En las siguientes direcciones tambien encontrara informacion detalla para una mejor redaccion del dcumento de analisis</h4>
+				      </div>
+				      <div  class="modal-body">
+				        <%= link_to "Direccion 1", "#", :class=>"btn btn-primary"%>
+				        <%= link_to "Direccion 2", "#", :class=>"btn btn-primary"%>
+				        <%= link_to "Direccion 3", "#", :class=>"btn btn-primary"%>
+				        <%= link_to "Direccion 4", "#", :class=>"btn btn-primary"%>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			<% end %>
 		</div>
 	</div>
+</div>
 
 
 
@@ -102,10 +102,14 @@ function getContent(){
 }
 
 function myFunction() {
+	 
 	var contentTextArea = getContent();
     var numPage = document.getElementById('iframeList').contentWindow.document.getElementById('iframe').contentWindow.document.getElementById('pageNumber').value;
     var nameDoc = document.getElementById('iframeList').contentWindow.document.getElementById('nameDoc').innerHTML;
-    var citacion = '<br />Buenaventura, Enrique, ' +nameDoc+', 1998, Editorial Edalse, 2000, pg. '+numPage;
+    var year =  document.getElementById('iframeList').contentWindow.document.getElementById('year').innerHTML;
+    var state = document.getElementById('iframeList').contentWindow.document.getElementById('state').innerHTML;
+
+    var citacion = '<br />Buenaventura, Enrique, ' +nameDoc+', ' +year+', ' +state+', pg. '+numPage;
     var citacionCompleta = contentTextArea+citacion;
     var contentTextEditor = tinyMCE.activeEditor.getContent();
     var contenidoCompletoEditor = contentTextEditor+citacionCompleta;
