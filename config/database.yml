@@ -47,8 +47,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
   <<: *default
   database: EnriqueBuenaventura_production
-  username: EnriqueBuenaventura
-  password: <%= ENV['ENRIQUEBUENAVENTURA_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: 3nr1qu3bu3n4v3ntur4 
+#<%= ENV['ENRIQUEBUENAVENTURA_DATABASE_PASSWORD'] %>
+  host: 127.0.0.1
