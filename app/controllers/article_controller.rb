@@ -119,6 +119,9 @@ class ArticleController < ApplicationController
 		@article = Article.find(params[:id])
 		@date = @article.date.day.to_s + " " + @article.date.strftime("%b") + " " + @article.date.strftime("%Y")
 		@user = User.find(@article.user_id)
+
+
+		
 		@txt = ActionView::Base.full_sanitizer.sanitize(@article.attachment)
 
 		respond_to do |format|

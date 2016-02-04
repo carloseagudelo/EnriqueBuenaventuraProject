@@ -50,8 +50,10 @@
 						<span><%= article.decription %></span>	
 						<a href="single.html" class="opener"></a>
 					</figcaption>
-					<%= link_to document_article_path(@document, article, format: "pdf"), :class=>"thumb" do%>
-						<%= image_tag "featured-1.jpg", :alt=>"Alt text"%>
+					<%if !@documents.blank? %>
+						<%= link_to document_article_path(@document, article, format: "pdf"), :class=>"thumb" do%>
+							<%= image_tag "featured-1.jpg", :alt=>"Alt text"%>
+						<%end%>
 					<%end%>
 				</figure>
 			<%end%>

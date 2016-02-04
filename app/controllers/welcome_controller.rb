@@ -5,7 +5,10 @@ class WelcomeController < ApplicationController
 	def index
 		@have_sidebar = true
 		@articles = Article.all
-		@document = Document.find(1)
+		@documents = Document.all
+		if !@documents.blank?
+			@document = Document.find(1)
+		end
 		@users = User.all
 	end
 
