@@ -22,24 +22,24 @@
 
       <div class="form-group col-xs-9">
         <%= f.label :Estado %><br />
-        <%= f.text_area :status, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control",:rows =>10%>
+        <%= f.text_area :status, autofocus: true, placeholder: 'Digita el estado del documento, Ejemplo: publicado ',:class=>"form-control",:rows =>10%>
       </div> 
 
       <div class="form-group col-xs-9">
         <%= f.label :Fecha_De_publicacion_Documento %><br />
-        <%= f.date_field :date, :class=>"form-control" %>
+        <%= f.date_field :date, placeholder: 'Digita la fecha de publicación del documento ', :class=>"form-control" %>
         <p class="help-block">Solo se permiten la fecha en caso de que este fuese publicado</p>
       </div>
 
       <div class="form-group col-xs-9">
         <%= f.label :Lugar_de_publicacion %><br />
-        <%= f.text_area :place, autofocus: true, placeholder: 'Digita una breve descripción del nuevo documento ',:class=>"form-control"%>
+        <%= f.text_area :place, placeholder: 'Digita el lugar de publicación del documento ',:class=>"form-control"%>
         <p class="help-block">Solo se permiten el lugar en caso de que este fuese publicado</p>
       </div> 
 
       <div class="form-group col-xs-9">
         <%= f.label :Autor %><br />
-        <%= f.text_field :autor, :value => 'Enrique Buenaventura', autofocus: true, :class=>"form-control"%>
+        <%= f.text_field :autor, :value => 'Enrique Buenaventura', :class=>"form-control"%>
       </div>   
 
         <div class="form-group col-xs-9">
