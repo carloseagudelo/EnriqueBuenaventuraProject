@@ -5,6 +5,12 @@
   <div class="panel-body">
     <%= form_for :document, url: document_index_path do |f| %> 
 
+      <% if @document.errors.any? %>
+        <div id="error_explanation">
+            <p>erores</p>
+        </div>
+      <% end %>
+
       <div class="form-group col-xs-9">
         <%= f.label :Numero_del_documento %><br />
         <%= f.text_field :number, autofocus: true, placeholder: 'Digita numero del nuevo documento',:class=>"form-control" %>
@@ -44,32 +50,32 @@
 
         <div class="form-group col-xs-9">
             <%= f.label :Prosa_base %><br />              
-            <%= f.collection_select(:prose_id, @proses, :id, :name, {:prompt => 'Seleccione una prosa base'}, { :class =>"form-control", :selected => params[:id]}) %>
+            <%= f.collection_select(:prose_id, Prose.all, :id, :name, {:prompt => 'Seleccione una prosa base'}, { :class =>"form-control", :selected => params[:id]}) %>
         </div> 
 
         <div class="form-group col-xs-9">
             <%= f.label :Tipo_de_documento %><br />              
-            <%= f.collection_select(:speciality_id, @types, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
+            <%= f.collection_select(:speciality_id, Type.all, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
             { :class =>"form-control", :selected => params[:id]}) %>
         </div> 
 
         <div class="form-group col-xs-9">
             <%= f.label :Subtemas %><br />              
-            <%= f.collection_select(:subtopic_id, @subtopics, :id, :name, {:prompt => 'Seleccione un subtema'}, 
+            <%= f.collection_select(:subtopic_id, Subtopic.all, :id, :name, {:prompt => 'Seleccione un subtema'}, 
             { :class =>"form-control", :selected => params[:id]}) %>
         </div>
 
         <div class="form-group col-xs-9">
-          <%= fields_for(@document_author) do |da| %>
+          <%= fields_for(@document.documentauthors.build) do |da| %>
             <%= da.label "Autores trabajados" %><br />
-            <%=  collection_select(:authors, :id, @all_authors, :id, :name, {}, {:multiple => true, :class=>"form-control"}) %>
+            <%=  collection_select(:authors, :id, Author.all, :id, :name, {}, {:multiple => true, :class=>"form-control"}) %>
           <%  end %>
         </div>
 
         <div class="form-group col-xs-9">
-          <%= fields_for(@document_book) do |da| %>
+          <%= fields_for(@document.documentbooks.build) do |da| %>
             <%= da.label "Libros" %><br />
-            <%=  collection_select(:books, :id, @all_books, :id, :name, {}, {:multiple => true, :class=>"form-control"}) %>
+            <%=  collection_select(:books, :id, Book.all, :id, :name, {}, {:multiple => true, :class=>"form-control"}) %>
          <%  end %>
         </div>
         

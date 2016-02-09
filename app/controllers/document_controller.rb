@@ -50,10 +50,10 @@ class DocumentController < ApplicationController
 			end
 		end
 
-		if @document.save
+		if @document.save 
 			redirect_to document_index_path, notice: "El docuemto #{@document.name} ha sido guardado correctamente."
 		else
-			render  new_document_path
+			redirect_to document_index_path
 		end
 	end
 
