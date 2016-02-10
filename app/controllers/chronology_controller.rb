@@ -28,8 +28,8 @@ class ChronologyController < ApplicationController
 	      flash[:notice] = "Your album has been created."
 	      redirect_to chronology_index_path
 	    else 
-	      flash[:alert] = "Something went wrong."
-	      render :new
+	      flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
+		  redirect_to new_chronology_path
 	    end	
 	end
 

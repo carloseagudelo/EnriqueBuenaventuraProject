@@ -6,4 +6,7 @@ class Article < ActiveRecord::Base
     # where(:title, query) -> This would return an exact match of the query
     	where("name like ?", "%#{query}%") 
   	end
+
+  	validates :name, :uniqueness => true
+	validates_presence_of :name, :decription
 end

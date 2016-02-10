@@ -24,6 +24,7 @@ class SubtopicController < ApplicationController
 		if @subtopic.save
 			redirect_to subtopic_index_path
 		else 
+			flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
 			redirect_to new_subtopic_path
 		end
 	end

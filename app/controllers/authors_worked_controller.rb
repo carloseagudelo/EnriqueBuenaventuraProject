@@ -29,6 +29,7 @@ class AuthorsWorkedController < ApplicationController
 		if @author.save
 			redirect_to authors_worked_index_path
 		else 
+			flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
 			redirect_to new_authors_worked_path
 		end
 	end

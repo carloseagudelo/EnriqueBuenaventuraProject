@@ -8,5 +8,7 @@ class Author < ActiveRecord::Base
     	where("name like ?", "%#{query}%") 
   	end
 
+  	validates :name, :uniqueness => true
+	validates_presence_of :name, :description	
 	
 end

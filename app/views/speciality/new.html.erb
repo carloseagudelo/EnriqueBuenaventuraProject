@@ -6,6 +6,10 @@
 			<%= form_for :speciality, url: speciality_index_path do |f| %>
 
 			  <div class="form-group col-xs-9">
+	            <strong><b><h2><font size="3" color="red"><%= notice %></font></h2></b></strong>
+              </div>   
+
+			  <div class="form-group col-xs-9">
 			     <%= f.label :nombre_del_tipo_de_documento %><br />
 			    <%= f.text_field :name, autofocus: true, placeholder: 'Digita nombre del nuevo tipo de documento',:class=>"form-control" %>
 			  </div>

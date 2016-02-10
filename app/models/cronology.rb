@@ -6,4 +6,7 @@ class Cronology < ActiveRecord::Base
 	has_many    :photos, :inverse_of => :cronology, :dependent => :destroy
 	# enable nested attributes for photos through album class
 	accepts_nested_attributes_for :photos, allow_destroy: true 
+
+	validates :event, :uniqueness => true
+	validates_presence_of :event, :date, :type_id
 end

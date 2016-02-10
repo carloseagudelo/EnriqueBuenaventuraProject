@@ -53,8 +53,8 @@ class DocumentController < ApplicationController
 		if @document.save 
 			redirect_to document_index_path, notice: "El docuemto #{@document.name} ha sido guardado correctamente."
 		else
-			:resolve_layout
-			render "document/new"
+			flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
+			redirect_to new_document_path
 		end
 	end
 

@@ -39,6 +39,7 @@ class ArticleController < ApplicationController
 		if @article.save
 			redirect_to edit_document_article_path(@document.id, @article.id)
 		else
+			flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
 			redirect_to new_document_article_path(@document.id, @article.id)
 		end
 	end

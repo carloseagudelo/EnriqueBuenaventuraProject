@@ -1,8 +1,12 @@
 <div id="login-page">    
   <%= form_for(resource, as: resource_name,  url: session_path(resource_name), html: { class: "form-login" }) do |f| %>
-  <%= devise_error_messages! %>
+
     <h2 class="form-login-heading">Inciar Sesión</h2>
     <div class="login-wrap">
+
+      <% if devise_error_messages! %>
+          <strong><b><h2><font size="3" color="red"><p>La combinación usuario contraseña tiene errores</p></font></h2></b></strong>
+      <%end%>
 
       <%= f.email_field :email, autofocus: true, placeholder: 'Correo electronico',:class=>"form-control"%><br />
       <%= f.password_field :password, autocomplete: "off", placeholder: 'Contraseña' ,:class=>"form-control" %>

@@ -1,3 +1,4 @@
+#render new_prose_path
 class ProseController < ApplicationController
 
 	layout :resolve_layout
@@ -24,7 +25,8 @@ class ProseController < ApplicationController
 		if @prose.save
 			redirect_to prose_index_path
 		else 
-			reder new_prose_path
+			flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
+			redirect_to new_prose_path
 		end
 	end
 

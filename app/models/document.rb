@@ -21,5 +21,6 @@ class Document < ActiveRecord::Base
   	end
 
   	validates_presence_of :number, :name, :description, :autor, :status, :attachment, :prose_id, :subtopic_id, :speciality_id
-
+  	validates :number, :uniqueness => true
+  	validates :name, :uniqueness => true
 end

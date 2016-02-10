@@ -24,7 +24,8 @@ class SpecialityController < ApplicationController
 		if @speciality.save
 			redirect_to speciality_index_path
 		else 
-			reder new_speciality_path
+			flash[:notice] = "ERROR, Está ingresando mal la información, por favor verificar los campos e intenta de nuevo"
+			redirect_to new_speciality_path
 		end
 	end
 
