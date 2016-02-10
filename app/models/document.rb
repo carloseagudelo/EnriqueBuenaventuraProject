@@ -20,6 +20,6 @@ class Document < ActiveRecord::Base
     	where("name like ?", "%#{query}%") 
   	end
 
-  	validates_presence_of :number, :name, :description, :autor, :status, :place, :attachment, :prose_id, :subtopic_id, :speciality_id
+  	validates_presence_of :number, :name, :description, :autor, :status, :attachment, :prose_id, :subtopic_id, :speciality_id
 
 end

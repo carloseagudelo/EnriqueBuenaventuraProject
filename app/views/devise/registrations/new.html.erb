@@ -6,10 +6,10 @@
       <%= f.text_field :name, autofocus: true, placeholder: 'Nombre completo', :class=>"form-control" %><br />
       <%= f.text_field :credential, placeholder: 'Numero de documento de identificación', :class=>"form-control" %><br />
       <%= f.email_field :email, placeholder: 'Correo electronico', :class=>"form-control" %><br />
-      <%= f.text_field :subject, placeholder: 'Curso activo',:class=>"form-control" %><br />
+      <%= f.text_field :subject, placeholder: 'Curso matriculado, ejemplo: Teatro',:class=>"form-control" %><br />
       <%= f.number_field :level, placeholder: 'Nivel academico actual',:class=>"form-control" %><br />
       <%= f.number_field :semester, placeholder: 'Semestre actual',:class=>"form-control" %><br />
-      <%= f.text_field :interest, placeholder: 'Intereses en la plataforma',:class=>"form-control" %><br />
+      <%= f.text_area :interest, placeholder: 'Intereses en la plataforma',:class=>"form-control",:rows =>5,:style=>"resize:vertical" %><br />
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />

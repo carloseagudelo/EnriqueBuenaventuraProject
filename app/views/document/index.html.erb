@@ -27,7 +27,7 @@
       <table class="table">
           <thead>
           <tr>
-            <th>Fecha de creacion</th>
+            <th>Fecha de publicación</th>
             <th>Nombre del documento</th>
             <th>Descripcion</th>
           </tr>
@@ -37,7 +37,11 @@
 
             <% @documents.each do |document| %>
               <tr>
-                <td><% t=  document.date %> <%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></td>
+                <% if !document.date.blank? %>
+                  <td><% t=  document.date %> <%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></td>
+                <%else%>
+                  <td><p>N/A</p></td>
+                <%end%>
                 <td><%= document.name %></td>
                 <td><%= truncate(document.description, :length => 100) %></td>
                 <td>

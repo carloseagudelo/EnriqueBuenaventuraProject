@@ -5,7 +5,7 @@
     <div class="panel-body">
 
     	<div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
-	        <div class="col-xs-6 col-md-3"><strong>Numero del documento:</strong></div>
+	        <div class="col-xs-6 col-md-3"><b>Numero del documento:</b></div>
 	        <div class="col-xs-6 col-md-3"><%= @document.number %></div>
 	        <div class="col-xs-6 col-md-3">Descripcion:</div>
 	        <div class="col-xs-6 col-md-3"><%= @document.description %></div>
@@ -14,15 +14,23 @@
 	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
 	        <div class="col-xs-6 col-md-3"><strong>Estado:</strong></div>
 	        <div class="col-xs-6 col-md-3"><%= @document.status %></div>
-	        <div class="col-xs-6 col-md-3">Fecha de publicado:</div>
-	        <div class="col-xs-6 col-md-3"><% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+	        <div class="col-xs-6 col-md-3">Fecha de publicación:</div>
+	        <% if !@document.date.blank? %>
+              <div class="col-xs-6 col-md-3"><% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+            <%else%>
+              <div class="col-xs-6 col-md-3"><p>N/A</p></div>
+            <%end%>	        
 	    </div>
 
 	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >
-	        <div class="col-xs-6 col-md-3"><strong>Lugar de publicacion:</strong></div>
-	        <div class="col-xs-6 col-md-3"><%= @document.place %></div>
-	        <div class="col-xs-6 col-md-3">Fecha de publicado:</div>
-	        <div class="col-xs-6 col-md-3"><% t = @document.date %><%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
+	        <div class="col-xs-6 col-md-3"><strong>Lugar de publicacion:</strong></div>	        
+	        <% if !@document.place.blank? %>
+              <div class="col-xs-6 col-md-3"><%= @document.place %></div>
+            <%else%>
+              <div class="col-xs-6 col-md-3"><p>N/A</p></div>
+            <%end%>
+	        <div class="col-xs-6 col-md-3"><strong>Fecha de carga:</strong></div>
+	        <div class="col-xs-6 col-md-3"><% t=  @document.created_at %> <%= t.day.to_s + " " + t.strftime("%b") %> <%= t.strftime("%Y") %></div>
 	    </div>
 
 	    <div class="row" style="padding-top: 10px; padding-right: 30px; padding-bottom: 10px; padding-left: 80px;" >

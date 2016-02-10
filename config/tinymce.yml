@@ -3,7 +3,7 @@
  removed_menuitems: 'newdocument'
  plugins: [
         "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks fullscreen",
+        #"searchreplace visualblocks fullscreen",
         "insertdatetime media table contextmenu paste",
         "textcolor",
         "autosave",

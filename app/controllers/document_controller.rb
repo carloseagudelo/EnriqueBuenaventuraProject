@@ -53,7 +53,8 @@ class DocumentController < ApplicationController
 		if @document.save 
 			redirect_to document_index_path, notice: "El docuemto #{@document.name} ha sido guardado correctamente."
 		else
-			redirect_to document_index_path
+			:resolve_layout
+			render "document/new"
 		end
 	end
 
@@ -104,7 +105,7 @@ class DocumentController < ApplicationController
 	  if @document.update(document_params)
 	    redirect_to document_index_path
 	  else
-	    render  edit_document_path(@document)
+	    render edit_document_path(@document)
 	  end
 	end
 
