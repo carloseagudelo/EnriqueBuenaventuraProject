@@ -53,7 +53,7 @@
 
         <div class="form-group col-xs-9">
             <%= f.label :Tipo_de_documento %><br />              
-            <%= f.collection_select(:speciality_id, Type.all, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
+            <%= f.collection_select(:speciality_id, @types, :id, :name, {:prompt => 'Seleccione un tipo de documento'}, 
             { :class =>"form-control", :selected => params[:id]}) %>
         </div> 
 
