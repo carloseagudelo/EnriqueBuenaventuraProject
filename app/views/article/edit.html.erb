@@ -17,7 +17,7 @@
 
 		        <div class="form-group col-xs-12">
 			        <%= f.submit "Guardar", :class=>"btn btn-primary"%>
-			        <%= link_to "Crear Citación", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
+			        <%= link_to "Crear Citación", "#", :id => "citar", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal1"} %>
 					<%= link_to "Información Elemento", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal2"} %>
 					<%= link_to "Referencias", "#", :class=>"btn btn-primary", data: {toggle: "modal", target: "#modal3"} %>
 			    </div>
@@ -92,6 +92,19 @@
 
 
 <script>
+	   alert(nameDoc);
+
+	var nameDoc = document.getElementById('iframeList').contentWindow.document.getElementById('nameDoc').innerHTML;
+
+    if (nameDoc != "undefined")
+    {
+    	document.getElementById("citar").disabled = "false"
+    }
+    else
+    {
+    	document.getElementById("citar").disabled = "true"
+    }
+
 function getContent(){
 	if(document.getElementById("myTextarea").value == ''){
     	alert("Debe de ingresar el texto a citar!!");
@@ -113,7 +126,7 @@ function myFunction() {
     var citacionCompleta = contentTextArea+citacion;
     var contentTextEditor = tinyMCE.activeEditor.getContent();
     var contenidoCompletoEditor = contentTextEditor+citacionCompleta;
-    tinyMCE.activeEditor.setContent(contenidoCompletoEditor);
+    tinyMCE.activeEditornameDoc.setContent(contenidoCompletoEditor);
     document.getElementById("myTextarea").value = '';
 }
 </script>
