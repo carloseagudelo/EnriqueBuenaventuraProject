@@ -13,20 +13,20 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: 3nr1qu3bu3n4v3ntur4
-  host: 127.0.0.1
+  username: --
+  password: --
+  host: --
 
 development:
   <<: *default
-  database: EnriqueBuenaventura_development
+  database: --
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: EnriqueBuenaventura_test
+  database: --
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,11 +50,10 @@ test:
 
 production:
   <<: *default
-  database: EnriqueBuenaventura_production
+  database: --
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: 3nr1qu3bu3n4v3ntur4 
-#<%= ENV['ENRIQUEBUENAVENTURA_DATABASE_PASSWORD'] %>
-  host: 127.0.0.1
+  username: --
+  password: --
+  host: --
