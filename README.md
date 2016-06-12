@@ -1,0 +1,2 @@
+# EnriqueBuenaventuraProject
+Application development tailored to the centralization of information gathered about the life and work of maestro Enrique Buenaventura, through a web application. This will be used by registrants to different courses given by the Faculty of Arts, University of Antioquia, in order to learn more about the Master, besides contrast information collected with the teacher own knowledge by creating essays and articles.
